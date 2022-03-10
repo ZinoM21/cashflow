@@ -1,0 +1,177 @@
+html {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: rgb(100, 30, 130);
+
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+}
+
+button > [href] {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    max-height: 40px;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 10px!important;
+    background: rgb(100, 30, 130);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+button:hover {
+    background: rgb(156, 58, 165);
+}
+
+
+/* Header and everything inside: */
+
+header {
+    min-height: 100px;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: rgb(240, 206, 37);
+}
+
+nav {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:flex-start;
+    height: inherit;
+    padding: 15px 15px;
+}
+
+nav > * {
+    margin: 0 10px;
+}
+
+img.logo {
+    max-height: 70px;
+}
+
+#placeholder {
+    margin: 0;
+    flex: 10 10 0px;
+}
+
+img.profile {
+    max-height: 42px;
+}
+
+
+/* Main and everything inside: */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "textColumn photoColumn"
+        "columns columns";
+}
+
+
+
+/* Text */
+
+main > .text {
+    grid-area: textColumn;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.content {
+    width:70%;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+
+
+/* Photo */
+
+main > .photo {
+    grid-area: photoColumn;
+}
+
+.photo_of_board_game {
+    max-width: 100%;
+}
+
+/* Columns */
+
+main > .columns {
+    grid-area: columns;
+   
+    margin: 0 auto;
+    padding: 20px 0;
+    background-color: rgb(240, 206, 37);
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.columns > section {
+    flex: 1 1 140px;
+    margin: 40px;
+    text-align: center;
+}
+
+h3 {
+    margin: 0;
+    display: inline;
+}
+
+section > p {
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 870px) {
+
+    html {
+        font-size: 0.8rem;
+    }
+
+    main {
+        grid-template-areas: 
+            "textColumn textColumn"
+            "photoColumn photoColumn"
+            "columns columns";
+    }
+
+    .content {
+        margin: 10% 0;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    
+    .buttons {
+        margin-top: 20px;
+    }
+    
+}
+
+@media (max-width: 710px) {
+
+}
