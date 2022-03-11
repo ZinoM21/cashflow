@@ -12,3 +12,7 @@ def landing():
 @app.route('/playing')
 def playing():
     return render_template("playing.html")
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
