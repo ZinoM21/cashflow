@@ -30,6 +30,10 @@ button:hover {
     background: rgb(156, 58, 165);
 }
 
+img {
+    display: block; /* to remove the 4px below the img */
+}
+
 
 /* Header and everything inside: */
 

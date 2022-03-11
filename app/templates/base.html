@@ -27,7 +27,9 @@
         {% block body %}
             <header>
                 <nav class="navbar">
-                    <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" alt="CashFlow Logo" class="logo">
+                    <a href="/landing">
+                        <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" alt="CashFlow Logo" class="logo">
+                    </a>
                     <button>
                         Buy the game
                     </button>
