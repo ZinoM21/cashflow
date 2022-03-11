@@ -4,3 +4,15 @@ from random import randint
 
 app = Flask(__name__)
 app.config.from_object('app.config')
+
+@app.route('/base')
+def base():
+    return render_template("base.html")
+
+@app.route('/landing')
+def landing():
+    return render_template("landing.html")
+
+@app.route('/playing')
+def playing():
+    return render_template("playing.html")
