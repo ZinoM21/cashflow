@@ -1,49 +1,16 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<!--
-  ______.______      _______     ___  .___________._______ _______   .______  ____    ____   ________  __ .__   __.  ______  
- /      |   _  \    |   ____|   /   \ |           |   ____|       \  |   _  \ \   \  /   /  |       / |  ||  \ |  | /  __  \ 
-|  ,----|  |_)  |   |  |__     /  ^  \`---|  |----|  |__  |  .--.  | |  |_)  | \   \/   /   `---/  /  |  ||   \|  ||  |  |  |
-|  |    |      /    |   __|   /  /_\  \   |  |    |   __| |  |  |  | |   _  <   \_    _/       /  /   |  ||  . `  ||  |  |  |
-|  `----|  |\  \----|  |____ /  _____  \  |  |    |  |____|  '--'  | |  |_)  |    |  |        /  /----|  ||  |\   ||  `--'  |
- \______| _| `._____|_______/__/     \__\ |__|    |_______|_______/  |______/     |__|       /________|__||__| \__| \______/ 
+{% block head %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename='css/playing.css') }}" rel="stylesheet">
+{% endblock %}
 
--->                              
+{% block title %}Plaing the game{% endblock %}
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Cashflow Gameplay</title>
-        <link rel="stylesheet" href="playing.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
-    </head>
-    <body>
-        <header>
-            <nav class="navbar">
-                <img src="https://www.cashflowgame.co.uk/data/include/cms/wordpress/cashflow-logo.png" alt="CashFlow Logo" class="logo">
-                <button>
-                    Buy the game
-                </button>
-                <button>
-                    F.A.Q.
-                </button>
-                <div id="placeholder"></div>
-                <button>
-                    Log In
-                </button>
-                <button>
-                    Sign Up
-                </button>
-                <img src="https://freesvg.org/img/abstract-user-flat-1.png" alt="Profile Picture" class="profile">
-            </nav>
-        </header>
-        <main>
-            <h1>
-                Hello World
-            </h1>
-        </main>
-    </body>
-</html>
+{% block main %}
+    <main>
+        <h1>
+            Hello World
+        </h1>
+    </main>
+{% endblock %}

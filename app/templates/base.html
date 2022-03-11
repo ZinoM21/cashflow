@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!--
+  ______.______      _______     ___  .___________._______ _______   .______  ____    ____   ________  __ .__   __.  ______  
+ /      |   _  \    |   ____|   /   \ |           |   ____|       \  |   _  \ \   \  /   /  |       / |  ||  \ |  | /  __  \ 
+|  ,----|  |_)  |   |  |__     /  ^  \`---|  |----|  |__  |  .--.  | |  |_)  | \   \/   /   `---/  /  |  ||   \|  ||  |  |  |
+|  |    |      /    |   __|   /  /_\  \   |  |    |   __| |  |  |  | |   _  <   \_    _/       /  /   |  ||  . `  ||  |  |  |
+|  `----|  |\  \----|  |____ /  _____  \  |  |    |  |____|  '--'  | |  |_)  |    |  |        /  /----|  ||  |\   ||  `--'  |
+ \______| _| `._____|_______/__/     \__\ |__|    |_______|_______/  |______/     |__|       /________|__||__| \__| \______/ 
+
+-->                              
+
+<html>
+    <head>
+        {% block head %}
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <meta charset="UTF-8">
+            <title>{% block title %}{% endblock %}</title>
+            <link rel="stylesheet" href="{{ url_for('static', filename='images/css/base.css') }}">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <header>
+                <nav class="navbar">
+                    <img src="https://www.cashflowgame.co.uk/data/include/cms/wordpress/cashflow-logo.png" alt="CashFlow Logo" class="logo">
+                    <button>
+                        Buy the game
+                    </button>
+                    <button>
+                        F.A.Q.
+                    </button>
+                    <div id="placeholder"></div>
+                    <button>
+                        Log In
+                    </button>
+                    <button>
+                        Sign Up
+                    </button>
+                    <img src="https://freesvg.org/img/abstract-user-flat-1.png" alt="Profile Picture" class="profile">
+                </nav>
+            </header>
+            <main>
+                {% block main %}
+                {% endblock %}
+            </main>
+        {% endblock %}
+    </body>
+</html>
