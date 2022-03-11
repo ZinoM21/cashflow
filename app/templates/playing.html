@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 
-{% block head %}
-    {{ super() }}
-    <link href="{{ url_for('static', filename='css/playing.css') }}" rel="stylesheet">
-{% endblock %}
+{% block csslink %}<link href="{{ url_for('static', filename='css/playing.css') }}" rel="stylesheet">{% endblock %}
 
 {% block title %}Plaing the game{% endblock %}
 
