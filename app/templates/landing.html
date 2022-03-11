@@ -34,7 +34,7 @@
                 </button>
                 
                 <button>
-                    <a href="playing.html">
+                    <a href=" {{ url_for('templates', filename='playing.html') }}">
                         Start Playing
                     </a>
                 </button>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="photo">
-        <img src="https://2.bp.blogspot.com/-CONCBlLgQSY/VI5YFvRNU5I/AAAAAAAADx0/ufkJb9ycoyQ/s1600/IMG_8562.JPG" alt="Photo of Board Game" class="photo_of_board_game">
+        <img src="{{ url_for('static', filename='images/board.jpg') }}" alt="Photo of Board Game" class="photo_of_board_game">
     </div>
 
     <div class="columns">

@@ -26,7 +26,7 @@
         {% block body %}
             <header>
                 <nav class="navbar">
-                    <img src="https://www.cashflowgame.co.uk/data/include/cms/wordpress/cashflow-logo.png" alt="CashFlow Logo" class="logo">
+                    <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" alt="CashFlow Logo" class="logo">
                     <button>
                         Buy the game
                     </button>
@@ -40,7 +40,7 @@
                     <button>
                         Sign Up
                     </button>
-                    <img src="https://freesvg.org/img/abstract-user-flat-1.png" alt="Profile Picture" class="profile">
+                    <img src="{{ url_for('static', filename='images/login.png') }}" alt="Profile Picture" class="profile">
                 </nav>
             </header>
             <main>
