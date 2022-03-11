@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
-{% block csslink %}<link href="{{ url_for('static', filename='css/landing.css') }}" rel="stylesheet">{% endblock %}
-{% block title %}Cashflow Companion{% endblock %}
+{% block csslink %}
+    <link href="{{ url_for('static', filename='css/landing.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Cashflow Companion
+{% endblock %}
 
 {% block main %}
 
-<div class="text">
+<div class="flex_item left">
     <div class="content">
         <h1>
             My Cashflow Pal
@@ -30,14 +35,14 @@
             </button>
             
             <button>
-                
+                Start playing
             </button>
         </section>
     </div>
 </div>
 
-<div class="photo">
-    <img src="{{ url_for('static', filename='images/board.jpg') }}" alt="Photo of Board Game" class="photo_of_board_game">
+<div class="flex_item right">
+    <img src="{{ url_for('static', filename='images/board.jpg') }}" alt="Photo of Board Game" class="board_photo">
 </div>
 
 <div class="columns">

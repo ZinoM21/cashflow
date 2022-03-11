@@ -1,89 +1,17 @@
-html {
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    color: rgb(100, 30, 130);
-
-}
-
-body {
-    margin: 0;
-    width: 100vw;
-}
-
-button > [href] {
-    color: white;
-    text-decoration: none;
-}
-
-button {
-    max-height: 40px;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 10px!important;
-    background: rgb(100, 30, 130);
-    color: white;
-    text-align: center;
-    text-decoration: none;
-}
-
-button:hover {
-    background: rgb(156, 58, 165);
-}
-
-
-/* Header and everything inside: */
-
-header {
-    min-height: 100px;
-    width: 100vw;
-    box-sizing: border-box;
-    background-color: rgb(240, 206, 37);
-}
-
-nav {
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content:flex-start;
-    height: inherit;
-    padding: 15px 15px;
-}
-
-nav > * {
-    margin: 0 10px;
-}
-
-img.logo {
-    max-height: 70px;
-}
-
-#placeholder {
-    margin: 0;
-    flex: 10 10 0px;
-}
-
-img.profile {
-    max-height: 42px;
-}
-
-
 /* Main and everything inside: */
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "textColumn photoColumn"
-        "columns columns";
+    display: flex;
+    flex-flow: row wrap;
 }
 
-
+main > .flex_item {
+    flex-basis: calc(100% / 12 * 6);
+}
 
 /* Text */
 
-main > .text {
-    grid-area: textColumn;
+main > .left {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -107,11 +35,7 @@ h1 {
 
 /* Photo */
 
-main > .photo {
-    grid-area: photoColumn;
-}
-
-.photo_of_board_game {
+.board_photo {
     max-width: 100%;
 }
 
