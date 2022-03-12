@@ -22,7 +22,7 @@ def landing():
 
 @app.route('/playing/<slug>')
 def playing(slug):
-    return slug
+    return jobs[slug]
 
 @app.route('/login')
 def login():
