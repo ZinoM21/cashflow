@@ -18,11 +18,11 @@ def landing():
 
 @app.route('/playing')
 def playing():
-    return render_template("playing.html")
+    return render_template("playing.html", jobs=jobs)
 
 @app.route('/playing/<slug>')
 def playing_job(slug):
-    return render_template("playing_job.html", job=slug)
+    return render_template("playing_job.html", job=slug, jobs=jobs)
 
 @app.route('/login')
 def login():
