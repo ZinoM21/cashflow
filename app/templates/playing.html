@@ -16,7 +16,7 @@
         <form action="#">
             <label for="job_selector">Choose from below</label>
             <select name="jobs" id="job_selector">
-                <option value="selector">Select a job</option>
+                <option value="pilot">Select a job</option>
                 {% for job, properties in jobs.items() %}
                     <option value="{{ job }}">{{ properties["name"] }}</option>
                 {% endfor %}
