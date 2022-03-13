@@ -2,31 +2,42 @@
     margin: 0;
 }
 
-main, section, form {
+main {
+    height: calc(100vh - 100px - 30px - 30px);
+    padding: 30px 40px;
+    font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-main {
-    height: calc(100vh - 100px - 30px - 30px);
-    padding: 30px 40px;
-    font-size: 1.2rem;
+section {
+    max-width: 500px;
 }
 
-h1, p, label, select, input {
-    margin: 10px auto;
-}
-
-p {
+h1 {
+    margin: 20px auto;
     text-align: center;
 }
 
-section {
-    max-width: 400px;
+p {
+    margin: 10px auto;
+    text-align: center;
 }
 
-label {
-    font-size: 1rem;
+.jobs {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    margin: 20px auto;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+    line-height: 1.5;
+}
+
+li {
+    margin: 10px;
 }

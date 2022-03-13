@@ -13,16 +13,16 @@
         <p>
             You chose to play the Cashflow Board game. The first step is to select a job. This is very important because it sets you up with a specific income and expenses.
         </p>
-        <form action="#">
-            <label for="job_selector">Choose from below</label>
-            <select name="jobs" id="job_selector">
-                <option value="pilot">Select a job</option>
-                {% for job, properties in jobs.items() %}
-                    <option value="{{ job }}">{{ properties["name"] }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" value="Choose">
-        </form>
+
+        <ol class="jobs">
+            {% for job, properties in jobs.items() %}
+            <li>
+                <a href="/playing/{{ job }}">
+                    {{ properties["name"] }}
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
     </section>
 
     
