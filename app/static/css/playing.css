@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+
+main, section, form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    height: calc(100vh - 100px - 30px - 30px);
+    padding: 30px 40px;
+    font-size: 1.2rem;
+}
+
+h1, p, label, select, input {
+    margin: 10px auto;
+}
+
+p {
+    text-align: center;
+}
+
+section {
+    max-width: 400px;
+}
+
+label {
+    font-size: 1rem;
+}
