@@ -12,7 +12,7 @@ jobs = {
     "techy": {"name": "Software Enigneer", "income": "10000", "tax": "4000"}
 }
 
-@app.route('/landing')
+@app.route('/')
 def landing():
     return render_template("landing.html")
 
