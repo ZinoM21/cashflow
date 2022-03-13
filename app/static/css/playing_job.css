@@ -1,4 +1,5 @@
-div {
+div.content{
+    margin: 0 auto;
     max-width: 800px;
     display: grid;
     grid-template-columns: 20px 2fr 80px 20px 1fr 20px;
@@ -12,10 +13,48 @@ div {
     grid-area: head;
 }
 
+span#profession{
+    display: block;
+    margin: 20px auto;
+    font-size: 1.3em;
+}
+
+#goal {
+    font-size: 1rem;
+}
+
 .content_body {
     grid-area: body;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.numbers {
+    text-align: right;
+}
+
+#liabilities {
+    display: inline;
 }
 
 .calc {
     grid-area: calc;
+
+    text-align: center;
+}
+
+.num_box {
+    text-align: center;
+    margin: 20px auto;
+    border: 2px solid black;
+    padding: auto;
+    height: 40px;
+    width: 100px;
+}
+
+.thin {
+    border: 1px solid black;
 }
