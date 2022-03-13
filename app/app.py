@@ -16,13 +16,13 @@ jobs = {
 def landing():
     return render_template("landing.html")
 
-# @app.route('/playing')
-# def playing():
-#     return render_template("playing.html")
+@app.route('/playing')
+def playing():
+    return render_template("playing.html")
 
 @app.route('/playing/<slug>')
-def playing(slug):
-    return jobs[slug]
+def playing_job(slug):
+    return render_template("playing_job.html", job=slug)
 
 @app.route('/login')
 def login():
