@@ -9,6 +9,7 @@ jobs = {
     "mechanic": {
         "name": "Mechanic", 
         "income": "2000", 
+        "cashflow": "0",
         "tax": "400", 
         "home_mortgage_payment": "300", 
         "school_loan_payment": "0",
@@ -21,11 +22,13 @@ jobs = {
         "home_mortgage": "31000",
         "school_loans": "0",
         "car_loans": "3000",
-        "credit_card_debt": "3000"
+        "credit_card_debt": "3000",
+        "payday": "700"
         },
     "janitor": {
         "name": "Janitor", 
         "income": "1600", 
+        "cashflow": "0",
         "tax": "300", 
         "home_mortgage_payment": "200", 
         "school_loan_payment": "0",
@@ -38,11 +41,13 @@ jobs = {
         "home_mortgage": "20000",
         "school_loans": "0",
         "car_loans": "4000",
-        "credit_card_debt": "3000"
+        "credit_card_debt": "3000",
+        "payday": "600"
         },
     "engineer": {
         "name": "Engineer", 
         "income": "4900", 
+        "cashflow": "0",
         "tax": "1000", 
         "home_mortgage_payment": "700", 
         "school_loan_payment": "100",
@@ -56,10 +61,12 @@ jobs = {
         "school_loans": "12000",
         "car_loans": "7000",
         "credit_card_debt": "5000",
+        "payday": "1700"
         },
     "lawyer": {
         "name": "Lawyer", 
         "income": "7500", 
+        "cashflow": "0",
         "tax": "1800", 
         "home_mortgage_payment": "1100", 
         "school_loan_payment": "300",
@@ -73,10 +80,12 @@ jobs = {
         "school_loans": "78000",
         "car_loans": "11000",
         "credit_card_debt": "7000",
+        "payday": "2400"
         },
     "officer": {
         "name": "Police Officer", 
         "income": "3000", 
+        "cashflow": "0",
         "tax": "600", 
         "home_mortgage_payment": "400", 
         "school_loan_payment": "0",
@@ -90,10 +99,12 @@ jobs = {
         "school_loans": "0",
         "car_loans": "5000",
         "credit_card_debt": "3000",
+        "payday": "1100"
         },
     "pilot": {
         "name": "Airline Pilot", 
         "income": "9500", 
+        "cashflow": "0",
         "tax": "2000", 
         "home_mortgage_payment": "1000", 
         "school_loan_payment": "0",
@@ -106,11 +117,13 @@ jobs = {
         "home_mortgage": "90000",
         "school_loans": "0",
         "car_loans": "15000",
-        "credit_card_debt": "22000"
+        "credit_card_debt": "22000",
+        "payday": "3500"
         },
     "trucker": {
         "name": "Truck Driver", 
         "income": "2500", 
+        "cashflow": "0",
         "tax": "500", 
         "home_mortgage_payment": "400", 
         "school_loan_payment": "0",
@@ -123,12 +136,14 @@ jobs = {
         "home_mortgage": "38000",
         "school_loans": "0",
         "car_loans": "4000",
-        "credit_card_debt": "3000"
+        "credit_card_debt": "3000",
+        "payday": "800"
         },
     
     "teacher": {
         "name": "Teacher (K-12)", 
         "income": "3300", 
+        "cashflow": "0",
         "tax": "500", 
         "home_mortgage_payment": "500", 
         "school_loan_payment": "100",
@@ -142,10 +157,12 @@ jobs = {
         "school_loans": "12000",
         "car_loans": "5000",
         "credit_card_debt": "4000",
+        "payday": "1200"
         },
     "manager": {
         "name": "Business Manager", 
         "income": "4600", 
+        "cashflow": "0",
         "tax": "900", 
         "home_mortgage_payment": "700", 
         "school_loan_payment": "100",
@@ -158,11 +175,13 @@ jobs = {
         "home_mortgage": "75000",
         "school_loans": "12000",
         "car_loans": "6000",
-        "credit_card_debt": "4000"
+        "credit_card_debt": "4000",
+        "payday": "1600"
         },
     "doc": {
         "name": "Doctor", 
         "income": "13200", 
+        "cashflow": "0",
         "tax": "3200", 
         "home_mortgage_payment": "1900", 
         "school_loan_payment": "700",
@@ -175,7 +194,8 @@ jobs = {
         "home_mortgage": "202000",
         "school_loans": "150000",
         "car_loans": "19000",
-        "credit_card_debt": "10000"
+        "credit_card_debt": "10000",
+        "payday": "4900"
         }
 }
 
