@@ -8,7 +8,7 @@ app.config.from_object('app.config')
 jobs = {
     "mechanic": {
         "name": "Mechanic", 
-        "income": "2000", 
+        "salary": "2000", 
         "cashflow": "0",
         "tax": "400", 
         "home_mortgage_payment": "300", 
@@ -27,7 +27,7 @@ jobs = {
         },
     "janitor": {
         "name": "Janitor", 
-        "income": "1600", 
+        "salary": "1600", 
         "cashflow": "0",
         "tax": "300", 
         "home_mortgage_payment": "200", 
@@ -46,7 +46,7 @@ jobs = {
         },
     "engineer": {
         "name": "Engineer", 
-        "income": "4900", 
+        "salary": "4900", 
         "cashflow": "0",
         "tax": "1000", 
         "home_mortgage_payment": "700", 
@@ -65,7 +65,7 @@ jobs = {
         },
     "lawyer": {
         "name": "Lawyer", 
-        "income": "7500", 
+        "salary": "7500", 
         "cashflow": "0",
         "tax": "1800", 
         "home_mortgage_payment": "1100", 
@@ -84,7 +84,7 @@ jobs = {
         },
     "officer": {
         "name": "Police Officer", 
-        "income": "3000", 
+        "salary": "3000", 
         "cashflow": "0",
         "tax": "600", 
         "home_mortgage_payment": "400", 
@@ -103,7 +103,7 @@ jobs = {
         },
     "pilot": {
         "name": "Airline Pilot", 
-        "income": "9500", 
+        "salary": "9500", 
         "cashflow": "0",
         "tax": "2000", 
         "home_mortgage_payment": "1000", 
@@ -122,7 +122,7 @@ jobs = {
         },
     "trucker": {
         "name": "Truck Driver", 
-        "income": "2500", 
+        "salary": "2500", 
         "cashflow": "0",
         "tax": "500", 
         "home_mortgage_payment": "400", 
@@ -142,7 +142,7 @@ jobs = {
     
     "teacher": {
         "name": "Teacher (K-12)", 
-        "income": "3300", 
+        "salary": "3300", 
         "cashflow": "0",
         "tax": "500", 
         "home_mortgage_payment": "500", 
@@ -161,7 +161,7 @@ jobs = {
         },
     "manager": {
         "name": "Business Manager", 
-        "income": "4600", 
+        "salary": "4600", 
         "cashflow": "0",
         "tax": "900", 
         "home_mortgage_payment": "700", 
@@ -180,7 +180,7 @@ jobs = {
         },
     "doc": {
         "name": "Doctor", 
-        "income": "13200", 
+        "salary": "13200", 
         "cashflow": "0",
         "tax": "3200", 
         "home_mortgage_payment": "1900", 
