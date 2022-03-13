@@ -10,7 +10,7 @@
     <section class="content_head">
         <h1>
             <span id="your_profession">
-                Your profession is
+                Your profession ==
             </span>
             <span id="profession">
                 {{ jobs[job]["name"] }}
@@ -20,7 +20,63 @@
             </p>
         </h1>
     </section>
+
+
+    <!-- THIS IS THE NEW VERSION; IT'S LESS CODE BUT ALSO LESS BEAUTIFUL: -->
+
     <section class="content_body">
+
+            {% for name, num in jobs[job].items() %}
+
+                {% if name != "name" %}
+
+                    {% if name == "salary" %}
+                        <h2 id="text_income_statment">
+                            INCOME STATEMENT
+                        </h2>
+                        <h3>
+                            Income
+                        </h3>
+                    {% endif %}
+
+                    {% if name == "tax" %}
+                        <h3>
+                            Expenses
+                        </h3>
+                    {% endif %}
+
+                    {% if name == "savings" %}
+                        <h2 id="text_balance_sheet">
+                            BALANCE SHEET
+                        </h2>
+                        <h3>
+                            Assets
+                        </h3>
+                    {% endif %}
+
+                    {% if name == "home_mortgage" %}
+                        <h3>
+                            Liabilities
+                        </h3>
+                    {% endif %}
+                    
+                    <div class="line">
+                        <span>
+                            {{ name }}
+                        </span>
+                        <span class="numbers">
+                            {{ num }}
+                        </span> 
+                    </div>
+                
+                {% endif %}
+
+            {% endfor %}
+        
+    </section>
+
+    <!-- THIS IS THE OLD & REDUNDANT VERSION, BUT IT'S MORE BEAUTIFUL: -->
+    <!-- <section class="content_body">
         <h2 id="text_income_statment">
             INCOME STATEMENT
         </h2>
@@ -161,7 +217,7 @@
                 </tr>
             </table>
         </div>
-    </section>
+    </section> -->
     <div class="calc">
         <div class="num_box thin">
             {{ jobs[job]["salary"] }}
