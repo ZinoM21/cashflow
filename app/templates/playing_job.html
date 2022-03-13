@@ -6,8 +6,13 @@
 
 {% block main %}
 
-    <h1>
-        Hello World
-    </h1>
+    <section>
+        <h1>
+            Alright! You chose to be a {{ jobs[job]["name"] }}!
+        </h1>
+        <p>
+            Your total income is ${{ jobs[job]["income"]}}. 
+        </p>
+    </section>
 
 {% endblock %}
