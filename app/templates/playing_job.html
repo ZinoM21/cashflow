@@ -20,10 +20,10 @@
                 </p>
             </h1>
         </section>
-        <section id="content_body">
-            <h2>
+        <section class="content_body">
+            <h3 id="text_income_statment">
                 Income Statement
-            </h2>
+            </h3>
             <div class="overview" id="income">
                 <h3>
                     Income
@@ -42,64 +42,69 @@
                     Expenses
                 </h3>
                 <table>
-                    <tr>
-                        <td>
-                            Taxes: 
-                        </td>
-                        <td>
-                            {{ jobs[job]["tax"] }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Home Mortgage Payment: 
-                        </td>
-                        <td>
-                            {{ jobs[job]["home_mortgage_payment"] }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            School Loan Payment: 
-                        </td>
-                        <td>
-                            {{ jobs[job]["school_loan_payment"] }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Car Loan Payment: 
-                        </td>
-                        <td>
-                            {{ jobs[job]["car_loan_payment"] }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Credit Card Payment: 
-                        </td>
-                        <td>
-                            {{ jobs[job]["credit_card_payment"] }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Other Expenses: 
-                        </td>
-                        <td>
-                            {{ jobs[job]["other_expenses"] }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Bank Loan Payment: 
-                        </td>
-                        <td>
-                            {{ jobs[job]["bank_loan_payment"] }}
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Taxes: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["tax"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Home Mortgage Payment: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["home_mortgage_payment"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                School Loan Payment: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["school_loan_payment"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Car Loan Payment: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["car_loan_payment"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Credit Card Payment: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["credit_card_payment"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Other Expenses: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["other_expenses"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Bank Loan Payment: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["bank_loan_payment"] }}
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
+            <h3 id="text_balance_sheet">
+                Balance Sheet
+            </h3>
             <div class="overview" id="assets">
                 <h3>
                     Assets
@@ -154,26 +159,26 @@
                     </tr>
                 </table>
             </div>
-            <div id="calc">
-                <div class="num_box thin">
-                    {{ jobs[job]["salary"] }}
-                </div>
-                <div class="num_box thick">
-                    {{ jobs[job]["cashflow"] }}
-                </div>
-                <div class="num_box thin">
-                    {{ jobs[job]["income"] }} 
-                </div>
-                <div class="num_box thick">
-                    {{ jobs[job]["tax"] }} <!-- calc all expenses !! -->
-                </div>
-                <div class="num_box dotted">
-                    {{ jobs[job]["payday"] }}
-                </div>
-                <span id="monthly_text">
-                    Monthly Cash Flow
-                </span>
+        </section>
+        <section class="calc">
+            <div class="num_box thin">
+                {{ jobs[job]["salary"] }}
             </div>
+            <div class="num_box thick">
+                {{ jobs[job]["cashflow"] }}
+            </div>
+            <div class="num_box thin">
+                {{ jobs[job]["income"] }} 
+            </div>
+            <div class="num_box thick">
+                {{ jobs[job]["tax"] }} <!-- calc all expenses !! -->
+            </div>
+            <div class="num_box dotted">
+                {{ jobs[job]["payday"] }}
+            </div>
+            <span id="monthly_text">
+                Monthly Cash Flow
+            </span>
         </section>
     </div>
     
