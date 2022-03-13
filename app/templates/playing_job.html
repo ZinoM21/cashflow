@@ -6,13 +6,175 @@
 
 {% block main %}
 
-    <section>
-        <h1>
-            Alright! You chose to be a {{ jobs[job]["name"] }}!
-        </h1>
-        <p>
-            Your total income is ${{ jobs[job]["income"]}}. 
-        </p>
-    </section>
-
+    <div>
+        <section class="content_head">
+            <h1>
+                <span id="your_profession">
+                    Your profession is
+                </span>
+                <span id="profession">
+                    {{ jobs[job]["name"] }}
+                </span>
+                <p id="goal">
+                    Goal: Build your <strong>Passive Income</strong> to be greater than your <strong>Total Expenses</strong>.
+                </p>
+            </h1>
+        </section>
+        <section id="content_body">
+            <h2>
+                Income Statement
+            </h2>
+            <div class="overview" id="income">
+                <h3>
+                    Income
+                </h3>
+                <table>
+                    <tr>
+                        Salary: 
+                    </tr>
+                    <tr>
+                        {{ jobs[job]["salary"] }}
+                    </tr>
+                </table>
+            </div>
+            <div class="overview" id="expenses">
+                <h3>
+                    Expenses
+                </h3>
+                <table>
+                    <tr>
+                        <td>
+                            Taxes: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["tax"] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Home Mortgage Payment: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["home_mortgage_payment"] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            School Loan Payment: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["school_loan_payment"] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Car Loan Payment: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["car_loan_payment"] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Credit Card Payment: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["credit_card_payment"] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Other Expenses: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["other_expenses"] }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Bank Loan Payment: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["bank_loan_payment"] }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="overview" id="assets">
+                <h3>
+                    Assets
+                </h3>
+                <table>
+                    <tr>
+                        <td>
+                            Savings: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["savings"] }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="overview" id="liabilities">
+                <h3>
+                    Liabilities
+                </h3>
+                <table>
+                    <tr>
+                        <td>
+                            Home Mortgage: 
+                        </td>
+                        <td>
+                            {{ jobs[job]["home_mortgage_payment"] }}
+                        </td>
+                        <tr>
+                            <td>
+                                School Loans:
+                            </td>
+                            <td>
+                                {{ jobs[job]["school_loans"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Car Loans: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["car_loans"] }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Credit Card Debt: 
+                            </td>
+                            <td>
+                                {{ jobs[job]["credit_card_debt"] }}
+                            </td>
+                        </tr>
+                    </tr>
+                </table>
+            </div>
+            <div id="calc">
+                <div class="num_box thin">
+                    {{ jobs[job]["salary"] }}
+                </div>
+                <div class="num_box thick">
+                    {{ jobs[job]["cashflow"] }}
+                </div>
+                <div class="num_box thin">
+                    {{ jobs[job]["income"] }} 
+                </div>
+                <div class="num_box thick">
+                    {{ jobs[job]["tax"] }} <!-- calc all expenses !! -->
+                </div>
+                <div class="num_box dotted">
+                    {{ jobs[job]["payday"] }}
+                </div>
+                <span id="monthly_text">
+                    Monthly Cash Flow
+                </span>
+            </div>
+        </section>
+    </div>
+    
 {% endblock %}
