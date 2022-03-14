@@ -196,10 +196,10 @@ jobs = {
         }
 }
 
-@app.route('/playing')
+@blueprint.route('/playing')
 def playing():
     return render_template("playing.html", jobs=jobs)
 
-@app.route('/playing/<slug>')
+@blueprint.route('/playing/<slug>')
 def playing_job(slug):
     return render_template("playing_job.html", job=slug, jobs=jobs)
