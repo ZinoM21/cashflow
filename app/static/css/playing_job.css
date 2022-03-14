@@ -1,25 +1,30 @@
 main {
     color: black;
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 div.content{
-    margin: 50px auto;
     border: 2px solid black;
-    max-width: 800px;
+    flex-basis: 800px;
     display: grid;
-    grid-template-columns: 30px 2fr 80px 20px 1fr 30px;
-    grid-template-rows: auto 20px auto 20px;
+    grid-template-columns: 2fr 1fr;
     grid-template-areas:
-        "head head head head head head"
-        ". . . . . ."
-        ". body body calc calc ."
-        ". . . . . .";
+        "head head"
+        "body calc";
+    /* gap: 20px; */
 
+}
+
+div.content > * {
+    padding: 30px;
 }
 
 .content_head {
     grid-area: head;
-    padding: 0 30px;
+    /* padding: 30px; */
     background-color: rgb(24, 24, 24);
     color: white;
 }
@@ -36,12 +41,15 @@ span#profession{
 
 .content_body {
     grid-area: body;
-    width: 100%;
-
+    width: calc(100% - 60px);
+    /* padding: 30px; */
 }
 
 h2 {
     margin: 0;
+}
+
+#text_balance_sheet {
     margin-top: 15px;
 }
 
@@ -71,9 +79,8 @@ h3 {
     text-align: center;
     margin: 50px auto;
     border: 2px solid black;
-    padding: auto;
-    height: 40px;
-    width: 100px;
+    padding: 15px ;
+    width: 80px;
 }
 
 .thin {
