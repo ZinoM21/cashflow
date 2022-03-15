@@ -1,7 +1,7 @@
 from atexit import register
 from flask import Flask, redirect, url_for, render_template, send_file
 from . import jobs, simple_pages
-from app.extensions.database import db
+from app.extensions.database import db, migrate
 
 def create_app():
     app = Flask(__name__)
@@ -20,3 +20,4 @@ def register_blueprints(app: Flask):
 # Extensions
 def register_extensions(app: Flask):
   db.init_app(app)
+  migrate.init_app(app, db)
