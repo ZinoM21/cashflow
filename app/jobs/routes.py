@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, redirect, render_template, url_for
 
 blueprint = Blueprint('jobs', __name__)
 
@@ -196,10 +196,14 @@ jobs = {
         }
 }
 
-@blueprint.route('/playing')
+@blueprint.route('/jobs')
 def playing():
-    return render_template("playing.html", jobs=jobs)
+    return render_template("jobs/index.html", jobs=jobs)
 
-@blueprint.route('/playing/<slug>')
+@blueprint.route('/play')
+def play():
+    return redirect(url_for('jobs.playing'))
+
+@blueprint.route('/jobs/<slug>')
 def playing_job(slug):
-    return render_template("playing_job.html", job=slug, jobs=jobs)
+    return render_template("jobs/playing_job.html", job=slug, jobs=jobs)

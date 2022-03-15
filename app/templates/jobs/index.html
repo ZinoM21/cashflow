@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block csslink %}<link href="{{ url_for('static', filename='css/playing.css') }}" rel="stylesheet">{% endblock %}
+{% block csslink %}<link href="{{ url_for('static', filename='css/jobs/index.css') }}" rel="stylesheet">{% endblock %}
 
 {% block title %}Plaing the game{% endblock %}
 
@@ -17,7 +17,7 @@
         <ol class="jobs">
             {% for job, properties in jobs.items() %}
             <li>
-                <a href="/playing/{{ job }}">
+                <a href="/jobs/{{ job }}">
                     {{ properties["name"] }}
                 </a>
             </li>
