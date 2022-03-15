@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, render_template, url_for
+from .models import Job
 
 blueprint = Blueprint('jobs', __name__)
 
