@@ -198,12 +198,12 @@ jobs = {
 
 @blueprint.route('/jobs')
 def choose_job():
-    return render_template("jobs/index.html", jobs=jobs)
+    return render_template("jobs/choose_job.html", jobs=jobs)
 
 @blueprint.route('/play')
 def play():
     return redirect(url_for('jobs.choose_job'))
 
 @blueprint.route('/jobs/<slug>')
-def playing_job(slug):
-    return render_template("jobs/playing_job.html", job=slug, jobs=jobs)
+def job_dynamic(slug):
+    return render_template("jobs/job_dynamic.html", job=slug, jobs=jobs)
