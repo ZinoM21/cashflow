@@ -1,20 +1,22 @@
-class Job():
-    id = ""
-    slug = ""
-    name = ""
-    salary = ""
-    cashflow = ""
-    tax = ""
-    home_mortgage_payment = ""
-    school_loan_payment = ""
-    car_loan_payment = ""
-    credit_card_payment = ""
-    other_expenses = ""
-    bank_loan_payment = ""
-    children = ""
-    savings = ""
-    home_mortgage = ""
-    school_loans = ""
-    car_loans = ""
-    credit_card_debt = ""
-    payday = ""
+from app.extensions.database import db
+
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    slug = db.Column(db.String(80), unique=True)
+    name = db.Column(db.String(20))
+    salary = db.Column(db.Numeric(10, 0))
+    cashflow = db.Column(db.Numeric(10, 0))
+    tax = db.Column(db.Numeric(10, 0))
+    home_mortgage_payment = db.Column(db.Numeric(10, 0))
+    school_loan_payment = db.Column(db.Numeric(10, 0))
+    car_loan_payment = db.Column(db.Numeric(10, 0))
+    credit_card_payment = db.Column(db.Numeric(10, 0))
+    other_expenses = db.Column(db.Numeric(10, 0))
+    bank_loan_payment = db.Column(db.Numeric(10, 0))
+    children = db.Column(db.Numeric(10, 0))
+    savings = db.Column(db.Numeric(10, 0))
+    home_mortgage = db.Column(db.Numeric(10, 0))
+    school_loans = db.Column(db.Numeric(10, 0))
+    car_loans = db.Column(db.Numeric(10, 0))
+    credit_card_debt = db.Column(db.Numeric(10, 0))
+    payday = db.Column(db.Numeric(10, 0))
