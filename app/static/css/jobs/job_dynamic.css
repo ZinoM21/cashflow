@@ -44,6 +44,10 @@ h2 {
     margin: 0;
 }
 
+.line {
+    border-bottom: 1px solid black;
+}
+
 #text_balance_sheet {
     margin-top: 15px;
 }
