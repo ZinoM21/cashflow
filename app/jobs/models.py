@@ -14,6 +14,7 @@ class Job(db.Model):
     other_expenses = db.Column(db.Numeric(10, 0))
     bank_loan_payment = db.Column(db.Numeric(10, 0))
     children = db.Column(db.Numeric(10, 0))
+    children_expenses = db.Column(db.Numeric(10, 0))
     savings = db.Column(db.Numeric(10, 0))
     home_mortgage = db.Column(db.Numeric(10, 0))
     school_loans = db.Column(db.Numeric(10, 0))
