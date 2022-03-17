@@ -15,7 +15,7 @@
         </p>
 
         <ol class="jobs">
-            {% for job, properties in jobs.items() %}
+            {% for job, properties in all_jobs_dict.items() %}
             <li>
                 <a href="/jobs/{{ job }}">
                     {{ properties["name"] }}

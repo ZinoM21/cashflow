@@ -13,7 +13,7 @@
                 YOUR PROFESSION IS
             </span>
             <span id="profession">
-                {{ jobs[job]["name"].upper() }}
+                {{ job_dict["name"].upper() }}
             </span>
             <p id="goal">
                 Goal: Build your <strong>Passive Income</strong> to be greater than your <strong>Total Expenses</strong>.
@@ -22,76 +22,104 @@
     </section>
 
     <section class="content_body">
-
-            {% for name, num in jobs[job].items() %}
-
-                {% if name != "name" %}
-
-                    {% if name == "salary" %}
-                        <h2 id="text_income_statment">
-                            INCOME STATEMENT
-                        </h2>
-                        <h3 class="after_h2">
-                            Income
-                        </h3>
-                    {% endif %}
-
-                    {% if name == "tax" %}
-                        <h3>
-                            Expenses
-                        </h3>
-                    {% endif %}
-
-                    {% if name == "savings" %}
-                        <h2 id="text_balance_sheet">
-                            BALANCE SHEET
-                        </h2>
-                        <h3 class="after_h2">
-                            Assets
-                        </h3>
-                    {% endif %}
-
-                    {% if name == "home_mortgage" %}
-                        <h3>
-                            Liabilities
-                        </h3>
-                    {% endif %}
-                    
-                    <div class="line">
-                        <span class="letters">
-                            {{ name }}
-                        </span>
-                        <span class="numbers">
-                            {{ num }} $
-                        </span> 
-                    </div>
-                
-                {% endif %}
-
-            {% endfor %}
         
-    </section>
+        
 
-    <div class="calc">
-        <div class="num_box thin">
-            {{ jobs[job]["salary"] }}
+        <div id="income_statement">
+            <h2 id="income_statment_heading">
+                INCOME STATEMENT
+            </h2>
+            <div id="income">
+                <h3 class="after_h2">
+                    Income
+                </h3>
+                    {% for key in job_keys_list[1:2] %}
+                        <div class="line">
+                            <span class="letters">
+                                {{ key }}
+                            </span>
+                            <span class="numbers">
+                                {{ job_dict[key] }} $
+                            </span> 
+                        </div>
+                    {% endfor %}
+            </div>
+            <div id="expenses">
+                <h3>
+                    Expenses
+                </h3>
+                    {% for key in job_keys_list[2:11] %}
+                        <div class="line">
+                            <span class="letters">
+                                {{ key }}
+                            </span>
+                            <span class="numbers">
+                                {{ job_dict[key] }} $
+                            </span> 
+                        </div>
+                    {% endfor %}
+            </div>
         </div>
-        <div class="num_box thick">
-            {{ jobs[job]["cashflow"] }}
+
+        <div id="balance_sheet">
+            <h2 id="balance_sheet_heading">
+                BALANCE SHEET
+            </h2>
+            <div id="assets">
+                <h3 class="after_h2">
+                    Assets
+                </h3>
+                    {% for key in job_keys_list[11:12] %}
+                        <div class="line">
+                            <span class="letters">
+                                {{ key }}
+                            </span>
+                            <span class="numbers">
+                                {{ job_dict[key] }} $
+                            </span> 
+                        </div>
+                    {% endfor %}
+            </div>
+            <div id="liabilities">
+                <h3>
+                    Liabilities
+                </h3>
+                    {% for key in job_keys_list[12:] %}
+                        <div class="line">
+                            <span class="letters">
+                                {{ key }}
+                            </span>
+                            <span class="numbers">
+                                {{ job_dict[key] }} $
+                            </span> 
+                        </div>
+                    {% endfor %}
+            </div>
         </div>
-        <div class="num_box thin">
-            {{ jobs[job]["salary"] }} <!-- calc all income !! -->
+
+        <div id="calc">
+            <div class="num_box thin">
+                {{ job_dict["salary"] }}
+            </div>
+            <div class="num_box thick">
+                {{ job_dict["cashflow"] }}
+            </div>
+            <div class="num_box thin">
+                {{ job_dict["salary"] }} <!-- calc all income !! -->
+            </div>
+            <div class="num_box thick">
+                {{ job_dict["tax"] }} <!-- calc all expenses !! -->
+            </div>
+            <div class="num_box dotted">
+                {{ job_dict["payday"] }}
+            </div>
+            <span id="monthly_text">
+                Monthly Cash Flow
+            </span>
         </div>
-        <div class="num_box thick">
-            {{ jobs[job]["tax"] }} <!-- calc all expenses !! -->
-        </div>
-        <div class="num_box dotted">
-            {{ jobs[job]["payday"] }}
-        </div>
-        <span id="monthly_text">
-            Monthly Cash Flow
-        </span>
-    </div>
+
+    </section>
+    
 </div>
     
 {% endblock %}

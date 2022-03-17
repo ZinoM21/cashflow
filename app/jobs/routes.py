@@ -3,7 +3,7 @@ from .models import Job
 
 blueprint = Blueprint('jobs', __name__)
 
-jobs = {
+all_jobs_dict = {
     "mechanic": {
         "name": "Mechanic", 
         "salary": "2000", 
@@ -202,7 +202,7 @@ def choose_job():
     #Log:
     print('CHOOSE YOUR JOB')
 
-    return render_template("jobs/choose_job.html", jobs=jobs)
+    return render_template("jobs/choose_job.html", all_jobs_dict=all_jobs_dict)
 
 @blueprint.route('/play')
 def play():
@@ -214,6 +214,11 @@ def play():
 @blueprint.route('/jobs/<slug>')
 def job_dynamic(slug):
     # Log:
-    print(F'CHOSE {jobs[slug]["name"].upper()} AS JOB, HERE ARE YOUR STATS')
+    print(F'CHOSE {all_jobs_dict[slug]["name"].upper()} AS JOB, HERE ARE YOUR STATS')
 
-    return render_template("jobs/job_dynamic.html", job=slug, jobs=jobs)
+    job_dict = all_jobs_dict[slug]
+    job_keys_list = list(job_dict.keys())
+    print(job_dict)
+    print(job_keys_list)
+
+    return render_template("jobs/job_dynamic.html", job=slug, all_jobs_dict=all_jobs_dict, job_dict=job_dict, job_keys_list=job_keys_list)

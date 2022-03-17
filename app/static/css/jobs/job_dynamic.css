@@ -10,16 +10,13 @@ main {
 div.content{
     border: 2px solid black;
     flex-basis: 700px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas:
-        "head head"
-        "body calc";
-
 }
 
+
+
+/* --- Content Head --- */
+
 .content_head {
-    grid-area: head;
     height: 10rem;
     padding: 20px 30px;
     background-color: rgb(24, 24, 24);
@@ -45,20 +42,31 @@ span#profession{
     font-size: 1rem;
 }
 
+
+/* --- Content Body --- */
+
 .content_body {
-    grid-area: body;
     width: calc(100% - 50px);
-    padding: 30px;
-    padding-right: 20px;
+    padding: 20px;
     font-size: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+        "is calc"
+        "bs bs";
+    gap: 20px;
+}
+
+#income_statement {
+    grid-area: is;
+}
+
+#balance_sheet {
+    grid-area: bs;
 }
 
 h2 {
     margin: 0;
-}
-
-#text_balance_sheet {
-    margin-top: 30px;
 }
 
 h3 {
@@ -85,10 +93,11 @@ h3 {
     float: right;
 }
 
-.calc {
+
+
+#calc {
     grid-area: calc;
-    height: calc(50% - 60px);
-    margin: 30px 30px 30px 0;
+    margin: 0;
     border: 2px solid black;
     padding: 30px 20px 30px 40px;
     text-align: center;
@@ -96,8 +105,6 @@ h3 {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-
-
 }
 
 .num_box {
