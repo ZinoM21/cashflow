@@ -1,6 +1,7 @@
 main {
     color: black;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 140px);
+    padding: 20px 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +10,7 @@ main {
 
 div.content{
     border: 2px solid black;
-    flex-basis: 700px;
+    flex-basis: 1200px;
 }
 
 
@@ -18,7 +19,7 @@ div.content{
 
 .content_head {
     height: 10rem;
-    padding: 20px 30px;
+    padding: 20px;
     background-color: rgb(24, 24, 24);
     color: white;
     display: flex;
@@ -46,14 +47,13 @@ span#profession{
 /* --- Content Body --- */
 
 .content_body {
-    width: calc(100% - 50px);
+    width: calc(100% - 40px);
     padding: 20px;
     font-size: 1rem;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr;
     grid-template-areas:
-        "is calc"
-        "bs bs";
+        "is bs calc";
     gap: 20px;
 }
 
@@ -70,7 +70,7 @@ h2 {
 }
 
 h3 {
-    margin: 20px auto;
+    margin: 1.25rem auto;
     border-radius: 50px;
     padding: 5px 20px;
     background-color: rgb(24, 24, 24);
@@ -116,4 +116,54 @@ h3 {
 
 .thin {
     border: 1px solid black;
+}
+
+
+@media (max-width:2000px) {
+    html {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width:950px) {
+    html {
+        font-size: 0.8rem;
+    }
+
+    .content_body {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "is calc"
+            "bs bs";
+    }
+}
+
+@media (max-width:700px) {
+    html {
+        font-size: 0.7rem;
+    }
+
+    main {
+        height: auto;
+        padding: 20px 50px;
+    }
+}
+
+@media (max-width:530px) {
+    main {
+        height: auto;
+        padding: 20px;
+    }
+    .content_body {
+        width: calc(100% - 40px);
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "is"
+            "bs"
+            "calc";
+    }
+
+    #calc {
+        height: 250px;
+    }
 }
