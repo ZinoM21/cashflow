@@ -2,7 +2,7 @@
 
 {% block csslink %}<link href="{{ url_for('static', filename='css/jobs/job_dynamic.css') }}" rel="stylesheet">{% endblock %}
 
-{% block title %}Plaing the game{% endblock %}
+{% block title %}Playing the game{% endblock %}
 
 {% block main %}
 
@@ -10,10 +10,10 @@
     <section class="content_head">
         <h1>
             <span id="your_profession">
-                Your profession is
+                YOUR PROFESSION IS
             </span>
             <span id="profession">
-                {{ jobs[job]["name"] }}
+                {{ jobs[job]["name"].upper() }}
             </span>
             <p id="goal">
                 Goal: Build your <strong>Passive Income</strong> to be greater than your <strong>Total Expenses</strong>.
@@ -31,7 +31,7 @@
                         <h2 id="text_income_statment">
                             INCOME STATEMENT
                         </h2>
-                        <h3>
+                        <h3 class="after_h2">
                             Income
                         </h3>
                     {% endif %}
@@ -46,7 +46,7 @@
                         <h2 id="text_balance_sheet">
                             BALANCE SHEET
                         </h2>
-                        <h3>
+                        <h3 class="after_h2">
                             Assets
                         </h3>
                     {% endif %}
