@@ -29,26 +29,26 @@
             <header>
                 <nav class="navbar">
                     <a href="/">
-                        <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" alt="CashFlow Logo" class="logo">
+                        <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" alt="CashFlow Logo" id="logo">
                     </a>
-                    <button>
+                    <button id="buygame">
                         <a href="https://www.amazon.de/-/en/CASHFLOW-Investing-Kiyosaki-Updated-Version/dp/B0141IEJLW">
                             Buy the game
                         </a>
                     </button>
-                    <button>
+                    <button id="faq">
                         F.A.Q.
                     </button>
                     <div id="placeholder"></div>                   
-                    <button>
+                    <button id="login">
                         <a href="/login">
                             Log In
                         </a>
                     </button>
-                    <button>
+                    <button id="signup">
                         Sign Up
                     </button>
-                    <img src="{{ url_for('static', filename='images/user.png') }}" alt="Profile Picture" class="profile">
+                    <img src="{{ url_for('static', filename='images/user.png') }}" alt="Profile Picture" id="profile">
                 </nav>
             </header>
             <main>

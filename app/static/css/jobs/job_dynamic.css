@@ -1,11 +1,19 @@
+body {
+    min-width: 320px;
+}
+
+header {
+    min-width: 320px;
+}
+
 main {
     color: black;
-    height: calc(100vh - 140px);
-    padding: 20px 80px;
+    height: calc(100vh - 100px);
+    padding: 0 10vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    /* font-size: 1rem; */
 }
 
 div.content{
@@ -49,7 +57,7 @@ span#profession{
 .content_body {
     width: calc(100% - 40px);
     padding: 20px;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
     grid-template-areas:
@@ -80,7 +88,7 @@ h3 {
 
 .after_h2 {
     margin: 5px auto;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .line {
@@ -138,21 +146,16 @@ h3 {
     }
 }
 
-@media (max-width:700px) {
-    html {
-        font-size: 0.7rem;
-    }
-
+@media (max-width: 700px) {
     main {
-        height: auto;
-        padding: 20px 50px;
+        height: calc(100vh - 80px);
     }
 }
 
-@media (max-width:530px) {
+@media (max-width:560px) {
     main {
         height: auto;
-        padding: 20px;
+        padding: 20px 10vw;
     }
     .content_body {
         width: calc(100% - 40px);
@@ -161,9 +164,20 @@ h3 {
             "is"
             "bs"
             "calc";
+        gap: 10px;
     }
 
     #calc {
         height: 250px;
+    }
+}
+
+@media (max-width:320px) {
+    html {
+        font-size: 0.7rem;
+    }
+
+    main {
+        padding: 0;
     }
 }

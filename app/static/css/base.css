@@ -38,7 +38,7 @@ img {
 /* Header and everything inside: */
 
 header {
-    min-height: 100px;
+    /* min-height: 100px; */
     width: 100vw;
     box-sizing: border-box;
     background-color: rgb(240, 206, 37);
@@ -47,7 +47,7 @@ header {
 nav {
     box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content:flex-start;
     height: inherit;
@@ -58,7 +58,7 @@ nav > * {
     margin: 0 10px;
 }
 
-img.logo {
+img#logo {
     max-height: 70px;
 }
 
@@ -67,6 +67,34 @@ img.logo {
     flex: 1 1 0px;
 }
 
-img.profile {
+img#profile {
     max-height: 42px;
+}
+
+@media (max-width:700px) {
+    img#logo {
+        max-height: 50px;
+    }
+
+    button#faq {
+        display: none;
+    }
+}
+
+@media (max-width:560px) {
+    button#signup {
+        display: none;
+    }
+}
+
+@media (max-width: 470px) {
+    button#login {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    button#buygame {
+        display: none;
+    }
 }
