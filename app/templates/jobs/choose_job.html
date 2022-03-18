@@ -11,14 +11,21 @@
             Welcome!
         </h1>
         <p>
-            You chose to play the Cashflow Board game. The first step is to select a job. This is very important because it sets you up with a specific income and expenses.
+            You chose to play the Cashflow Board game. The first step is to select a job. This is very important because it sets you up with specific income statement and balance sheet.
+        </p>
+        <p>
+            Your goal is to get your passive income (also called "Cashflow") higher than your expenses.
+            Remember one thing before choosing a job: the higher your income, the more likely it is that you spend more. You may have a high income, but you also need more Cashflow to work against your expenses. 
+        </p>
+        <p>
+            Choose wisely.
         </p>
 
         <ol class="jobs">
             {% for job, properties in all_jobs_dict.items() %}
             <li>
                 <a href="/jobs/{{ job }}">
-                    {{ properties["name"] }}
+                    {{ properties["Name"] }}
                 </a>
             </li>
             {% endfor %}
