@@ -216,6 +216,7 @@ def job_dynamic(slug):
     # Log:
     print(F'CHOSE {all_jobs_dict[slug]["Name"].upper()} AS JOB, HERE ARE YOUR STATS')
 
+    # Set variables for the template:
     job_dict = all_jobs_dict[slug]
     job_keys_list = list(job_dict.keys())
     print(job_dict)
