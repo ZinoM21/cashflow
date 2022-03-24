@@ -219,7 +219,5 @@ def job_dynamic(slug):
     # Set variables for the template:
     job_dict = all_jobs_dict[slug]
     job_keys_list = list(job_dict.keys())
-    print(job_dict)
-    print(job_keys_list)
 
     return render_template("jobs/job_dynamic.html", job=slug, all_jobs_dict=all_jobs_dict, job_dict=job_dict, job_keys_list=job_keys_list)
