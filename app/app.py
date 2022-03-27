@@ -1,6 +1,6 @@
 from atexit import register
 from flask import Flask, redirect, url_for, render_template, send_file
-from . import jobs, simple_pages
+from . import jobs, simple_pages, jobs
 from app.extensions.database import db, migrate
 
 def create_app():

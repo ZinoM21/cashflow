@@ -21,6 +21,16 @@ class Job(db.Model):
     car_loans = db.Column(db.Numeric(10, 0))
     credit_card_debt = db.Column(db.Numeric(10, 0))
     payday = db.Column(db.Numeric(10, 0))
+    assets = db.relationship('Assets', backref='order', lazy=True)
+
+class Assets(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20, 0))
+    asset_type_id = db.Column(db.Integer, db.ForeignKey('assettypes.id'))
+
+class Assettypes(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    asset_type = db.Column(db.String(20, 0))
 
 # If something was changed in the db, run a migration like this:
     # flask db migrate -m 'add picture_url to Cookie'
