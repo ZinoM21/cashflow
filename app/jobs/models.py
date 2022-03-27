@@ -27,6 +27,9 @@ class Assets(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20, 0))
     asset_type_id = db.Column(db.Integer, db.ForeignKey('assettypes.id'))
+    cost = db.Column(db.Numeric(10, 0))
+    cashflow = db.Column(db.Numeric(10, 0))
+    down_payment = db.Column(db.Numeric(10, 0))
 
 class Assettypes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
