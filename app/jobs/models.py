@@ -4,7 +4,7 @@ from app.extensions.database import db
 
 class Job(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    slug = db.Column(db.String(25), unique=True)
+    slug = db.Column(db.String(80), unique=True)
     name = db.Column(db.String(20))
     salary = db.Column(db.Numeric(10, 0))
     cashflow = db.Column(db.Numeric(10, 0))
