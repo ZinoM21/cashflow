@@ -25,25 +25,6 @@ class Job(db.Model):
     payday = db.Column(db.Numeric(10, 0))
     assets = db.relationship('Assets', backref='order', lazy=True)
 
-class Assets(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20, 0))
-    asset_type_id = db.Column(db.Integer, db.ForeignKey('assettypes.id'))
-    cost = db.Column(db.Numeric(10, 0))
-    cashflow = db.Column(db.Numeric(10, 0))
-    down_payment = db.Column(db.Numeric(10, 0))
-
-class Assettypes(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    asset_type = db.Column(db.String(20, 0))
-
-class Liabilities(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20, 0))
-    liability_type_id = db.Column(db.Integer, db.ForeignKey('liabilitytypes.id'))
-    cost = db.Column(db.Numeric(10, 0))
-    payment = db.Column(db.Numeric(10, 0))
-
 # If something was changed in the db, run a migration like this:
     # flask db migrate -m 'add picture_url to Cookie'
     # flask db upgrade
