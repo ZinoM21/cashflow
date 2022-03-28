@@ -21,6 +21,7 @@ class Job(db.Model):
     car_loans = db.Column(db.Numeric(10, 0))
     credit_card_debt = db.Column(db.Numeric(10, 0))
     payday = db.Column(db.Numeric(10, 0))
+    assets_id = db.Column(db.Integer, db.ForeignKey('assets.id'))
     assets = db.relationship('Assets', backref='order', lazy=True)
 
 class Assets(db.Model):
