@@ -1,3 +1,5 @@
+from app.app import create_app
+from app.jobs.models import Job
 from app.extensions.database import db
 
 class Job(db.Model):
@@ -21,7 +23,6 @@ class Job(db.Model):
     car_loans = db.Column(db.Numeric(10, 0))
     credit_card_debt = db.Column(db.Numeric(10, 0))
     payday = db.Column(db.Numeric(10, 0))
-    assets_id = db.Column(db.Integer, db.ForeignKey('assets.id'))
     assets = db.relationship('Assets', backref='order', lazy=True)
 
 class Assets(db.Model):
@@ -42,10 +43,6 @@ class Liabilities(db.Model):
     liability_type_id = db.Column(db.Integer, db.ForeignKey('liabilitytypes.id'))
     cost = db.Column(db.Numeric(10, 0))
     payment = db.Column(db.Numeric(10, 0))
-
-class Liabilitytypes(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    liability_type = db.Column(db.String(20, 0))
 
 # If something was changed in the db, run a migration like this:
     # flask db migrate -m 'add picture_url to Cookie'
