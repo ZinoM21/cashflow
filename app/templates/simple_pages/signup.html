@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block csslink %}<link href="{{ url_for('static', filename='css/simple_pages/signup.css') }}" rel="stylesheet">{% endblock %}
+
+{% block title %}Cashflow - Sign Up{% endblock %}
+
+{% block main %}
+
+<form class="container" method="POST" action="/signup">
+    <h1>
+        Sign Up
+    </h1>
+    <p>
+        You can sign up to save and look up your recent gameplays.
+    </p>
+    <ul>
+        <li>
+            <input type="email" name="email" placeholder="Username">
+        </li>
+        <li>
+            <input type="password" name="password" placeholder="Password">
+        </li>
+    </ul>
+    <input type="submit" value="Sign Up" class="submit">
+</form>
+
+{% endblock %}

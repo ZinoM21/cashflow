@@ -29,3 +29,17 @@ def post_login():
     print('YOUR DATA WAS UPLOADED')
 
     return render_template("simple_pages/login.html")
+
+@blueprint.get('/signup')
+def get_signup():
+    # Log:
+    print('YOU ARE NOW ABLE TO SIGN UP')
+
+    return render_template("simple_pages/signup.html")
+
+@blueprint.post('/signup')
+def post_signup():
+    # Log:
+    print('YOUR DATA WAS UPLOADED')
+
+    return render_template("simple_pages/signup.html")
