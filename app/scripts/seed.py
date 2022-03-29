@@ -180,7 +180,7 @@ all_jobs_dict = {
         },
     "doc": {
         "Name": "Doctor", 
-        "Salary": 1320, 
+        "Salary": 13200, 
         "Cashflow": 0,
         "Taxes": 3200, 
         "Home Mortgage Payment": 1900, 
