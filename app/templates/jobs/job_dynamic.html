@@ -13,7 +13,7 @@
                 YOUR PROFESSION IS
             </span>
             <span id="profession">
-                {{ job_dict["Name"].upper() }}
+                {{ job.name.upper() }}
             </span>
             <p id="goal">
                 Goal: Build your <strong>Passive Income</strong> to be greater than your <strong>Total Expenses</strong>.
@@ -33,31 +33,102 @@
                 <h3 class="after_h2">
                     Income
                 </h3>
-                    {% for key in job_keys_list[1:3] %}
-                        <div class="line">
-                            <span class="letters">
-                                {{ key }}
-                            </span>
-                            <span class="numbers">
-                                {{ job_dict[key] }} $
-                            </span> 
-                        </div>
-                    {% endfor %}
+                    
+                <div class="line">
+                    <span class="letters">
+                        Salary
+                    </span>
+                    <span class="numbers">
+                        {{ job.salary }} $
+                    </span> 
+                </div>
+                
+                <div class="line">
+                    <span class="letters">
+                        Cashflow
+                    </span>
+                    <span class="numbers">
+                        {{ job.cashflow }} $
+                    </span> 
+                </div>
             </div>
             <div id="expenses">
                 <h3>
                     Expenses
                 </h3>
-                    {% for key in job_keys_list[3:11] %}
-                        <div class="line">
-                            <span class="letters">
-                                {{ key }}
-                            </span>
-                            <span class="numbers">
-                                {{ job_dict[key] }} $
-                            </span> 
-                        </div>
-                    {% endfor %}
+                
+                <div class="line">
+                    <span class="letters">
+                        Taxes
+                    </span>
+                    <span class="numbers">
+                        {{ job.tax }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Home Mortgage Payment
+                    </span>
+                    <span class="numbers">
+                        {{ job.home_mortgage_payment }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        School Loan Payment
+                    </span>
+                    <span class="numbers">
+                        {{ job.school_loan_payment }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Car Loan Payment
+                    </span>
+                    <span class="numbers">
+                        {{ job.car_loan_payment }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Credit Card Payment
+                    </span>
+                    <span class="numbers">
+                        {{ job.credit_card_payment }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Other
+                    </span>
+                    <span class="numbers">
+                        {{ job.other_expenses }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Bank Loan Payment
+                    </span>
+                    <span class="numbers">
+                        {{ job.bank_loan_payment }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Expenses of {{ job.children }} Children
+                    </span>
+                    <span class="numbers">
+                        {{ job.children_expenses }} 
+                    </span> 
+                </div>
+
             </div>
         </div>
 
@@ -69,52 +140,79 @@
                 <h3 class="after_h2">
                     Assets
                 </h3>
-                    {% for key in job_keys_list[11:12] %}
-                        <div class="line">
-                            <span class="letters">
-                                {{ key }}
-                            </span>
-                            <span class="numbers">
-                                {{ job_dict[key] }} $
-                            </span> 
-                        </div>
-                    {% endfor %}
+                    
+                <div class="line">
+                    <span class="letters">
+                        Savings
+                    </span>
+                    <span class="numbers">
+                        {{ job.savings }} $
+                    </span> 
+                </div>
+                    
             </div>
             <div id="liabilities">
                 <h3>
                     Liabilities
                 </h3>
-                    {% for key in job_keys_list[12:] %}
-                        <div class="line">
-                            <span class="letters">
-                                {{ key }}
-                            </span>
-                            <span class="numbers">
-                                {{ job_dict[key] }} $
-                            </span> 
-                        </div>
-                    {% endfor %}
+                    
+                <div class="line">
+                    <span class="letters">
+                        Home Mortgage
+                    </span>
+                    <span class="numbers">
+                        {{ job.home_mortgage }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        School Loans
+                    </span>
+                    <span class="numbers">
+                        {{ job.school_loans }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Car Loans
+                    </span>
+                    <span class="numbers">
+                        {{ job.car_loans }} $
+                    </span> 
+                </div>
+
+                <div class="line">
+                    <span class="letters">
+                        Credit Card Debt
+                    </span>
+                    <span class="numbers">
+                        {{ job.credit_card_debt }} $
+                    </span> 
+                </div>
+
             </div>
         </div>
 
         <div id="calc">
             <div class="num_box thin">
-                {{ job_dict["Salary"] }}
+                {{ job.salary }}
             </div>
             <div class="num_box thick">
-                {{ job_dict["Cashflow"] }}
+                {{ job.cashflow }}
             </div>
             <div class="num_box thin">
-                {{ job_dict["Salary"] }} <!-- calc all income !! -->
+                {{ job.salary + job.cashflow }} <!-- calc all income !! -->
             </div>
             <div class="num_box thick">
-                {{ job_dict["Taxes"] }} <!-- calc all expenses !! -->
+                {{ job.tax }} <!-- calc all expenses !! -->
             </div>
             <div class="num_box dotted">
-                {{ job_dict["Payday"] }}
+                {{ job.payday }}
             </div>
             <span id="monthly_text">
-                Monthly Cash Flow
+                Monthly PayDay
             </span>
         </div>
 

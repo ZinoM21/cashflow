@@ -214,11 +214,10 @@ def play():
 
 @blueprint.route('/jobs/<slug>')
 def job_dynamic(slug):
-    # Log:
-    print(F'CHOSE {all_jobs_dict[slug]["Name"].upper()} AS JOB, HERE ARE YOUR STATS')
-
     # Set variables for the template:
-    job_dict = all_jobs_dict[slug]
-    job_keys_list = list(job_dict.keys())
+    job = Job.query.filter_by(slug=slug).first_or_404()
 
-    return render_template("jobs/job_dynamic.html", job=slug, all_jobs_dict=all_jobs_dict, job_dict=job_dict, job_keys_list=job_keys_list)
+    # Log:
+    print(F'CHOSE {job.name.upper()} AS JOB, HERE ARE YOUR STATS')
+
+    return render_template("jobs/job_dynamic.html", job=job)
