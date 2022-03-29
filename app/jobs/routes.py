@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template, url_for
+from flask import Blueprint, redirect, render_template, url_for, request
 from .models import Job
 
 blueprint = Blueprint('jobs', __name__)
@@ -8,6 +8,8 @@ def choose_job():
     #Log:
     print('CHOOSE YOUR JOB')
 
+    page_number = request.args.get('page', 1, type=int)
+    
     all_jobs = Job.query.all()
     return render_template("jobs/choose_job.html", all_jobs=all_jobs)
 
