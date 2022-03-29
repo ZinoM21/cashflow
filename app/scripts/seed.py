@@ -201,6 +201,7 @@ all_jobs_dict = {
 
 for slug, job in all_jobs_dict.items():
     new_job = Job(
+        slug=slug,
         name=job["Name"], 
         salary=job["Salary"], 
         cashflow=job["Cashflow"], 
