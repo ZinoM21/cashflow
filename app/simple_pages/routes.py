@@ -16,9 +16,16 @@ def home():
     
     return redirect(url_for('simple_pages.root'))
 
-@blueprint.route('/login')
-def login():
+@blueprint.get('/login')
+def get_login():
     # Log:
     print('YOU ARE NOW ABLE TO LOG IN')
+
+    return render_template("simple_pages/login.html")
+
+@blueprint.post('/login')
+def post_login():
+    # Log:
+    print('YOUR DATA WAS UPLOADED')
 
     return render_template("simple_pages/login.html")
