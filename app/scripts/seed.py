@@ -213,6 +213,7 @@ for slug, job in all_jobs_dict.items():
         other_expenses=job["Other Expenses"], 
         bank_loan_payment=job["Bank Loan Payment"], 
         children=job["Children"], 
+        children_expenses = job["Children"] * 380,
         savings=job["Savings"], 
         home_mortgage=job["Home Mortgage"], 
         school_loans=job["School Loans"], 
