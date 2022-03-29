@@ -125,7 +125,7 @@
                         Expenses of {{ job.children }} Children
                     </span>
                     <span class="numbers">
-                        {{ job.children_expenses }} 
+                        {{ job.children_expenses }} $
                     </span> 
                 </div>
 
@@ -206,7 +206,7 @@
                 {{ job.salary + job.cashflow }} <!-- calc all income !! -->
             </div>
             <div class="num_box thick">
-                {{ job.tax }} <!-- calc all expenses !! -->
+                {{ job.tax + job.home_mortgage_payment + job.school_loan_payment + job.car_loan_payment + job.credit_card_payment + job.other_expenses + job.bank_loan_payment + job.children_expenses }} <!-- calc all expenses !! -->
             </div>
             <div class="num_box dotted">
                 {{ job.payday }}
