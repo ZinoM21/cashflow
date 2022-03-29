@@ -32,3 +32,15 @@ li {
     padding: 5px 0;
 }
 
+.submit {
+    max-height: 40px;
+    width: 192px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    background: rgb(100, 30, 130);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
