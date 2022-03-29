@@ -25,9 +25,9 @@ def test_login_content(client):
     response = client.get('/login')
     assert b'You can log in to save and look up your recent gameplays' in response.data
 
-def test_post_login_creates_user(client):
+def test_post_signup_creates_user(client):
     # Creates a user record
-    response = client.post('/checkout', data={
+    response = client.post('/signup', data={
         'username': 'johndoe',
         'password': '12345678'
     })
