@@ -43,6 +43,11 @@ def post_signup():
     # Log:
     print('YOUR DATA WAS UPLOADED')
     
-    create_user(request.form)
+    if not all([
+        request.form.get('email'),
+        request.form.get('password')
+    ]):
+        return render_template('simple_pages/signup.html', error="Please fill out all input fields to sign up!")
 
+    create_user(request.form)
     return render_template('simple_pages/account.html')

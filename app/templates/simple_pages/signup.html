@@ -22,6 +22,9 @@
         </li>
     </ul>
     <input type="submit" value="Sign Up" class="submit">
+    {% if error %}
+        <p style="color: tomato;">{{ error }}</p>
+    {% endif %}
 </form>
 
 {% endblock %}
