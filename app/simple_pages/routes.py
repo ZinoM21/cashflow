@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Blueprint, redirect, render_template, url_for, request
 from app.simple_pages.services.create_user import create_user
 
@@ -31,15 +32,19 @@ def post_login():
 
     return render_template("simple_pages/login.html")
 
-@blueprint.get('/signup')
+@blueprint.route('/signup')
 def get_signup():
     # Log:
     print('YOU ARE NOW ABLE TO SIGN UP')
 
     return render_template("simple_pages/signup.html")
 
-@blueprint.post('/signup')
-def post_signup():
+@blueprint.get('/account')
+def get_account():
+    return render_template("simple_pages/account.html")
+
+@blueprint.post('/account')
+def post_account():
     # Log:
     print('YOUR DATA WAS UPLOADED')
     
@@ -50,4 +55,4 @@ def post_signup():
         return render_template('simple_pages/signup.html', error="Please fill out all input fields to sign up!")
 
     create_user(request.form)
-    return render_template('simple_pages/account.html')
+    return render_template("simple_pages/account.html")
