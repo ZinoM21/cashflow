@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, render_template, url_for, request
+from app.simple_pages.services.create_user import create_user
 
 blueprint = Blueprint('simple_pages', __name__)
 
@@ -41,5 +42,7 @@ def get_signup():
 def post_signup():
     # Log:
     print('YOUR DATA WAS UPLOADED')
+    
+    create_user(request.form)
 
-    return render_template("simple_pages/signup.html")
+    return render_template('simple_pages/account.html')

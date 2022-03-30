@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block csslink %}<link href="{{ url_for('static', filename='css/simple_pages/account.css') }}" rel="stylesheet">{% endblock %}
+
+{% block title %}Cashflow - Your Account{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <h1>
+        Success!
+    </h1>
+    <p>
+        Hello and welcome. This is your account page. 
+    </p>
+    <p>
+        Here you can perform important account information:
+    </p>
+    <ul>
+        <li>
+            <label for="new_email">Change your email:</label>
+            <input type="email" id="new_email" name="new_email" placeholder="Enter new email">
+        </li>
+        <li>
+            <label for="new_pw">Change your password:</label>
+            <input type="password" id="new_pw" name="new_pw" placeholder="Enter new password">
+        </li>
+        <li>
+            <input type="submit" value="Submit Changes" class="submit">
+        </li>
+        <li>
+            <input type="submit" value="Delete Account" class="delete">
+        </li>
+    </ul>
+</div>
+
+{% endblock %}
