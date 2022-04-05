@@ -1,4 +1,3 @@
-from atexit import register
 from flask import Flask, redirect, url_for, render_template, send_file
 from . import jobs, simple_pages
 from app.extensions.database import db, migrate

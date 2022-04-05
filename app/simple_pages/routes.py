@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Blueprint, redirect, render_template, url_for, request, current_app
 from app.simple_pages.services.create_user import create_user
 
