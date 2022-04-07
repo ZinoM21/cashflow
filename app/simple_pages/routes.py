@@ -57,3 +57,11 @@ def post_account():
         current_app.logger.info(f'Error sign up: {error}')
 
         return render_template('simple_pages/signup.html', error=error)
+
+
+### FAQ ###
+
+@blueprint.get('/faq')
+def get_faq():
+    return render_template('simple_pages/faq.html')
+
