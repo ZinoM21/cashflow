@@ -3,40 +3,37 @@ from app.simple_pages.services.create_user import create_user
 
 blueprint = Blueprint('simple_pages', __name__)
 
+
+### ROOT ###
+
 @blueprint.route('/')
 def root():
-    # Log:
-    print('WELCOME HOME, SIR')
-
     return render_template("simple_pages/root.html")
 
 @blueprint.route('/home')
 def home():
-    # Log:
-    print('REDIRECT /home TO /')
-    
     return redirect(url_for('simple_pages.root'))
+
+
+### LOGIN ###
 
 @blueprint.get('/login')
 def get_login():
-    # Log:
-    print('YOU ARE NOW ABLE TO LOG IN')
-
     return render_template("simple_pages/login.html")
 
 @blueprint.post('/login')
 def post_login():
-    # Log:
-    print('YOUR DATA WAS UPLOADED')
-
     return render_template("simple_pages/login.html")
+
+
+### SIGNUP
 
 @blueprint.route('/signup')
 def get_signup():
-    # Log:
-    print('YOU ARE NOW ABLE TO SIGN UP')
-
     return render_template("simple_pages/signup.html")
+
+
+### ACCOUNT ###
 
 @blueprint.get('/account')
 def get_account():
@@ -44,8 +41,6 @@ def get_account():
 
 @blueprint.post('/account')
 def post_account():
-    # Log:
-    print('YOUR DATA WAS UPLOADED')
     try:
         if not all([
             request.form.get('email'),
