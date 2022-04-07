@@ -44,3 +44,6 @@ li {
     text-decoration: none;
 }
 
+#error {
+    color: tomato;
+}

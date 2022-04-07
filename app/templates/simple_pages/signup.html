@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% block jslink %}<script defer src="{{ url_for('static', filename='script/simple_pages/signup.js') }}"></script>{% endblock %}
+
 {% block csslink %}<link href="{{ url_for('static', filename='css/simple_pages/signup.css') }}" rel="stylesheet">{% endblock %}
 
 {% block title %}Cashflow - Sign Up{% endblock %}
 
 {% block main %}
 
-<form class="container" method="POST" action="/account" onsubmit="validateMyForm()">
+<form id="signupForm" class="container" method="POST" action="/account">
     <h1>
         Sign Up
     </h1>
@@ -15,30 +17,14 @@
     </p>
     <ul>
         <li>
-            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="text" name="email" id="email" placeholder="Email"/>
         </li>
         <li>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password"/>
         </li>
     </ul>
-    <script>
-        function validateMyForm()
-        {
-            if(email == null || password == null)
-            { 
-                alert("validation failed false");
-                // returnToPreviousPage();
-                return false;
-            }
-
-            alert("validations passed");
-            return true;
-        }
-    </script>
-    <input type="submit" value="Sign Up" class="submit">
-    {% if error %}
-        <p style="color: tomato;">{{ error }}</p>
-    {% endif %}
+    <button type="submit" id="submitButton" name="submit" class="submit">Sign Up</button>
+    <p id="error"></p>
 </form>
 
 {% endblock %}
