@@ -1,7 +1,6 @@
-let email = document.getElementById('email')
-let password = document.getElementById('password')
-let form = document.getElementById('signupForm')
-let errorElement = document.getElementById('error')
+const email = document.getElementById('email')
+const password = document.getElementById('password')
+const form = document.getElementById('signupForm')
 
 form.addEventListener('submit', (e) => {
     let messages = []
@@ -11,7 +10,9 @@ form.addEventListener('submit', (e) => {
         messages.push('Not a valid Email')
     }
 
-    if (password.value.length <= 6) {
+    if (password.value === '' || email.value == null) {
+        messages.push('Password is required')
+    } else if (password.value.length <= 6) {
         messages.push('Password must be longer than 6 characters')
     }
 
@@ -20,7 +21,19 @@ form.addEventListener('submit', (e) => {
     }
 
     if (messages.length > 0) {
-        e.preventDefault()
-        errorElement.innerText = messages.join(', ')
+        e.preventDefault();
+        clearPreviousErrors();
+        AddNewErrors(messages);
     }
 })
+
+let clearPreviousErrors = () => document.querySelectorAll('.generatedErrors').forEach(e => e.remove());
+
+let AddNewErrors = (messages) => {
+    for (let i = 0; i < messages.length; i++) {
+        const newP = document.createElement("p");
+        newP.setAttribute("class", "generatedErrors")
+        newP.innerText = messages[i];
+        document.getElementById("signupForm").appendChild(newP);
+    }
+}

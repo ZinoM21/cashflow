@@ -44,6 +44,6 @@ li {
     text-decoration: none;
 }
 
-#error {
+.generatedErrors {
     color: tomato;
 }
