@@ -46,7 +46,7 @@ main > .columns {
    
     margin: 0 auto;
     padding: 20px 0;
-    background-color: rgb(240, 206, 37);
+    background-color: var(--clr-primary);
 
     display: flex;
     flex-flow: row wrap;
