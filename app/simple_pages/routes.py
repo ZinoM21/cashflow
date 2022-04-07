@@ -42,11 +42,11 @@ def get_account():
 @blueprint.post('/account')
 def post_account():
     try:
-        if not all([
-            request.form.get('email'),
-            request.form.get('password')
-        ]):
-            raise Exception("Please fill out all input fields to sign up!")
+        # if not all([
+        #     request.form.get('email'),
+        #     request.form.get('password')
+        # ]):
+        #     raise Exception("Please fill out all input fields to sign up!")
 
         create_user(request.form)
         return render_template("simple_pages/account.html")
