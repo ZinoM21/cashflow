@@ -8,6 +8,7 @@ form.addEventListener('submit', (e) => {
         messages.push('Email is required')
     } else if (!email.value.includes('@') || !email.value.includes('.')) {
         messages.push('Not a valid Email')
+        messages.push('Email has to include "@" and at least one "."')
     }
 
     if (password.value === '' || email.value == null) {
