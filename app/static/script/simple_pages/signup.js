@@ -6,7 +6,7 @@ form.addEventListener('submit', (e) => {
     let messages = []
     if (email.value === '' || email.value == null) {
         messages.push('Email is required')
-    } else if (!email.value.includes('@')) {
+    } else if (!email.value.includes('@') || !email.value.includes('.')) {
         messages.push('Not a valid Email')
     }
 
