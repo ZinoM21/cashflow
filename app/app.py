@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, render_template, send_file
-from . import jobs, simple_pages
+from . import jobs, simple_pages, users
 from app.extensions.database import db, migrate
 
 def create_app():
@@ -15,6 +15,7 @@ def create_app():
 def register_blueprints(app: Flask):
     app.register_blueprint(jobs.routes.blueprint)
     app.register_blueprint(simple_pages.routes.blueprint)
+    app.register_blueprint(users.routes.blueprint)
 
 # Extensions
 def register_extensions(app: Flask):

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block csslink %}<link href="{{ url_for('static', filename='css/simple_pages/login.css') }}" rel="stylesheet">{% endblock %}
+{% block csslink %}<link href="{{ url_for('static', filename='css/users/login.css') }}" rel="stylesheet">{% endblock %}
 
 {% block title %}Cashflow - Login{% endblock %}
 
 {% block main %}
 
-<form class="container" method="POST" action="/login">
+<form id="loginForm" class="container" method="POST">
     <h1>
         Log In
     </h1>
@@ -15,10 +15,10 @@
     </p>
     <ul>
         <li>
-            <input type="email" name="email" placeholder="Email">
+            <input type="email" name="email" id="email" placeholder="Email" required>
         </li>
         <li>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password" required>
         </li>
     </ul>
     <input type="submit" value="Log In" class="submit">

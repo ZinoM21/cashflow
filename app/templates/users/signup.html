@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block jslink %}<script defer src="{{ url_for('static', filename='script/users/signup.js') }}"></script>{% endblock %}
+
+{% block csslink %}<link href="{{ url_for('static', filename='css/users/signup.css') }}" rel="stylesheet">{% endblock %}
+
+{% block title %}Cashflow - Sign Up{% endblock %}
+
+{% block main %}
+
+<form id="signupForm" class="container" method="POST">
+    <h1>
+        Sign Up
+    </h1>
+    <p>
+        You can sign up to save and look up your recent gameplays.
+    </p>
+    <ul>
+        <li>
+            <input type="text" name="email" id="email" placeholder="Email" required>
+        </li>
+        <li>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+        </li>
+        <li>
+            <input type="password" name="password_confirmation" id="pw_confirm" placeholder="Confirm Password" required>
+        </li>
+    </ul>
+    <button type="submit" id="submitButton" name="submit" class="submit">Sign Up</button>
+    {% if error %}
+        <p style="color: tomato;">{{ error }}</p>
+    {% endif %}
+    <!-- <p id="error"></p> -->
+</form>
+
+{% endblock %}

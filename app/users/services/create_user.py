@@ -1,4 +1,4 @@
-from app.simple_pages.models import User
+from app.users.models import User
 
 def create_user(form_data):
     # Create new User 
