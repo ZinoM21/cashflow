@@ -42,7 +42,14 @@
                             F.A.Q.
                         </a>
                     </button>
-                    <div id="placeholder"></div>                   
+                    <div id="placeholder"></div>
+                    {% if current_user.is_authenticated %}
+                        <button id="logout">
+                            <a href="{{ url_for('users.get_logout') }}">
+                                Log Out
+                            </a>
+                        </button>
+                    {% endif %}         
                     <button id="login">
                         <a href="/login">
                             Log In
