@@ -1,5 +1,8 @@
 from flask import Blueprint, redirect, render_template, url_for, request, current_app
+from flask_login import login_required
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user
+
 
 from app.users.services.create_user import create_user
 from app.users.models import User
@@ -22,6 +25,7 @@ def post_login():
         elif check_password_hash(request.form.get('password'), user.password):
             raise Exception('Incorrect Password.')
         
+        login_user(user)
         return redirect(url_for('users.get_account'))
     
     except Exception as error_message:
@@ -42,7 +46,8 @@ def post_signup():
         if User.query.filter_by(email=request.form.get('email')).first():
             raise Exception ('The email address is already taken.')
 
-        create_user(request.form)
+        user = create_user(request.form)
+        login_user(user)
         return redirect(url_for('users.get_account'))
 
     except Exception as error_message:
@@ -61,18 +66,6 @@ def get_logout():
 ### ACCOUNT ###
 
 @blueprint.get('/account')
+@login_required
 def get_account():
     return render_template("users/account.html")
-
-# @blueprint.post('/account')
-# def post_account():
-#     try:
-#         create_user(request.form)
-#         return render_template("users/account.html")
-
-#     except Exception as error_message:
-#         error = error_message or 'An error occurred while signing up. Please make sure to enter valid data.'
-        
-#         current_app.logger.info(f'Error sign up: {error}')
-
-#         return render_template('users/signup.html', error=error)

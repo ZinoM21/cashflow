@@ -8,3 +8,5 @@ def create_user(form_data):
         password=generate_password_hash(form_data.get('password'))
     )
     new_user.save()
+    
+    return new_user
