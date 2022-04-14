@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template, url_for, request, current_app
+from flask import Blueprint, get_flashed_messages, redirect, render_template, url_for, request, current_app
 
 blueprint = Blueprint('simple_pages', __name__)
 
@@ -7,6 +7,7 @@ blueprint = Blueprint('simple_pages', __name__)
 
 @blueprint.route('/')
 def root():
+    get_flashed_messages()
     return render_template("simple_pages/root.html")
 
 @blueprint.route('/home')

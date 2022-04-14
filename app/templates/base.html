@@ -43,6 +43,15 @@
                         </a>
                     </button>
                     <div id="placeholder"></div>
+                    {% with messages = get_flashed_messages() %} 
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div>
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                     {% if current_user.is_authenticated %}
                         <button id="logout">
                             <a href="{{ url_for('users.get_logout') }}">

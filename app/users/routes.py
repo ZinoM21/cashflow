@@ -1,7 +1,9 @@
-from flask import Blueprint, redirect, render_template, url_for, request, current_app
+from email import message
+from flask import Blueprint, redirect, render_template, url_for, request, current_app, flash
 from flask_login import login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user
+from app import simple_pages
 
 
 from app.users.services.create_user import create_user
@@ -61,8 +63,10 @@ def post_signup():
 @blueprint.get('/logout')
 def get_logout():
     logout_user()
+    
+    flash('User Logged Out')
 
-    return 'User logged out'
+    return redirect(url_for('simple_pages.root'))
 
 
 ### ACCOUNT ###
