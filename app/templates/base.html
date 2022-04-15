@@ -58,18 +58,24 @@
                                 Log Out
                             </a>
                         </button>
-                    {% endif %}         
-                    <button id="login">
-                        <a href="/login">
-                            Log In
-                        </a>
-                    </button>
-                    <button id="signup">
-                        <a href="/signup">
-                            Sign Up
-                        </a>
-                    </button>
-                    <img src="{{ url_for('static', filename='images/user.png') }}" alt="Profile Picture" id="profile">
+                    {% endif %}
+                    {% if not current_user.is_authenticated %}   
+                        <button id="login">
+                            <a href="/login">
+                                Log In
+                            </a>
+                        </button>
+                    {% endif %}
+                    {% if not current_user.is_authenticated %}
+                        <button id="signup">
+                            <a href="/signup">
+                                Sign Up
+                            </a>
+                        </button>
+                    {% endif %}
+                    <a href="/account">
+                        <img src="{{ url_for('static', filename='images/user.png') }}" alt="Profile Picture" id="profile">
+                    </a>
                 </nav>
             </header>
             <main>
