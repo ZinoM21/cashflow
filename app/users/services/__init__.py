@@ -1,1 +1,1 @@
-from . import create_user
+from . import create_user, change_email, chang_password

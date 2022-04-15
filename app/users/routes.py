@@ -1,13 +1,12 @@
-from email import message
-from flask import Blueprint, redirect, render_template, url_for, request, current_app, flash
-from flask_login import login_required
+from flask import Blueprint, get_flashed_messages, redirect, render_template, url_for, request, current_app, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, logout_user
-from app import simple_pages
-
+from flask_login import login_user, logout_user, current_user, login_required, user_logged_in
+#from app import simple_pages
 
 from app.users.services.create_user import create_user
 from app.users.models import User
+
+
 
 blueprint = Blueprint('users', __name__)
 
@@ -74,4 +73,10 @@ def get_logout():
 @blueprint.get('/account')
 @login_required
 def get_account():
-    return render_template("users/account.html")
+    user = current_user
+    return render_template("users/account.html", user=user)
+
+@blueprint.post('/account')
+def post_account():
+    user = current_user
+    return "yes"

@@ -6,12 +6,12 @@
 
 {% block main %}
 
-<div class="container">
+<form id="accountForm" class="container" method="POST">
     <h1>
-        Success!
+        Your profile
     </h1>
     <p>
-        Hello and welcome. This is your account page. 
+        Hello <strong>{{ user.email }}</strong> This is your account page. 
     </p>
     <p>
         Here you can perform important account information:
@@ -32,6 +32,6 @@
             <input type="submit" value="Delete Account" class="delete">
         </li>
     </ul>
-</div>
+</form>
 
 {% endblock %}
