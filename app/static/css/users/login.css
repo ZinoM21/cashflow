@@ -12,7 +12,7 @@ main {
 
 .container {
     width: 400px;
-    border: 2px solid var(--clr-secondary);
+    border: 2px solid var(--c2);
     border-radius: 10px;
     padding: 40px 30px;
     text-align: center;
@@ -38,7 +38,7 @@ li {
     border: none;
     border-radius: 8px;
     padding: 10px;
-    background: var(--clr-secondary);
+    background: var(--c2);
     color: white;
     text-align: center;
     text-decoration: none;

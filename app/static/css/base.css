@@ -1,12 +1,12 @@
 :root {
-    --clr-primary: rgb(240, 206, 37);
-    --clr-secondary: rgb(100, 30, 130);
+    --c1: rgb(240, 206, 37);
+    --c2: rgb(100, 30, 130);
 }
 
 html {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
-    color: var(--clr-secondary);
+    color: var(--c2);
 
 }
 
@@ -25,7 +25,7 @@ button {
     border: none;
     border-radius: 8px;
     padding: 10px;
-    background: var(--clr-secondary);
+    background: var(--c2);
     color: white;
     text-align: center;
     text-decoration: none;
@@ -46,7 +46,7 @@ header {
     /* min-height: 100px; */
     width: 100vw;
     box-sizing: border-box;
-    background-color: var(--clr-primary);
+    background-color: var(--c1);
 }
 
 nav {
