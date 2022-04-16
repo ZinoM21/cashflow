@@ -12,7 +12,7 @@ form.addEventListener('submit', (e) => {
         messages.push("Email has to include ' @ ' and at least one ' . '")
     }
 
-    if (password.value === '' || email.value == null) {
+    if (password.value === '' || password.value == null) {
         messages.push('Password is required')
     } else if (password.value.length <= 6) {
         messages.push('Password must be longer than 6 characters')
