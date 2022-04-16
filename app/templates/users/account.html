@@ -8,31 +8,102 @@
 
 {% block main %}
 
+<h2>
+    Your profile
+</h2>
+
+<h1>
+    Hello 
+    <strong>
+        {% if user.fname and user.lname %}
+            {{ user.fname }} {{ user.lname }},
+        {% elif user.fname %}
+            {{ user.fname }},
+        {% else %}
+            {{ user.email }},
+        {% endif %}
+    </strong>
+</h1>
+
+<h3>
+    this is your account page. 
+</h3>
+
+<p>
+    Here you can see all of your account information and change it.
+</p>
+
+<p>
+    To save your data, click "Save Changes".
+</p>
+
 <form id="accountForm" class="container" method="POST">
-    <h1>
-        Your profile
-    </h1>
-    <p>
-        Hello <strong>{{ user.email }}</strong> This is your account page. 
-    </p>
-    <p>
-        Here you can perform important account information:
-    </p>
     <ul>
+        {% if user.fname %}
         <li>
-            <label for="email">Change your email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter new email">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" placeholder="{{ user.fname }}">
+        </li>
+        {% endif %}
+        {% if not user.fname %}
+        <li>
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" placeholder="Add First Name">
+        </li>
+        {% endif %}
+
+
+        {% if user.lname %}
+        <li>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" placeholder="{{ user.lname }}">
+        </li>
+        {% endif %}
+        {% if not user.lname %}
+        <li>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" placeholder="Add Last Name">
+        </li>
+        {% endif %}
+
+
+        {% if user.uname %}
+        <li>
+            <label for="uname">Username:</label>
+            <input type="text" id="uname" name="uname" placeholder="{{ user.uname }}">
+        </li>
+        {% endif %}
+        {% if not user.uname %}
+        <li>
+            <label for="uname">Username:</label>
+            <input type="text" id="uname" name="uname" placeholder="Add Username">
+        </li>
+        {% endif %}
+
+
+        <li>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="{{ user.email }}">
         </li>
         <li>
-            <label for="password">Change your password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter new password">
+            <label for="pw_current">Current password:</label>
+            <input type="password" id="pw_current" name="pw_current" placeholder="Enter current password">
         </li>
         <li>
-            <input type="submit" value="Submit Changes" class="submit">
+            <label for="pw_new">New password:</label>
+            <input type="password" id="pw_new" name="pw_new" placeholder="Enter new password">
+        </li>
+        <li>
+            <label for="pw_confirm">Confirm password:</label>
+            <input type="password" id="pw_confirm" name="pw_confirm" placeholder="Confirm new password">
         </li>
         <li>
             <button class="delete">Delete Account</button>
+            <input type="submit" value="Save Changes" class="submit">
         </li>
+        <p>
+            This will delete all of your data and can't be undone!
+        </p>        
     </ul>
     {% if error %}
         <p class="generatedErrors">{{ error }}</p>

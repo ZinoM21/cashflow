@@ -88,10 +88,13 @@ def post_account():
         # Checks
         if user.email == request.form.get('email'):
             raise Exception ("New email can't be old email.")
-        if request.form.get('password'):
-            if check_password_hash(user.password, request.form.get('password')):
-                raise Exception ("New password can't be old password.")
 
+        if request.form.get('pw_current') and request.form.get('pw_new'):
+            if not check_password_hash(user.password, request.form.get('pw_current')):
+                raise Exception ("Current password is wrong")
+            if check_password_hash(user.password, request.form.get('pw_new')):
+                raise Exception ("New password can't be old password.")
+            
         # Logic
         changed_user = change_user(request.form, user)
 
