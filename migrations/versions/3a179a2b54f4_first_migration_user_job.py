@@ -1,8 +1,8 @@
-"""delete db to change pw sting from 80 to 120
+"""first migration: user & job
 
-Revision ID: 922fe8dd49ab
+Revision ID: 3a179a2b54f4
 Revises: 
-Create Date: 2022-04-14 13:57:52.191480
+Create Date: 2022-04-16 23:38:37.624803
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '922fe8dd49ab'
+revision = '3a179a2b54f4'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -46,6 +46,9 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('email', sa.String(length=80), nullable=True),
     sa.Column('password', sa.String(length=120), nullable=True),
+    sa.Column('uname', sa.String(length=80), nullable=True),
+    sa.Column('fname', sa.String(length=80), nullable=True),
+    sa.Column('lname', sa.String(length=80), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_user_email'), 'user', ['email'], unique=True)
