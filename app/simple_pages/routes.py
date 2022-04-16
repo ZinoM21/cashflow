@@ -4,19 +4,17 @@ blueprint = Blueprint('simple_pages', __name__)
 
 
 ### ROOT ###
-
 @blueprint.route('/')
 def root():
-    get_flashed_messages()
     return render_template("simple_pages/root.html")
 
 @blueprint.route('/home')
-def home():
+@blueprint.route('/start')
+def root_redirect():
     return redirect(url_for('simple_pages.root'))
 
 
 ### FAQ ###
-
 @blueprint.get('/faq')
 def get_faq():
     return render_template('simple_pages/faq.html')

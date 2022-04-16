@@ -6,13 +6,34 @@ from flask_login import login_user, logout_user, current_user, login_required, u
 from app.users.services.create_user import create_user
 from app.users.models import User
 
-
-
 blueprint = Blueprint('users', __name__)
 
 
-### LOGIN ###
+### SIGNUP ###
+@blueprint.get('/signup')
+def get_signup():
+    return render_template("users/signup.html")
 
+@blueprint.post('/signup')
+def post_signup():
+    try:
+        # Checks
+        if User.query.filter_by(email=request.form.get('email')).first():
+            raise Exception ('The email address is already taken.')
+
+        # Logic
+        user = create_user(request.form)
+        login_user(user)
+
+        # View
+        return redirect(url_for('users.get_account'))
+
+    except Exception as error_message:
+        error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
+        return render_template('users/signup.html', error=error)
+
+
+### LOGIN ###
 @blueprint.get('/login')
 def get_login():
     return render_template("users/login.html")
@@ -21,12 +42,17 @@ def get_login():
 def post_login():
     try:
         user = User.query.filter_by(email=request.form.get('email')).first()
+
+        # Checks
         if not user:
             raise Exception('Email address not found.')
         elif check_password_hash(request.form.get('password'), user.password):
             raise Exception('Incorrect Password.')
         
+        # Logic
         login_user(user)
+
+        # View
         return redirect(url_for('users.get_account'))
     
     except Exception as error_message:
@@ -34,31 +60,7 @@ def post_login():
         return render_template('users/login.html', error=error)
 
 
-### SIGNUP
-
-@blueprint.get('/signup')
-def get_signup():
-    return render_template("users/signup.html")
-
-@blueprint.post('/signup')
-def post_signup():
-    try:
-        # Check for email in database & give error
-        if User.query.filter_by(email=request.form.get('email')).first():
-            raise Exception ('The email address is already taken.')
-
-        user = create_user(request.form)
-        login_user(user)
-        return redirect(url_for('users.get_account'))
-
-    except Exception as error_message:
-        error = error_message or 'An error occurred while creating a user. Please make sure to enter valid data.'
-        return render_template('users/signup.html', error=error)
-
-
-
 ### LOGOUT ####
-
 @blueprint.get('/logout')
 def get_logout():
     logout_user()
@@ -69,7 +71,6 @@ def get_logout():
 
 
 ### ACCOUNT ###
-
 @blueprint.get('/account')
 @login_required
 def get_account():
@@ -80,3 +81,8 @@ def get_account():
 def post_account():
     user = current_user
     return "yes"
+
+@blueprint.get('/profile')
+@blueprint.get('/me')
+def account_redirect():
+    return redirect(url_for('users.get_account'))
