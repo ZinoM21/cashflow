@@ -77,8 +77,7 @@ def get_logout():
 @blueprint.get('/account')
 @login_required
 def get_account():
-    user = current_user
-    return render_template("users/account.html", user=user)
+    return render_template("users/account.html", user=current_user)
 
 @blueprint.post('/account')
 def post_account():
@@ -113,11 +112,9 @@ def account_redirect():
 ### DELETE USER ###
 @blueprint.get('/deleteuser')
 def delete_user():
-    user = current_user
-
 
     # Logic
-    user.delete()
+    current_user.delete()
     
     # View
     flash('User deleted')
