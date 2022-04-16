@@ -4,6 +4,7 @@ from flask_login import login_user, logout_user, current_user, login_required, u
 #from app import simple_pages
 
 from app.users.services.create_user import create_user
+from app.users.services.change_user import change_user
 from app.users.models import User
 
 blueprint = Blueprint('users', __name__)
@@ -46,9 +47,9 @@ def post_login():
         # Checks
         if not user:
             raise Exception('Email address not found.')
-        elif check_password_hash(request.form.get('password'), user.password):
+        elif not check_password_hash(user.password, request.form.get('password')):
             raise Exception('Incorrect Password.')
-        
+
         # Logic
         login_user(user)
 
@@ -63,10 +64,12 @@ def post_login():
 ### LOGOUT ####
 @blueprint.get('/logout')
 def get_logout():
+
+    # Logic
     logout_user()
     
+    # View
     flash('User Logged Out')
-
     return redirect(url_for('simple_pages.root'))
 
 
@@ -79,10 +82,43 @@ def get_account():
 
 @blueprint.post('/account')
 def post_account():
+    # Set variables
     user = current_user
-    return "yes"
+
+    try:
+        # Checks
+        if user.email == request.form.get('email'):
+            raise Exception ("New email can't be old email.")
+        if request.form.get('password'):
+            if check_password_hash(user.password, request.form.get('password')):
+                raise Exception ("New password can't be old password.")
+
+        # Logic
+        changed_user = change_user(request.form, user)
+
+        # View
+        flash('Saved changes')
+        return redirect(url_for('users.get_account', user=changed_user))
+
+    except Exception as error_message:
+        error = error_message or 'An error occurred while changing user. Please make sure to enter valid data.'
+        return render_template('users/account.html', user=user, error=error)
 
 @blueprint.get('/profile')
 @blueprint.get('/me')
 def account_redirect():
     return redirect(url_for('users.get_account'))
+
+
+### DELETE USER ###
+@blueprint.get('/deleteuser')
+def delete_user():
+    user = current_user
+
+
+    # Logic
+    user.delete()
+    
+    # View
+    flash('User deleted')
+    return redirect(url_for('simple_pages.root'))

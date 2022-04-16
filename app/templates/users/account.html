@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block jslink %}<script defer src="{{ url_for('static', filename='script/users/account.js') }}"></script>{% endblock %}
+
 {% block csslink %}<link href="{{ url_for('static', filename='css/users/account.css') }}" rel="stylesheet">{% endblock %}
 
 {% block title %}Cashflow - Your Account{% endblock %}
@@ -18,20 +20,23 @@
     </p>
     <ul>
         <li>
-            <label for="new_email">Change your email:</label>
-            <input type="email" id="new_email" name="new_email" placeholder="Enter new email">
+            <label for="email">Change your email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter new email">
         </li>
         <li>
-            <label for="new_pw">Change your password:</label>
-            <input type="password" id="new_pw" name="new_pw" placeholder="Enter new password">
+            <label for="password">Change your password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter new password">
         </li>
         <li>
             <input type="submit" value="Submit Changes" class="submit">
         </li>
         <li>
-            <input type="submit" value="Delete Account" class="delete">
+            <button class="delete">Delete Account</button>
         </li>
     </ul>
+    {% if error %}
+        <p class="generatedErrors">{{ error }}</p>
+    {% endif %}
 </form>
 
 {% endblock %}

@@ -42,6 +42,11 @@ li {
     color: white;
     text-align: center;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: rgb(156, 58, 165);
 }
 
 .delete {
@@ -54,4 +59,14 @@ li {
     color: rgb(255, 0, 0);
     text-align: center;
     text-decoration: none;
+}
+
+.delete:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+.generatedErrors {
+    color: tomato;
 }

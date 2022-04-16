@@ -1,5 +1,5 @@
 from app.users.models import User
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 
 def create_user(form_data):
     # Create new User 
