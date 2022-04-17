@@ -12,9 +12,7 @@ def professions():
     profs_pagination = Profession.query.paginate(page_number, current_app.config['PROFESSIONS_PER_PAGE'])   # returns object/class
 
     # View
-@blueprint.route('/play')
-def start_the_game():
-    return "insert playing page here" #redirect(url_for('professions.professions'))
+    return render_template("professions/professions.html", all_profs=all_profs, profs_pagination=profs_pagination)
 
 ### SINGLE PROFESSION VIEW ###
 @blueprint.route('/professions/<slug>')
