@@ -1,4 +1,4 @@
-def test_choose_profession_success(client):
+def test_professions_success(client):
     # Page loads
     response = client.get('/professions')
     assert response.status_code == 200
