@@ -43,7 +43,7 @@ The app should do that while also being very intuitively designed so that every 
 
 ### Nice-to-have features
 
-* having a starting point where one could choose different jobs and so also different income starting levels
+* having a starting point where one could choose different professions and so also different income starting levels
 * switching from the inner ring of the board to the “fast track” (later in the game)
 * being able to use only one device for the whole game, so that only one user operates the app (game master function)
 * being able to connect different devices, so that everyone can see other players in his interface (multiplayer function)

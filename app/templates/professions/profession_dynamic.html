@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block csslink %}<link href="{{ url_for('static', filename='css/jobs/job_dynamic.css') }}" rel="stylesheet">{% endblock %}
+{% block csslink %}<link href="{{ url_for('static', filename='css/professions/profession_dynamic.css') }}" rel="stylesheet">{% endblock %}
 
 {% block title %}Playing the game{% endblock %}
 
@@ -13,7 +13,7 @@
                 YOUR PROFESSION IS
             </span>
             <span id="profession">
-                {{ job.name.upper() }}
+                {{ profession.name.upper() }}
             </span>
             <p id="goal">
                 Goal: Build your <strong>Passive Income</strong> to be greater than your <strong>Total Expenses</strong>.
@@ -37,7 +37,7 @@
                         Salary
                     </span>
                     <span class="numbers">
-                        {{ job.salary }} $
+                        {{ profession.salary }} $
                     </span> 
                 </div>
                 
@@ -46,7 +46,7 @@
                         Cashflow
                     </span>
                     <span class="numbers">
-                        {{ job.cashflow }} $
+                        {{ profession.cashflow }} $
                     </span> 
                 </div>
             </div>
@@ -60,7 +60,7 @@
                         Taxes
                     </span>
                     <span class="numbers">
-                        {{ job.tax }} $
+                        {{ profession.tax }} $
                     </span> 
                 </div>
 
@@ -69,7 +69,7 @@
                         Home Mortgage Payment
                     </span>
                     <span class="numbers">
-                        {{ job.home_mortgage_payment }} $
+                        {{ profession.home_mortgage_payment }} $
                     </span> 
                 </div>
 
@@ -78,7 +78,7 @@
                         School Loan Payment
                     </span>
                     <span class="numbers">
-                        {{ job.school_loan_payment }} $
+                        {{ profession.school_loan_payment }} $
                     </span> 
                 </div>
 
@@ -87,7 +87,7 @@
                         Car Loan Payment
                     </span>
                     <span class="numbers">
-                        {{ job.car_loan_payment }} $
+                        {{ profession.car_loan_payment }} $
                     </span> 
                 </div>
 
@@ -96,7 +96,7 @@
                         Credit Card Payment
                     </span>
                     <span class="numbers">
-                        {{ job.credit_card_payment }} $
+                        {{ profession.credit_card_payment }} $
                     </span> 
                 </div>
 
@@ -105,7 +105,7 @@
                         Other
                     </span>
                     <span class="numbers">
-                        {{ job.other_expenses }} $
+                        {{ profession.other_expenses }} $
                     </span> 
                 </div>
 
@@ -114,16 +114,16 @@
                         Bank Loan Payment
                     </span>
                     <span class="numbers">
-                        {{ job.bank_loan_payment }} $
+                        {{ profession.bank_loan_payment }} $
                     </span> 
                 </div>
 
                 <div class="line">
                     <span class="letters">
-                        Expenses of {{ job.children }} Children
+                        Expenses of {{ profession.children }} Children
                     </span>
                     <span class="numbers">
-                        {{ job.children_expenses }} $
+                        {{ profession.children_expenses }} $
                     </span> 
                 </div>
 
@@ -144,7 +144,7 @@
                         Savings
                     </span>
                     <span class="numbers">
-                        {{ job.savings }} $
+                        {{ profession.savings }} $
                     </span> 
                 </div>
                     
@@ -159,7 +159,7 @@
                         Home Mortgage
                     </span>
                     <span class="numbers">
-                        {{ job.home_mortgage }} $
+                        {{ profession.home_mortgage }} $
                     </span> 
                 </div>
 
@@ -168,7 +168,7 @@
                         School Loans
                     </span>
                     <span class="numbers">
-                        {{ job.school_loans }} $
+                        {{ profession.school_loans }} $
                     </span> 
                 </div>
 
@@ -177,7 +177,7 @@
                         Car Loans
                     </span>
                     <span class="numbers">
-                        {{ job.car_loans }} $
+                        {{ profession.car_loans }} $
                     </span> 
                 </div>
 
@@ -186,7 +186,7 @@
                         Credit Card Debt
                     </span>
                     <span class="numbers">
-                        {{ job.credit_card_debt }} $
+                        {{ profession.credit_card_debt }} $
                     </span> 
                 </div>
 
@@ -195,19 +195,19 @@
 
         <div id="calc">
             <div class="num_box thin">
-                {{ job.salary }}
+                {{ profession.salary }}
             </div>
             <div class="num_box thick">
-                {{ job.cashflow }}
+                {{ profession.cashflow }}
             </div>
             <div class="num_box thin">
-                {{ job.salary + job.cashflow }} <!-- calc all income !! -->
+                {{ profession.salary + profession.cashflow }} <!-- calc all income !! -->
             </div>
             <div class="num_box thick">
-                {{ job.tax + job.home_mortgage_payment + job.school_loan_payment + job.car_loan_payment + job.credit_card_payment + job.other_expenses + job.bank_loan_payment + job.children_expenses }} <!-- calc all expenses !! -->
+                {{ profession.tax + profession.home_mortgage_payment + profession.school_loan_payment + profession.car_loan_payment + profession.credit_card_payment + profession.other_expenses + profession.bank_loan_payment + profession.children_expenses }} <!-- calc all expenses !! -->
             </div>
             <div class="num_box dotted">
-                {{ job.payday }}
+                {{ profession.payday }}
             </div>
             <span id="monthly_text">
                 Monthly PayDay

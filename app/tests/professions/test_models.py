@@ -1,9 +1,9 @@
 from app.extensions.database import db
-from app.jobs.models import Job
+from app.professions.models import Profession
 
-def test_job_update(client):
-    # updates job's properties
-    test_job = Job(
+def test_profession_update(client):
+    # updates profession's properties
+    test_profession = profession(
         slug="mech",
         name="Mech", 
         salary=123, 
@@ -23,18 +23,18 @@ def test_job_update(client):
         credit_card_debt=76365, 
         payday=675675
         )
-    db.session.add(test_job)
+    db.session.add(test_profession)
     db.session.commit()
 
-    test_job.name = "Doc"
-    test_job.save()
+    test_profession.name = "Doc"
+    test_profession.save()
 
-    updated_job = Job.query.filter_by(slug="mech").first()
-    assert updated_job.name == "Doc"
+    updated_profession = Profession.query.filter_by(slug="mech").first()
+    assert updated_profession.name == "Doc"
 
-def test_job_delete(client):
-    # deletes job
-    test_job = Job(
+def test_profession_delete(client):
+    # deletes profession
+    test_profession = Profession(
         slug="mech",
         name="Mech", 
         salary=123, 
@@ -54,10 +54,10 @@ def test_job_delete(client):
         credit_card_debt=76365, 
         payday=675675
         )
-    db.session.add(test_job)
+    db.session.add(test_profession)
     db.session.commit()
 
-    test_job.delete()
+    test_profession.delete()
 
-    deleted_job = Job.query.filter_by(slug="mech").first()
-    assert deleted_job is None
+    deleted_profession = Profession.query.filter_by(slug="mech").first()
+    assert deleted_profession is None

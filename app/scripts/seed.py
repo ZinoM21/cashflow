@@ -1,11 +1,11 @@
 from app.app import create_app
-from app.jobs.models import Job
+from app.professions.models import Profession
 from app.extensions.database import db
 
 app = create_app()
 app.app_context().push()
 
-all_jobs_dict = {
+all_professions_dict = {
     "mechanic": {
         "Name": "Mechanic", 
         "Salary": 2000, 
@@ -199,28 +199,28 @@ all_jobs_dict = {
         }
 }
 
-for slug, job in all_jobs_dict.items():
-    new_job = Job(
+for slug, profession in all_professions_dict.items():
+    new_profession = Profession(
         slug=slug,
-        name=job["Name"], 
-        salary=job["Salary"], 
-        cashflow=job["Cashflow"], 
-        tax=job["Taxes"], 
-        home_mortgage_payment=job["Home Mortgage Payment"], 
-        school_loan_payment=job["School Loan Payment"], 
-        car_loan_payment=job["Car Loan Payment"], 
-        credit_card_payment=job["Credit Card Payment"], 
-        other_expenses=job["Other Expenses"], 
-        bank_loan_payment=job["Bank Loan Payment"], 
-        children=job["Children"], 
-        children_expenses = job["Children"] * 380,
-        savings=job["Savings"], 
-        home_mortgage=job["Home Mortgage"], 
-        school_loans=job["School Loans"], 
-        car_loans=job["Car Loans"], 
-        credit_card_debt=job["Credit Card Debt"], 
-        payday=job["PayDay"]
+        name=profession["Name"], 
+        salary=profession["Salary"], 
+        cashflow=profession["Cashflow"], 
+        tax=profession["Taxes"], 
+        home_mortgage_payment=profession["Home Mortgage Payment"], 
+        school_loan_payment=profession["School Loan Payment"], 
+        car_loan_payment=profession["Car Loan Payment"], 
+        credit_card_payment=profession["Credit Card Payment"], 
+        other_expenses=profession["Other Expenses"], 
+        bank_loan_payment=profession["Bank Loan Payment"], 
+        children=profession["Children"], 
+        children_expenses = profession["Children"] * 380,
+        savings=profession["Savings"], 
+        home_mortgage=profession["Home Mortgage"], 
+        school_loans=profession["School Loans"], 
+        car_loans=profession["Car Loans"], 
+        credit_card_debt=profession["Credit Card Debt"], 
+        payday=profession["PayDay"]
         )
-    db.session.add(new_job)
+    db.session.add(new_profession)
 
 db.session.commit()
