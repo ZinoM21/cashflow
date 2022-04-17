@@ -8,7 +8,7 @@
 
     <section>
         <h1>
-            JOBS / PROFESSIONS
+            PROFESSIONS
         </h1>
         <p>
             Every profession starts off with different conditions.
@@ -17,7 +17,7 @@
             Click a profession to have a detailed look at its income statement and balance sheet.
         </p>
         <ol class="professions">
-            {% for profession in all_professions %}
+            {% for profession in profs_pagination.items %}
             <li>
                 <a href="/professions/{{ profession.slug }}">
                     {{ profession.name }}
@@ -25,10 +25,29 @@
             </li>
             {% endfor %}
         </ol>
-        <p>
-            Click below to show all professions detailed on this page.
+        <p id="holdButtons">
+            {% if profs_pagination.prev_num %}
+                <a href="{{ url_for('professions.professions', page=profs_pagination.prev_num ) }}" class="button" id="prev">
+                    Previous Page
+                </a>
+            {% else %}
+                <span class="button disabled" id="prev">
+                    Previous Page
+                </span>
+            {% endif %}
+
+            <span>{{ profs_pagination.page }}/{{ profs_pagination.pages }}</span>
+
+            {% if profs_pagination.next_num %}
+                <a href="{{ url_for('professions.professions', page=profs_pagination.next_num ) }}" class="button" id="next">
+                    Next Page
+                </a>
+            {% else %}
+                <span class="button disabled" id="next">
+                    Next Page
+                </span>
+            {% endif %}
         </p>
-        <a href="">Show all</a>
     </section>
 
     

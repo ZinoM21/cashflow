@@ -41,3 +41,35 @@ p {
 li {
     margin: 10px;
 }
+
+#holdButtons {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;    
+}
+
+.button {
+    display: inline-block;
+    width: 135px;
+    height: 25px;
+    background: var(--c2);
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.button.disabled {
+    background: var(--c3);
+    color: rgb(189, 189, 189);
+}
+
+.button#prev {
+    margin-right: auto;
+}
+
+.button#next {
+    margin-left: auto;
+}
