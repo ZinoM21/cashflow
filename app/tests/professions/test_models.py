@@ -3,7 +3,7 @@ from app.professions.models import Profession
 
 def test_profession_update(client):
     # updates profession's properties
-    test_profession = profession(
+    test_profession = Profession(
         slug="mech",
         name="Mech", 
         salary=123, 
