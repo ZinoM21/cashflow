@@ -29,39 +29,15 @@ li {
     padding: 5px 0;
 }
 
-.submit {
-    max-height: 40px;
-    width: 192px;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    background: var(--c2);
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.submit:hover {
-    background: rgb(156, 58, 165);
-}
-
-.delete {
-    max-height: 40px;
-    width: 192px;
+#deleteBtn {
     border: 1px solid red;
-    border-radius: 8px;
-    padding: 10px;
     background: rgb(255, 255, 255);
     color: rgb(255, 0, 0);
-    text-align: center;
-    text-decoration: none;
 }
 
-.delete:hover {
+#deleteBtn:hover {
     background-color: rgb(255, 0, 0);
     color: white;
-    cursor: pointer;
 }
 
 .generatedErrors {

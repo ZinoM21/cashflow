@@ -1,14 +1,15 @@
 :root {
-    --c1: rgb(240, 206, 37);
-    --c2: rgb(100, 30, 130);
+    --c1: rgb(40, 40, 40);
+    --c2: rgb(100, 15, 100);
     --c3: rgb(112, 67, 133);
+    --c4: rgb(250, 190, 0);
 }
 
 html {
     font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    color: var(--c2);
-
+    font-size: 14px;
+    color: white;
+    background-color: rgb(0, 0, 0);
 }
 
 body {
@@ -16,24 +17,23 @@ body {
     width: 100vw;
 }
 
-button > [href] {
-    color: white;
-    text-decoration: none;
-}
-
-button {
+.button {
+    display: inline-block;
     max-height: 40px;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    background: var(--c2);
+    border-radius: 18px;
+    padding: 9px 15px;
+    background: var(--c4);
     color: white;
     text-align: center;
+    font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
 }
 
-button:hover {
-    background: rgb(156, 58, 165);
+.button:hover {
+    background: var(--c2);
+    border: 1px solid white;
+    padding: 8px 14px;
 }
 
 img {
@@ -57,7 +57,7 @@ nav {
     align-items: center;
     justify-content:flex-start;
     height: inherit;
-    padding: 15px 15px;
+    padding: 20px;
 }
 
 nav > * {
@@ -82,25 +82,25 @@ img#profile {
         max-height: 50px;
     }
 
-    button#faq {
+    .button#faq {
         display: none;
     }
 }
 
 @media (max-width:560px) {
-    button#signup {
+    .button#signup {
         display: none;
     }
 }
 
 @media (max-width: 470px) {
-    button#login {
+    .button#login {
         display: none;
     }
 }
 
 @media (max-width: 400px) {
-    button#buygame {
+    .button#buygame {
         display: none;
     }
 }

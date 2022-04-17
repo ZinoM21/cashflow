@@ -32,16 +32,15 @@
                     <a href="/">
                         <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" alt="CashFlow Logo" id="logo">
                     </a>
-                    <button id="buygame">
-                        <a href="https://www.amazon.de/-/en/CASHFLOW-Investing-Kiyosaki-Updated-Version/dp/B0141IEJLW">
-                            Buy the game
-                        </a>
-                    </button>
-                    <button id="faq">
-                        <a href="/faq">
-                            F.A.Q.
-                        </a>
-                    </button>
+
+                    <a href="https://www.amazon.de/-/en/CASHFLOW-Investing-Kiyosaki-Updated-Version/dp/B0141IEJLW" class="button" id="buygame">
+                        Buy the game
+                    </a>
+
+                    <a href="{{ url_for('simple_pages.get_faq') }}" class="button" id="faq">
+                        F.A.Q.
+                    </a>
+
                     <div id="placeholder"></div>
                     {% with messages = get_flashed_messages() %} 
                         {% if messages %}
@@ -53,27 +52,21 @@
                         {% endif %}
                     {% endwith %}
                     {% if current_user.is_authenticated %}
-                        <button id="logout">
-                            <a href="{{ url_for('users.get_logout') }}">
-                                Log Out
-                            </a>
-                        </button>
+                        <a href="{{ url_for('users.get_logout') }}" class="button" id="logout">
+                            Log Out
+                        </a>
                     {% endif %}
                     {% if not current_user.is_authenticated %}   
-                        <button id="login">
-                            <a href="/login">
-                                Log In
-                            </a>
-                        </button>
+                        <a href="{{ url_for('users.get_login') }}" class="button" id="login">
+                            Log In
+                        </a>
                     {% endif %}
                     {% if not current_user.is_authenticated %}
-                        <button id="signup">
-                            <a href="/signup">
-                                Sign Up
-                            </a>
-                        </button>
+                        <a href="{{ url_for('users.get_signup') }}" class="button" id="signup">
+                            Sign Up
+                        </a>
                     {% endif %}
-                    <a href="/account">
+                    <a href="{{ url_for('users.get_account') }}">
                         <img src="{{ url_for('static', filename='images/user.png') }}" alt="Profile Picture" id="profile">
                     </a>
                 </nav>
