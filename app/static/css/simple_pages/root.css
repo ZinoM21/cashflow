@@ -21,6 +21,8 @@ main > .left {
 h1 {
     margin-top: 0;
     margin-bottom: 30px;
+
+    font-weight: 500;
 }
 
 .content {
@@ -46,7 +48,7 @@ main > .columns {
    
     margin: 0 auto;
     padding: 20px 0;
-    background-color: var(--c1);
+    background-color: var(--clr-white);
 
     display: flex;
     flex-flow: row wrap;

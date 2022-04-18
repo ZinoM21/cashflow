@@ -19,9 +19,6 @@
             <link rel="shortcut icon" href="{{ url_for('static', filename='/images/favicon.ico') }}">
             <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
             {% block csslink %}{% endblock %}
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
             {% block jslink %}{% endblock %}
         {% endblock %}
     </head>
@@ -29,19 +26,27 @@
         {% block body %}
             <header>
                 <nav class="navbar">
+
                     <a href="/">
-                        <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" alt="CashFlow Logo" id="logo">
-                    </a>
-
-                    <a href="https://www.amazon.de/-/en/CASHFLOW-Investing-Kiyosaki-Updated-Version/dp/B0141IEJLW" class="button" id="buygame">
-                        Buy the game
-                    </a>
-
-                    <a href="{{ url_for('simple_pages.get_faq') }}" class="button" id="faq">
-                        F.A.Q.
+                        <img src="{{ url_for('static', filename='images/cashflow-logo.png') }}" 
+                            alt="CashFlow Logo" 
+                            id="logo">
                     </a>
 
                     <div id="placeholder"></div>
+
+                    <a href="https://www.amazon.de/-/en/CASHFLOW-Investing-Kiyosaki-Updated-Version/dp/B0141IEJLW" 
+                        class="button navBtn" 
+                        id="buygame">
+                        BUY THE GAME
+                    </a>
+
+                    <a href="{{ url_for('simple_pages.get_faq') }}" 
+                        class="button navBtn" 
+                        id="faq">
+                        F.A.Q.
+                    </a>
+                    
                     {% with messages = get_flashed_messages() %} 
                         {% if messages %}
                             {% for message in messages %}
@@ -51,30 +56,66 @@
                             {% endfor %}
                         {% endif %}
                     {% endwith %}
-                    {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('users.get_logout') }}" class="button" id="logout">
-                            Log Out
+
+                    
+
+                    <div class="dropdown">
+                        <a href="{{ url_for('users.get_account') }}">
+                            
+                            <img src="{{ url_for('static', filename='images/user.png') }}" 
+                            alt="Profile Picture" 
+                            id="profilePic">
+                            
+                            <div class="dropdown-content">
+                                {% if current_user.is_authenticated %}
+                                    <a href="{{ url_for('users.get_logout') }}" 
+                                        class="button navBtn" 
+                                        id="logout">
+                                        LOG OUT
+                                    </a>
+                                {% endif %}
+                                {% if not current_user.is_authenticated %}   
+                                    <a href="{{ url_for('users.get_login') }}" 
+                                        class="button navBtn" 
+                                        id="login">
+                                        LOG IN
+                                    </a>
+                                {% endif %}
+                                {% if not current_user.is_authenticated %}
+                                    <a href="{{ url_for('users.get_signup') }}" 
+                                        class="button navBtn" 
+                                        id="signup">
+                                        SIGN UP
+                                    </a>
+                                {% endif %}
+                            </div>
                         </a>
-                    {% endif %}
-                    {% if not current_user.is_authenticated %}   
-                        <a href="{{ url_for('users.get_login') }}" class="button" id="login">
-                            Log In
-                        </a>
-                    {% endif %}
-                    {% if not current_user.is_authenticated %}
-                        <a href="{{ url_for('users.get_signup') }}" class="button" id="signup">
-                            Sign Up
-                        </a>
-                    {% endif %}
-                    <a href="{{ url_for('users.get_account') }}">
-                        <img src="{{ url_for('static', filename='images/user.png') }}" alt="Profile Picture" id="profile">
-                    </a>
+                    </div>
+
                 </nav>
+
             </header>
+
+            <hr>
+
             <main>
                 {% block main %}
                 {% endblock %}
             </main>
+
+            <hr>
+
+            <footer>
+
+                <span id="legal">
+                    <a class="legalLink" href="{{ url_for('simple_pages.get_imprint') }}">
+                        Imprint</a>
+                    <span>|</span>
+                    <a class="legalLink" href="{{ url_for('simple_pages.get_privacy') }}">
+                        Privacy Policies</a>
+                </span>
+
+            </footer>
         {% endblock %}
     </body>
 </html>

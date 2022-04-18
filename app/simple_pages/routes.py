@@ -19,3 +19,14 @@ def root_redirect():
 def get_faq():
     return render_template('simple_pages/faq.html')
 
+
+### IMPRINT ###
+@blueprint.get('/imprint')
+def get_imprint():
+    return render_template('simple_pages/imprint.html')
+
+
+### IMPRINT ###
+@blueprint.get('/privacy')
+def get_privacy():
+    return render_template('simple_pages/privacy.html')

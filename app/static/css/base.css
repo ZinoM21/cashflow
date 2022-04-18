@@ -1,15 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
 :root {
-    --c1: rgb(40, 40, 40);
-    --c2: rgb(100, 15, 100);
-    --c3: rgb(112, 67, 133);
-    --c4: rgb(250, 190, 0);
+    --clr-black: rgb(0, 0, 0);
+    --clr-purple-dark: rgb(100, 15, 100);
+    --clr-purple-light: rgb(112, 67, 133);
+    --clr-yellow: rgb(250, 190, 0);
+    --clr-white: rgb(255, 255, 255); 
 }
 
 html {
     font-family: 'Raleway', sans-serif;
+    font-weight: 400;
     font-size: 14px;
-    color: white;
-    background-color: rgb(0, 0, 0);
+    
+    color: var(--clr-black);
+    background-color: var(--clr-white);
 }
 
 body {
@@ -17,47 +22,80 @@ body {
     width: 100vw;
 }
 
+a {
+    color: var(--clr-black);
+
+    text-align: center;
+    text-decoration: underline;
+    letter-spacing: 0.1em;
+
+    cursor: pointer;
+}
+
 .button {
     display: inline-block;
-    max-height: 40px;
-    border-radius: 18px;
-    padding: 9px 15px;
-    background: var(--c4);
-    color: white;
+    box-sizing: border-box;
+    padding: 11px 17px;
+    border: 1px solid black;
+    background: var(--clr-white);
+    color: var(--clr-black);
+
     text-align: center;
-    font-weight: bold;
+    font-family: inherit;
+    font-size: 20px;
     text-decoration: none;
+    letter-spacing: 0.1em;
+
     cursor: pointer;
 }
 
 .button:hover {
-    background: var(--c2);
-    border: 1px solid white;
-    padding: 8px 14px;
+    background-color: var(--clr-black);
+    color: var(--clr-white);
+    text-decoration: none;
+}
+
+
+.navBtn {
+    border: none;
+}
+
+.navBtn:hover {
+    background: var(--clr-white);
+    color: var(--clr-black);
+    text-decoration: underline;
 }
 
 img {
     display: block; /* to remove the 4px below the img */
 }
 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 20px;
+    padding: 0;
+}
+
 
 /* Header and everything inside: */
 
 header {
-    /* min-height: 100px; */
+    height: 140px;
     width: 100vw;
     box-sizing: border-box;
-    background-color: var(--c1);
+    padding: 20px;
 }
 
 nav {
+    height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    justify-content:flex-start;
-    height: inherit;
-    padding: 20px;
+    justify-content: flex-start;
 }
 
 nav > * {
@@ -65,7 +103,7 @@ nav > * {
 }
 
 img#logo {
-    max-height: 70px;
+    max-height: 80px;
 }
 
 #placeholder {
@@ -73,8 +111,54 @@ img#logo {
     flex: 1 1 0px;
 }
 
-img#profile {
+img#profilePic {
     max-height: 42px;
+}
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+    border-radius: 30px;
+}
+
+.dropdown:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4) inset;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content > a {
+    min-width: 160px;
+}
+
+.dropdown:hover > .dropdown-content {
+    display: block;
+}
+
+
+/* Footer and everything inside: */
+
+footer {
+    height: 80px;
+    width: 100vw;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+}
+
+#legal {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.legalLink {
+    margin: 0 10px;
 }
 
 @media (max-width:700px) {

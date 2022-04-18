@@ -37,7 +37,7 @@
     To save your data, click "Save Changes".
 </p>
 
-<form id="accountForm" class="container" method="POST">
+<form id="accountForm" method="POST">
     <ul>
         {% if user.fname %}
         <li>
@@ -98,7 +98,7 @@
             <input type="password" id="pw_confirm" name="pw_confirm" placeholder="Confirm new password">
         </li>
         <li>
-            <button class="button" id="deleteBtn">Delete Account</button>
+            <a class="button" id="deleteBtn" href="/deleteuser">Delete Account</a>
             <input type="submit" value="Save Changes" class="button">
         </li>
         <p>

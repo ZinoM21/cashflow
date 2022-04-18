@@ -3,12 +3,16 @@
 }
 
 main {
-    height: calc(100vh - 100px - 30px - 30px);
+    max-width: 900px;
+    margin: 0 auto;
+    height: calc(100vh - 140px - 2px - 60px - 2px - 80px);
     padding: 30px 40px;
+    
 }
 
-.container {
-    width: 400px;
+#accountForm {
+    box-sizing: border-box;
+    width: 100%;
     border: 2px solid var(--c2);
     border-radius: 10px;
     padding: 40px 30px;
@@ -38,6 +42,7 @@ li {
 #deleteBtn:hover {
     background-color: rgb(255, 0, 0);
     color: white;
+    text-decoration: none;
 }
 
 .generatedErrors {
