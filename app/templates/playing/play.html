@@ -4,13 +4,17 @@
     <link href="{{ url_for('static', filename='css/playing/play.css') }}" rel="stylesheet">
 {% endblock %}
 
+{% block jslink %}
+    <script defer src="{{ url_for('static', filename='js/playing/play.js') }}"></script>
+{% endblock %}
+
 {% block title %}
     Cashflow Companion - Playing
 {% endblock %}
 
 {% block main %}
 
-<section>
+<section id="mainSection">
     <h1>
         Let's start playing!
     </h1>

@@ -3,8 +3,7 @@
 }
 
 main {
-    height: calc(100vh - 140px - 2px - 60px - 2px - 80px);
-    padding: 30px 40px;
+    height: calc(100vh - 140px - 2px - 40px - 2px - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,16 +31,8 @@ li {
     padding: 5px 0;
 }
 
-.submit {
-    max-height: 40px;
+#submitButton {
     width: 192px;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    background: var(--c2);
-    color: white;
-    text-align: center;
-    text-decoration: none;
 }
 
 .generatedErrors {

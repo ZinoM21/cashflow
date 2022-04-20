@@ -26,9 +26,9 @@
             <input type="password" name="password_confirmation" id="pw_confirm" placeholder="Confirm Password" required>
         </li>
     </ul>
-    <button type="submit" id="submitButton" name="submit" class="submit">Sign Up</button>
+    <button type="submit" id="submitButton" name="submit" class="button">Sign Up</button>
     <p>
-        Already have an account? <a href="/login">Login</a>.
+        Already have an account? <a href="{{ url_for('users.get_login') }}">Login</a>.
     </p>
     {% if error %}
         <p class="generatedErrors">{{ error }}</p>

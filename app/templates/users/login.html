@@ -21,9 +21,9 @@
             <input type="password" name="password" id="password" placeholder="Password" required>
         </li>
     </ul>
-    <input type="submit" value="Log In" class="submit">
+    <input type="submit" value="Log In" id="submitButton" class="button">
     <p>
-        Don't have an account yet? <a href="/signup">Signup</a>.
+        Don't have an account yet? <a href="{{ url_for('users.get_signup') }}">Signup</a>.
     </p>
     {% if error %}
         <p class="generatedErrors">{{ error }}</p>
