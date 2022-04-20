@@ -17,10 +17,6 @@ main {
     text-align: center;
 }
 
-p {
-    margin: 25px 0;
-}
-
 ul {
     margin-bottom: 25px;
     padding: 0;
@@ -29,10 +25,6 @@ ul {
 
 li {
     padding: 5px 0;
-}
-
-#submitButton {
-    width: 192px;
 }
 
 .generatedErrors {

@@ -11,7 +11,7 @@
 html {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     
     color: var(--clr-black);
     background-color: var(--clr-white);
@@ -74,9 +74,14 @@ hr {
 
 input {
     width: 100%;
+    box-sizing: border-box;
     padding: 10px;
     border: 1px solid lightgrey;
     font-size: 15px;
+}
+
+p {
+    margin: 20px auto;
 }
 
 
@@ -158,13 +163,19 @@ footer {
     height: 80px;
     width: 100vw;
     box-sizing: border-box;
-    text-align: center;
     padding: 20px;
+
+    position: relative;
 }
 
 #legal {
     display: inline-block;
-    margin: 0 auto;
+    height: max-content;
+    width: max-content;
+    
+    position: absolute;
+    inset: 0;
+    margin: auto;
 }
 
 .legalLink {
