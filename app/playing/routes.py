@@ -6,4 +6,4 @@ blueprint = Blueprint('playing', __name__)
 
 @blueprint.route('/play')
 def play():
-    return "start playing here"
+    return render_template("playing/play.html")
