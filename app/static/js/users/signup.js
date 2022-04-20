@@ -38,6 +38,6 @@ let AddNewErrors = (messages) => {
         const newP = document.createElement("p");
         newP.setAttribute("class", "generatedErrors")
         newP.innerText = messages[i];
-        document.getElementById("signupForm").appendChild(newP);
+        form.appendChild(newP);
     }
 }
