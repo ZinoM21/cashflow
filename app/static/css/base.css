@@ -84,6 +84,23 @@ p {
     margin: 20px auto;
 }
 
+.generatedErrors {
+    color: tomato;
+}
+
+.flashed {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 200;
+    padding: 15px 20px;
+    border-left: 5px solid green;
+    box-shadow: 5px 5px 20px -1px black;
+    transition: all .5s ease-in-out;;
+
+    background: white;
+}
+
 
 /* Header and everything inside: */
 
@@ -172,7 +189,7 @@ footer {
     display: inline-block;
     height: max-content;
     width: max-content;
-    
+
     position: absolute;
     inset: 0;
     margin: auto;

@@ -46,18 +46,6 @@
                         id="faq">
                         F.A.Q.
                     </a>
-                    
-                    {% with messages = get_flashed_messages() %} 
-                        {% if messages %}
-                            {% for message in messages %}
-                                <div>
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-
-                    
 
                     <div class="dropdown">
                         <a href="{{ url_for('users.get_account') }}">
@@ -97,6 +85,16 @@
             </header>
 
             <hr>
+
+            {% with messages = get_flashed_messages() %} 
+                {% if messages %}
+                    {% for message in messages %}
+                        <span class="flashed">
+                            {{ message }}
+                        </span>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
 
             <main>
                 {% block main %}
