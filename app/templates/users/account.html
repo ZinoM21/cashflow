@@ -9,12 +9,11 @@
 {% block main %}
 
 <h2>
-    Your profile
+    YOUR PROFILE
 </h2>
 
 <h1>
     Hello 
-    <strong>
         {% if user.fname and user.lname %}
             {{ user.fname }} {{ user.lname }},
         {% elif user.fname %}
@@ -22,7 +21,6 @@
         {% else %}
             {{ user.email }},
         {% endif %}
-    </strong>
 </h1>
 
 <h3>
@@ -30,11 +28,7 @@
 </h3>
 
 <p>
-    Here you can see all of your account information and change it.
-</p>
-
-<p>
-    To save your data, click "Save Changes".
+    Here you can see all of your account information and change it. To save your data, click "Save Changes".
 </p>
 
 <form id="accountForm" method="POST">
@@ -103,7 +97,7 @@
             </a>
             <input type="submit" value="Save Changes" class="button" id="submitBtn">
         </li>
-        <p>
+        <p id="delInfo">
             Deleting your account can't be undone!
         </p>        
     </ul>
