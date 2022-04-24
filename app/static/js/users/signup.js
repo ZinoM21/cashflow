@@ -31,13 +31,17 @@ form.addEventListener('submit', (e) => {
     }
 })
 
-let clearPreviousErrors = () => document.querySelectorAll('.generatedErrors').forEach(e => e.remove());
+let clearPreviousErrors = () => document.querySelectorAll('.errorContainer').forEach(e => e.remove());
 
 let AddNewErrors = (messages) => {
+    const newDiv = document.createElement("div")
+    newDiv.setAttribute("class", "errorContainer")
+    form.appendChild(newDiv);
+
     for (let i = 0; i < messages.length; i++) {
         const newP = document.createElement("p");
         newP.setAttribute("class", "generatedErrors")
         newP.innerText = messages[i];
-        form.appendChild(newP);
+        newDiv.appendChild(newP);
     }
 }

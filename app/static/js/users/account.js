@@ -45,21 +45,11 @@ form.addEventListener('submit', (e) => {
 let clearPreviousErrors = () => document.querySelectorAll('.generatedErrors').forEach( (e) => e.remove());
 
 let AddNewErrors = (messages) => {
+    const newDiv = document.createElement("div")
     for (let i = 0; i < messages.length; i++) {
         const newP = document.createElement("p");
         newP.setAttribute("class", "generatedErrors")
         newP.innerText = messages[i];
-        document.getElementById("accountForm").appendChild(newP);
+        newDiv.appendChild(newP);
     }
 }
-
-
-// Delete User with deleteButton
-const deleteButton = document.querySelector(".delete");
-
-deleteButton.addEventListener("click", () => {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-    });
-    window.location.replace('/deleteuser')
-});
