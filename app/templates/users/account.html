@@ -97,9 +97,11 @@
             <label for="pw_confirm">Confirm password:</label>
             <input type="password" id="pw_confirm" name="pw_confirm" placeholder="Confirm new password">
         </li>
-        <li>
-            <a class="button" id="deleteBtn" href="{{ url_for('users.delete_user') }}">Delete Account</a>
-            <input type="submit" value="Save Changes" class="button">
+        <li id="buttons">
+            <a class="button" id="deleteBtn" href="{{ url_for('users.delete_user') }}">
+                Delete Account
+            </a>
+            <input type="submit" value="Save Changes" class="button" id="submitBtn">
         </li>
         <p>
             Deleting your account can't be undone!
