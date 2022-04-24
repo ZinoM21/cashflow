@@ -18,15 +18,10 @@ main {
 }
 
 ul {
-    margin-bottom: 25px;
     padding: 0;
     list-style: none;
 }
 
 li {
-    padding: 5px 0;
-}
-
-.generatedErrors {
-    color: tomato;
+    padding-bottom: 10px;
 }
