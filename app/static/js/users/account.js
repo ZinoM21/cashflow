@@ -18,20 +18,23 @@ form.addEventListener('submit', (e) => {
             messages.push("Email has to include ' @ ' and ' . '")
         }
     }
-
+    
     // Password:
-    if (!pw_new.value === '' || !pw_new.value == null) {
+    if (!(pw_new.value === '' || !pw_new.value == null)) {
         if (pw_new.value.length <= 6) {
             messages.push('Password must be longer than 6 characters')
         } else if (pw_new.value.length >= 30) {
             messages.push('Password must be less than 30 characters')
+        } 
+        if (pw_new.value != pw_confirm.value) {
+            messages.push('Passwords do not match.')
         }
     }
 
     // Password Confirm:
-    if (pw_new.value != pw_confirm.value) {
-        messages.push('Passwords do not match.')
-    }
+    // if (pw_new.value != pw_confirm.value) {
+    //     messages.push('Passwords do not match.')
+    // }
 
     // Error Messages:
     if (messages.length > 0) {
@@ -46,6 +49,9 @@ let clearPreviousErrors = () => document.querySelectorAll('.generatedErrors').fo
 
 let AddNewErrors = (messages) => {
     const newDiv = document.createElement("div")
+    newDiv.setAttribute("class", "errorContainer")
+    form.appendChild(newDiv);
+
     for (let i = 0; i < messages.length; i++) {
         const newP = document.createElement("p");
         newP.setAttribute("class", "generatedErrors")

@@ -19,8 +19,8 @@ def change_user(form_data, user):
         user.email=form_data.get('email')
 
     # Change password of db record
-    if form_data.get('password'):
-        user.password=generate_password_hash(form_data.get('password'))
+    if form_data.get('pw_new'):
+        user.password=generate_password_hash(form_data.get('pw_new'))
     
     user.save()
 

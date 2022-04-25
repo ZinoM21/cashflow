@@ -86,6 +86,7 @@ p {
 
 .generatedErrors {
     color: tomato;
+    text-align: center;
 }
 
 .flashed {

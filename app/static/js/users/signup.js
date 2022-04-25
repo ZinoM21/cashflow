@@ -9,7 +9,7 @@ form.addEventListener('submit', (e) => {
         messages.push('Email is required')
     } else if (!email.value.includes('@') || !email.value.includes('.')) {
         messages.push('Not a valid Email')
-        messages.push("Email has to include ' @ ' and at least one ' . '")
+        messages.push("Email has to include ' @ ' and ' . '")
     }
 
     if (password.value === '' || password.value == null) {
@@ -17,11 +17,11 @@ form.addEventListener('submit', (e) => {
     } else if (password.value.length <= 6) {
         messages.push('Password must be longer than 6 characters')
     } else if (password.value.length >= 30) {
-        messages.push('Password must be less than 30 characters')
+        messages.push('Password must be shorter than 30 characters')
     }
 
     if (password.value != pw_confirm.value) {
-        messages.push('Passwords does not match.')
+        messages.push('Passwords do not match.')
     }
 
     if (messages.length > 0) {
