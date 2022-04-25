@@ -1,0 +1,68 @@
+main {
+    width: 70%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 20px;
+}
+
+h1, h2 {
+    font-weight: 500;
+}
+
+section {
+    margin-bottom: 3em;
+}
+
+details.q_a {
+    margin: 1em 0;
+    border: 1px solid var(--clr-purple-dark);
+    border-radius: 5px;
+    padding: 15px 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+
+details.q_a[open] {
+    background-color: var(--clr-yellow);
+    color: var(--clr-purple-dark);
+}
+
+details.q_a[open] > summary.ques {
+    list-style-type: '▽ ';
+}
+
+
+summary.ques {
+    letter-spacing: 0.02em;
+    position: relative;
+    list-style-type: '▷ ';
+}
+
+summary.ques:hover {
+    cursor: pointer;
+}
+
+hr.in_details {
+    margin: 0;
+    margin-top: 10px;
+    border-top: 1px solid var(--clr-purple-dark);
+}
+
+p.ans {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.button {
+    padding-top: initial;
+    padding-bottom: initial;
+    font-size: 1em;
+}
+
+#link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    
+}
