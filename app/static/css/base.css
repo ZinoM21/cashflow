@@ -7,6 +7,8 @@
     --clr-yellow: rgb(250, 190, 0);
     --clr-white: rgb(255, 255, 255); 
 
+    --bg-dark: rgb(30, 30, 30);
+
     --shadow-black: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
 
     font-family: 'Raleway', sans-serif;
@@ -243,14 +245,6 @@ footer {
         border: 1px solid white;
         background-color: inherit;
         color: white;
-    
-        text-align: center;
-        font-family: inherit;
-        font-size: 1.25em;
-        text-decoration: none;
-        letter-spacing: 0.1em;
-    
-        cursor: pointer;
     }
 
     .button:hover {
@@ -269,7 +263,7 @@ footer {
 
     .dropdown:hover > .dropdown-content {
         display: block;
-        background-color: rgb(30, 30, 30);
+        background-color: var(--bg-dark);
     }
 
     #logo {
