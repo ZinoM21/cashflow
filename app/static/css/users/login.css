@@ -3,7 +3,6 @@
 }
 
 main {
-    height: calc(100vh - 140px - 2px - 40px - 2px - 80px);
     display: flex;
     align-items: center;
     justify-content: center;

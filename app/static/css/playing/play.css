@@ -1,6 +1,4 @@
 main {
-    height: calc(100vh - 140px - 2px - 60px - 2px - 80px);
-    padding: 30px 40px;
     display: flex;
     align-items: center;
     justify-content: center;

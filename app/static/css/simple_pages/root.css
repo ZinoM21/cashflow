@@ -44,7 +44,7 @@ h1 {
 /* Columns */
 
 main > .columns {
-    grid-area: columns;
+    /* grid-area: columns; */
    
     margin: 0 auto;
     padding: 20px 0;
