@@ -16,7 +16,6 @@ section {
 details.q_a {
     margin: 1em 0;
     border: 1px solid var(--clr-purple-dark);
-    border-radius: 5px;
     padding: 15px 20px;
     transition: all 0.5s ease-in-out;
 }
@@ -65,4 +64,11 @@ p.ans {
     bottom: 0;
     right: 0;
     
+}
+
+@media (prefers-color-scheme: dark) {
+  
+    details.q_a {
+        border: 1px solid var(--clr-yellow);
+    }
 }
