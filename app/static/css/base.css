@@ -6,15 +6,12 @@
     --clr-purple-light: rgb(112, 67, 133);
     --clr-yellow: rgb(250, 190, 0);
     --clr-white: rgb(255, 255, 255); 
-}
 
-html {
+    --shadow-black: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    
-    color: var(--clr-black);
-    background-color: var(--clr-white);
 }
 
 body {
@@ -27,7 +24,7 @@ main {
 }
 
 a {
-    color: var(--clr-black);
+    color: black;
 
     text-align: center;
     text-decoration: underline;
@@ -41,8 +38,8 @@ a {
     box-sizing: border-box;
     padding: 11px 17px;
     border: 1px solid black;
-    background: var(--clr-white);
-    color: var(--clr-black);
+    /* background: white; */
+    color: black;
 
     text-align: center;
     font-family: inherit;
@@ -54,8 +51,8 @@ a {
 }
 
 .button:hover {
-    background-color: var(--clr-black);
-    color: var(--clr-white);
+    background-color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -96,10 +93,8 @@ p {
     z-index: 200;
     padding: 15px 20px;
     border-left: 5px solid green;
-    box-shadow: 5px 5px 20px -1px black;
+    box-shadow: var(--shadow-black);
     transition: all .5s ease-in-out;;
-
-    background: white;
 }
 
 
@@ -125,8 +120,12 @@ nav > * {
     margin: 0 10px;
 }
 
-img#logo {
-    max-height: 80px;
+#logo {
+    aspect-ratio: 4096 / 594; 
+    height: 80px;
+    background-image: url("../images/cf-logo-black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #placeholder {
@@ -134,8 +133,12 @@ img#logo {
     flex: 1 1 0px;
 }
 
-img#profilePic {
-    max-height: 42px;
+#profilePic {
+    aspect-ratio: 562 / 562; 
+    height: 42px;
+    background-image: url("../images/user-black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .navBtn {
@@ -143,8 +146,8 @@ img#profilePic {
 }
 
 .navBtn:hover {
-    background: var(--clr-white);
-    color: var(--clr-black);
+    background: initial;
+    color: black;
     text-decoration: underline;
 }
   
@@ -155,14 +158,17 @@ img#profilePic {
 }
 
 .dropdown:hover {
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4) inset;
+    cursor: pointer;
+    box-shadow: inset var(--shadow-black);
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 1px;
+    box-shadow: var(--shadow-black);
     z-index: 1;
+    top: 42px;
     right: 0;
 }
 
@@ -172,6 +178,13 @@ img#profilePic {
 
 .dropdown:hover > .dropdown-content {
     display: block;
+    background-color: white;
+}
+
+#profLink {
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -202,6 +215,65 @@ footer {
 
 
 /* Media Queries  */
+
+@media (prefers-color-scheme: light) {
+
+    :root {
+        background-color: white;
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+    a {
+        color: white;
+    }
+
+    .button {
+        border: 1px solid white;
+        background-color: inherit;
+        color: white;
+    
+        text-align: center;
+        font-family: inherit;
+        font-size: 1.25em;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+    
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: white;
+        color: black;
+    }
+
+    .navBtn {
+        border: none;
+    }
+
+    .navBtn:hover {
+        background-color: initial;
+        color: white;
+    }
+
+    .dropdown:hover > .dropdown-content {
+        display: block;
+        background-color: black;
+    }
+
+    #logo {
+        background-image: url("../images/cf-logo-white.png");
+    }
+
+    #profilePic {
+        background-image: url("../images/user-white.png");
+    }
+}
+
+
+
+
 
 @media (max-width:700px) {
     img#logo {
