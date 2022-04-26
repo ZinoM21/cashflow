@@ -48,7 +48,6 @@ main > .columns {
    
     margin: 0 auto;
     padding: 20px 0;
-    background-color: var(--clr-white);
 
     display: flex;
     flex-flow: row wrap;
