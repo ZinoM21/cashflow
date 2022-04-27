@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 
+* {
+    margin: 0;
+}
+
 :root {
     --clr-black: rgb(0, 0, 0);
     --clr-purple-dark: rgb(100, 15, 100);
@@ -48,7 +52,7 @@ a {
     box-sizing: border-box;
     padding: 11px 17px;
     border: 1px solid black;
-    /* background: white; */
+    background: none;
     color: black;
 
     text-align: center;

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block csslink %}
+    <link href="{{ url_for('static', filename='css/playing/setup.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block jslink %}
+    <script defer src="{{ url_for('static', filename='js/playing/setup.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+    Cashflow - Setup the Game
+{% endblock %}
+
+{% block main %}
+
+<a href="/" class="button" id="exit">EXIT</a>
+
+<a href="/play" class="button" id="start">START</a>
+
+<h1 id="heading">Setup</h1>
+
+<h1 id="first">1.</h1>
+
+<h1 id="second">2.</h1>
+
+<button id="pickProfession" class="picker button" >
+    <h3>
+        Pick a profession
+    </h3>
+</button>
+
+<section id="profession">
+    <h3>Your professions is</h3>
+    <h1>...</h1>
+</section>
+
+<button id="chooseDream" class="picker button">
+    <h3>
+        Choose your dream
+    </h3>
+</button>
+
+<section id="dream">
+    <h3>Your dream is</h3>
+    <h1>...</h1>
+</section>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    display: block;
+    background-image: url("../../images/setup-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+
+main {
+    overflow: auto;
+    position: relative;
+
+    display: grid;
+    grid:
+        ".      .      .       .       .       .       .       .        ."  0.5fr
+        ".      exit   .       heading heading heading .       startG   ."  max-content
+        ".      .      first   .       .       .       second  .        ."  2fr
+        ".      pickP  pickP   pickP   .       chooseD chooseD chooseD  ."  1fr
+        ".      prof   prof    prof    .       dream   dream   dream    ."  5fr
+        ".      .      .       .       .       .       .       .        ."  0.5fr
+        / 0.5fr 2fr    2fr     2fr     0.5fr   2fr     2fr     2fr      0.5fr;
+    /* gap: 20px 20px; */
+    /* grid-template-columns: 2fr 2fr 2fr 1fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 2fr 1fr 5fr; */
+
+    align-items: center;
+    justify-content: center;
+}
+
+main > * {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#exit {
+    grid-area: exit;
+}
+
+#start {
+    grid-area: startG;
+}
+
+#first {
+    grid-area: first;
+    font-size: 5rem;
+}
+
+#second {
+    grid-area: second;
+    font-size: 5rem;
+}
+
+#heading {
+    grid-area: heading;
+}
+
+#pickProfession {
+    grid-area: pickP;
+}
+
+#profession {
+    grid-area: prof;
+}
+
+#chooseDream {
+    grid-area: chooseD;
+}
+
+#dream {
+    grid-area: dream;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.picker {
+    place-self: center stretch;
+}
