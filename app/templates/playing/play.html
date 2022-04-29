@@ -7,7 +7,6 @@
 {% block jslink %}
     <script>
         const api_url = "{{ url_for('api.professions') }}";
-        const play_url = "{{ url_for('playing.get_play') }}"
     </script>
     <script defer src="{{ url_for('static', filename='js/playing/play.js') }}"></script>
 {% endblock %}
