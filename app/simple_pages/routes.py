@@ -1,4 +1,4 @@
-from flask import Blueprint, get_flashed_messages, redirect, render_template, url_for, request, current_app
+from flask import Blueprint, get_flashed_messages, redirect, render_template, url_for, request, current_app, send_file
 
 blueprint = Blueprint('simple_pages', __name__)
 
@@ -18,6 +18,10 @@ def root_redirect():
 @blueprint.get('/faq')
 def get_faq():
     return render_template('simple_pages/faq.html')
+
+@blueprint.route('/downloads/rules')
+def download_rules():
+  return send_file('static/downloads/rules.pdf')
 
 
 ### IMPRINT ###
