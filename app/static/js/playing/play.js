@@ -5,9 +5,7 @@ const gameDiv = document.querySelector('#game')
 
 // Get data with route to API
 async function getData(url) {
-    console.log("Before fetch")
     const response = await fetch(url);
-    console.log("After fetch")
     
     // Storing data in form of JSON
     var jsonData = await response.json();
@@ -50,7 +48,6 @@ pickProfession.addEventListener('click', (e) => {
     
     // Get data with route to API
     // Storing data in form of JSON)
-    console.log("In event listener, Before fetch")
     getData(api_url).then( professions_json => {
 
         // Create list of the ids of all professions
