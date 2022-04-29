@@ -6,9 +6,9 @@
 
 :root {
     --clr-black: rgb(0, 0, 0);
-    --clr-purple-dark: rgb(100, 15, 100);
+    --clr-purple-dark: rgb(100, 40, 140);
     --clr-purple-light: rgb(112, 67, 133);
-    --clr-yellow: rgb(250, 190, 0);
+    --clr-yellow: rgb(250, 190, 30);
     --clr-white: rgb(255, 255, 255); 
 
     --bg-dark: rgb(30, 30, 30);
