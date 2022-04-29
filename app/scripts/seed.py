@@ -15,7 +15,7 @@ all_professions_dict = {
         "School Loan Payment": 0,
         "Car Loan Payment": 100,
         "Credit Card Payment": 100,
-        "Other Expenses": 300,
+        "Other Expenses": 400,
         "Bank Loan Payment": 0,
         "Children": 0,
         "Savings": 700,
