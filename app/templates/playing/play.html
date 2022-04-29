@@ -5,19 +5,279 @@
 {% endblock %}
 
 {% block jslink %}
+    <script>
+        const api_url = "{{ url_for('api.professions') }}";
+        const play_url = "{{ url_for('playing.get_play') }}"
+    </script>
     <script defer src="{{ url_for('static', filename='js/playing/play.js') }}"></script>
 {% endblock %}
 
 {% block title %}
-    Cashflow - Playing the Game
+    Cashflow - Setup the Game
 {% endblock %}
 
 {% block main %}
 
-<section id="mainSection">
-    <h1>
-        Let's start playing!
-    </h1>
-</section>
+<!--------- SETUP DIV --------->
+
+<div id="setup" class="container">
+    <a href="{{ url_for('simple_pages.root') }}" class="button gameBtn" id="exit">EXIT</a>
+
+    <button class="button gameBtn" id="start">START</button>
+
+    <h1 id="heading">Setup</h1>
+
+    <h2 id="first">1.</h2>
+
+    <h2 id="second">2.</h2>
+
+    <button id="pickProfession" class="picker button" >
+        <h2>
+            Pick a profession
+        </h2>
+    </button>
+
+    <section id="profession">
+        <h2 id="profHeading">Your professions is</h2>
+        <h1 id="randomizedProfession"></h1>
+        <div id="hiddenID" style="display: none;"></div>
+    </section>
+
+    <button id="chooseDream" class="picker button">
+        <h2>
+            Write down your dream
+        </h2>
+    </button>
+
+    <section id="dream">
+        <h2 id="dreamHeading">Your dream is</h2>
+        <input type="text" name="dreamInput" id="dreamInput" placeholder="Write your dream down..." style="display: none;">
+        <button id="dreamSetter" class="button gameBtn" style="display: none;">Set</button>
+        <h1 id="writtenDream"></h1>
+    </section>
+</div>
+
+
+
+<!--------- GAME DIV --------->
+
+<div id="game" class="container" style="display:none;">
+    
+    <!-- TOP ROW(S) -->
+
+    <a href="{{ url_for('simple_pages.root') }}" class="button gameBtn" id="exitGame">EXIT</a>
+
+    <button class="button gameBtn" id="newGame">NEW</button>
+
+    <h1 id="headingGame"></h1>
+
+    <div id="progress" class="box">
+        <h3>
+            ESCAPTING THE RAT RACE ... (<span id="percantage">0</span>%)
+        </h3>
+    </div>
+
+
+    <!-- CASHFLOW ELEMENTS -->
+
+    <div id="cashflowTotal" class="box">
+        <h3>
+            CASHFLOW
+        </h3>
+        <p>
+            <span id="cashflowTotalNUM"></span>€
+        </p>
+    </div>
+
+    <section id="cashflowList" class="box">
+        <div class="headWithHR sign">
+            <span>⏫</span><span>⏫</span>
+            <hr>
+        </div>
+        
+
+    </section>
+
+    <div id="incomePlus" class="sign">
+        ➕
+    </div>
+
+    <div id="salary" class="box">
+        <h3>
+            SALARY
+        </h3>
+        <p>
+            <span id="salaryNUM"></span>€
+        </p>
+    </div>
+
+    <div id="incomeEqual" class="sign">
+        🟰
+    </div>
+
+    <div id="totalIncome" class="box">
+        <h3>
+            TOTAL INCOME
+        </h3>
+        <p>
+            <span id="totalIncomeNUM"></span>€
+        </p>
+    </div>
+
+
+    <!-- EXPENSES ELEMENTS -->
+
+    <div id="expensesTop" class="box">
+        <h3>
+            EXPENSES
+        </h3>
+        <p>
+            <span id="expensesTopNUM"></span>€
+        </p>
+    </div>
+
+    <section id="expensesList" class="box">
+        <div class="headWithHR sign" id="expensesListContainer">
+            <span>⏫</span><span>⏫</span>
+            <hr>
+        </div>
+        
+
+    </section>
+
+    <div id="expensesEqual" class="sign">
+        🟰
+    </div>
+
+    <div id="expensesBottom" class="box">
+        <h3>
+            EXPENSES
+        </h3>
+        <p>
+            <span id="expensesBottomNUM"></span>€
+        </p>
+    </div>
+
+
+
+    <!-- CENTER ELEMEMTS -->
+
+    <section id="assets" class="box">
+        <div class="headWithHR">
+            <h3>
+                Assets
+            </h3>
+            <hr>
+        </div>
+    </section>
+
+    <section id="ledger" class="box">
+        <div class="headWithHR">
+            <h3>
+                Ledger
+            </h3>
+            <hr>
+        </div>
+    </section>
+
+    <section id="liabilities" class="box">
+        <div class="headWithHR" id="liabilitiesContainer">
+            <h3>
+                Liabilities
+            </h3>
+            <hr>
+        </div>
+    </section>
+
+
+
+    <!-- BUTTONS -->
+
+    <button id="marketAction" class="button gameBtn">
+        <h4>
+            MARKET ACTION
+        </h4>
+    </button>
+
+    <button id="Buy" class="button gameBtn">
+        <h4>
+            BUY
+        </h4>
+    </button>
+
+    <button id="Sell" class="button gameBtn">
+        <h4>
+            SELL
+        </h4>
+    </button>
+
+    <button id="Pay" class="button gameBtn">
+        <h4>
+            PAY
+        </h4>
+    </button>
+
+    <button id="Collect" class="button gameBtn">
+        <h4>
+            COLLECT
+        </h4>
+    </button>
+
+    <button id="Downsized" class="button gameBtn">
+        <h4>
+            DOWNSIZED
+        </h4>
+    </button>
+
+    <button id="Doodad" class="button gameBtn">
+        <h4>
+            DOODAD
+        </h4>
+    </button>
+
+    <button id="TakeOut" class="button gameBtn">
+        <h4>
+            TAKE OUT
+        </h4>
+    </button>
+        
+    <button id="PayOff" class="button gameBtn">
+        <h4>
+            PAY OFF
+        </h4>
+    </button>
+
+
+
+    <!-- PAYDAY ELEMENTS -->
+
+    <div id="leftArrow" class="sign">
+        ⏩ ⏩ ⏩ ⏩ ⏩ ⏩ ⏩ ⏩
+    </div>
+
+    <div id="rightArrow" class="sign">
+        ⏪ ⏪ ⏪ ⏪ ⏪ ⏪ ⏪ ⏪
+    </div>
+    
+    <div id="topArrow" class="sign">
+        <span>
+            ⏫
+        </span>
+        <span>
+            ⏫
+        </span>
+    </div>
+
+    <div id="payday" class="box">
+        <h3>
+            PAYDAY
+        </h3>
+        <p>
+            <span id="paydayNUM"></span>€
+        </p>
+    </div>
+
+
+</div>
 
 {% endblock %}

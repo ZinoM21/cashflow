@@ -1,5 +1,345 @@
 main {
+    --clr-bg: rgb(180, 90, 160);
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    display: block;
+    background-image: url("../../images/setup-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+
+.container {
+    height: calc(100vh - 140px - 1px - 1px - 80px - 20px - 20px);
+    width: 100%;
+    overflow: auto;
+    position: relative;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
+}
+
+.container > * {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* FOR SETUP DIV */
+
+#setup {
+    gap: 3rem;
+    grid:
+        ".      .      .       .       .       .       .       .        ."  3rem
+        ".      exit   .       heading heading heading .       startG   ."  max-content
+        ".      .      first   .       .       .       second  .        ."  2fr
+        ".      pickP  pickP   pickP   .       chooseD chooseD chooseD  ."  1fr
+        ".      prof   prof    prof    .       dream   dream   dream    ."  5fr
+        ".      .      .       error   error   error   .       .        ."  3rem
+        ".      .      .       .       .       .       .       .        ."  3rem
+        / 3rem  2fr    2fr     2fr     0.5fr   2fr     2fr     2fr      3rem;
+}
+
+#exit {
+    grid-area: exit;
+}
+
+#start {
+    grid-area: startG;
+}
+
+#first {
+    grid-area: first;
+    font-size: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#second {
+    grid-area: second;
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#heading {
+    grid-area: heading;
+}
+
+#pickProfession {
+    grid-area: pickP;
+}
+
+#profession {
+    grid-area: prof;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#profHeading {
+    align-self: flex-start;
+
+    display: block;
+    width: 100%;
+}
+
+#chooseDream {
+    grid-area: chooseD;
+}
+
+#dream {
+    grid-area: dream;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#dreamHeading {
+    align-self: flex-start;
+
+    display: block;
+    width: 100%;
+}
+
+#error {
+    grid-area: error;
+}
+
+
+h1 {
+    font-size: 3rem;
+}
+
+
+
+/* FOR GAME DIV */
+
+.box {
+    background-color: var(--clr-bg);
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px 0 rgba(0, 0, 0, 0.3);
+
+    box-sizing: border-box;
+    padding: 5px;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h3 {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+p {
+    margin: 0;
+}
+
+.gameBtn {
+    font-size: 1em;
+    background-color: var(--clr-yellow);
+}
+
+.sign {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.headWithHR {
+    align-self: flex-start;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+hr {
+    align-self: flex-start;
+
+    width: 100%;
+    margin: 0;
+}
+
+.ListElement {
+    width: 100%;
+    height: fit-content;
+    margin: 5px;
+    font-size: 0.9rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ListElementName {
+    text-align: left;
+}
+
+
+#game {
+    grid:
+        ".      .       .       .       .       .       .       .       ."  0.5fr
+        ".      exitGame    .   headingGame headingGame headingGame       .       newGame       ."  max-content
+        ".      .       .       .       .       .       .       .       ."  max-content
+        ".      cashflowTotal progressDiv progressDiv progressDiv progressDiv progressDiv expensesTop ."  1fr
+        ".      cashflowList assets assets     ledger liabilities liabilities   expensesList ."  6fr
+        ".      incomePlus    .       .       .       .       .          expensesList ."  0.25fr
+        ".      salary marketAction marketAction Pay   Downsized Doodad     expensesList ."  0.5fr
+        ".      salary        Buy   Sell      Collect   TakeOut   PayOff     expensesList ."  0.5fr
+        ".      incomeEqual   .       .        topArrow   .       .          expensesEqual ." max-content
+        ".      totalIncome leftArrow leftArrow payday rightArrow rightArrow expensesBottom ."  1fr
+        ".      .       .       .       .       .       .       .       ."  0.5fr
+        / 0.5fr 2fr     2fr     2fr     2fr     2fr     2fr     2fr     0.5fr;
+}   
+
+#exitGame {
+    grid-area: exitGame;
+}
+
+#newGame {
+    grid-area: newGame;
+}
+
+#headingGame {
+    grid-area: headingGame;
+}
+
+#progress {
+    grid-area: progressDiv;
+}
+
+#cashflowTotal {
+    grid-area: cashflowTotal;
+}
+
+#cashflowList {
+    grid-area: cashflowList;
+}
+
+#incomePlus {
+    grid-area: incomePlus;
+}
+
+#salary {
+    grid-area: salary;
+}
+
+#incomeEqual {
+    grid-area: incomeEqual;
+}
+
+#totalIncome {
+    grid-area: totalIncome;
+}
+
+#expensesTop {
+    grid-area: expensesTop;
+
+}
+#expensesList {
+    grid-area: expensesList;
+
+}
+#expensesEqual {
+    grid-area: expensesEqual;
+
+}
+#expensesBottom {
+    grid-area: expensesBottom;
+
+}
+
+#assets {
+    grid-area: assets;
+}
+
+#ledger {
+    grid-area: ledger;
+}
+
+#liabilities {
+    grid-area: liabilities;
+}
+
+#marketAction {
+    grid-area: marketAction;
+}
+
+#Buy {
+    grid-area: Buy;
+}
+
+#Sell {
+    grid-area: Sell;
+}
+
+#Pay {
+    grid-area: Pay;
+}
+
+#Collect {
+    grid-area: Collect;
+}
+
+#Downsized {
+    grid-area: Downsized;
+}
+
+#Doodad {
+    grid-area: Doodad;
+}
+
+#TakeOut {
+    grid-area: TakeOut;
+}
+
+#PayOff {
+    grid-area: PayOff;
+}
+
+#leftArrow {
+    grid-area: leftArrow;
+}
+
+#rightArrow {
+    grid-area: rightArrow;
+}
+
+#topArrow {
+    grid-area: topArrow;
+    justify-content: space-evenly;
+}
+
+#payday {
+    grid-area: payday;
 }
