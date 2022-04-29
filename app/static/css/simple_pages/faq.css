@@ -52,18 +52,15 @@ p.ans {
     margin-bottom: 5px;
 }
 
-.button {
-    padding-top: initial;
-    padding-bottom: initial;
-    font-size: 1em;
-}
-
 #link {
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     
+    padding-top: initial;
+    padding-bottom: initial;
+    font-size: 1em;
 }
 
 @media (prefers-color-scheme: dark) {
