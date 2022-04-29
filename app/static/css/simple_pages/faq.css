@@ -63,6 +63,11 @@ p.ans {
     font-size: 1em;
 }
 
+#rulesLink {
+    color: var(--clr-purple-dark);
+}
+
+
 @media (prefers-color-scheme: dark) {
   
     details.q_a {
