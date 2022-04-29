@@ -3,9 +3,11 @@ const gameDiv = document.querySelector('#game')
 
 // ---- Functions for later use ----
 
+// Get data with route to API
 async function getData(url) {
-    // Get data with route to API
+    console.log("Before fetch")
     const response = await fetch(url);
+    console.log("After fetch")
     
     // Storing data in form of JSON
     var jsonData = await response.json();
@@ -13,10 +15,34 @@ async function getData(url) {
     return jsonData
 } 
 
+// Display name of profession in HTML
+function show(id, data) {
+    data.filter(function (entry) {
+        if (entry.id === id) {
+            document.getElementById("randomizedProfession").innerHTML = entry.Name;
+            document.getElementById("hiddenID").innerHTML = entry.id;
+        }
+    });
+}
+
+// Functions:
+let clearPreviousErrors = () => document.querySelectorAll('.generatedErrors').forEach( (e) => e.remove());
+
+let AddNewErrors = (messages) => {
+    for (let i = 0; i < messages.length; i++) {
+        const newP = document.createElement("p");
+        newP.setAttribute("class", "generatedErrors")
+        newP.setAttribute("id", "error")
+        newP.innerText = messages[i];
+        setupDiv.appendChild(newP);
+    }
+}
 
 
 
-// -------- GET PROFESSIONS DATA WITH API -----------
+// --------------- SETUP --------------
+
+// ---- PICK PROFESSION ----
 
 const pickProfession = document.getElementById('pickProfession');
 
@@ -24,6 +50,7 @@ pickProfession.addEventListener('click', (e) => {
     
     // Get data with route to API
     // Storing data in form of JSON)
+    console.log("In event listener, Before fetch")
     getData(api_url).then( professions_json => {
 
         // Create list of the ids of all professions
@@ -40,19 +67,9 @@ pickProfession.addEventListener('click', (e) => {
     });
 });
 
-// Display name of profession in HTML
-function show(id, data) {
-    data.filter(function (entry) {
-        if (entry.id === id) {
-            document.getElementById("randomizedProfession").innerHTML = entry.Name;
-            document.getElementById("hiddenID").innerHTML = entry.id;
-        }
-    });
-}
 
 
-
-// ------------  SET DREAM ------------------
+// ---- SET DREAM ----
 
 const dreamButton = document.getElementById('chooseDream');
 const dreamInput = document.getElementById('dreamInput');
@@ -77,9 +94,7 @@ dreamSetter.addEventListener('click', (e) => {
 
 
 
-
-
-// ---------- START BUTTON -------------
+// ---- START BUTTON ----
 
 const startButton = document.getElementById('start');
 
@@ -120,18 +135,6 @@ startButton.addEventListener('click', (e) => {
     
 });
 
-// Functions:
-let clearPreviousErrors = () => document.querySelectorAll('.generatedErrors').forEach( (e) => e.remove());
-
-let AddNewErrors = (messages) => {
-    for (let i = 0; i < messages.length; i++) {
-        const newP = document.createElement("p");
-        newP.setAttribute("class", "generatedErrors")
-        newP.setAttribute("id", "error")
-        newP.innerText = messages[i];
-        setupDiv.appendChild(newP);
-    }
-}
 
 
 
