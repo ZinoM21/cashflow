@@ -3,8 +3,6 @@
 }
 
 main {
-    /* height: calc(100vh - 100px - 30px - 30px); */
-    /* padding: 30px 40px; */
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -13,16 +11,17 @@ main {
 }
 
 section {
-    max-width: 500px;
+    max-width: 31.25rem;
 }
 
 h1 {
-    margin: 20px auto;
+    margin: 1.25rem auto;
     text-align: center;
 }
 
 p {
     text-align: center;
+    margin: 1.25rem auto;
 }
 
 .professions {
@@ -30,15 +29,18 @@ p {
     align-items: center;
     justify-content: space-around;
     flex-flow: row wrap;
-    margin: 20px auto;
+
+    min-height: 6.25rem;
+    margin: 1.25rem auto;
     padding: 0;
+
     text-align: center;
     list-style-type: none;
     line-height: 1.5;
 }
 
 li {
-    margin: 10px;
+    margin: 0.625rem;
 }
 
 #holdButtons {
@@ -47,21 +49,25 @@ li {
     align-items: center;    
 }
 
-.button {
+.button#prev, .button#next {
     display: inline-block;
-    width: 135px;
-    height: 25px;
-    background: var(--c2);
-    padding: 15px 10px;
-    text-align: center;
-    border-radius: 5px;
+    width: 11.25rem;
+    padding: 1rem 10px;
+
     color: white;
-    font-weight: bold;
-    line-height: 25px;
+    background: var(--clr-yellow);
+
+    font-size: 1rem;
+    text-align: center;
 }
 
-.button.disabled {
-    background: var(--c3);
+.button#prev:hover, .button#next:hover {
+    color: black;
+    background: white;
+}
+
+.button#prev.disabled, .button#next.disabled {
+    background: rgb(255, 219, 121);
     color: rgb(189, 189, 189);
 }
 
@@ -71,4 +77,47 @@ li {
 
 .button#next {
     margin-left: auto;
+}
+
+@media (prefers-color-scheme: light) {
+
+    .button#prev:hover, .button#next:hover {
+        color: white;
+        background: black;
+    }
+
+    .button#prev:hover.disabled, .button#next:hover.disabled {
+        background: rgb(255, 219, 121);
+        color: rgb(189, 189, 189);
+    }
+
+}
+
+@media (max-width: 550px) {
+    
+    main {
+        font-size: 1rem;
+    }
+    
+}
+
+@media (max-width: 420px) {
+    
+    .button#prev, .button#next {
+        display: inline-block;
+        width: 10rem;
+    }
+    
+}
+
+@media (max-width: 365px) {
+    
+    #holdButtons {
+        flex-wrap: wrap;
+    }
+    
+    span {
+        width: 100%;
+    }
+
 }
