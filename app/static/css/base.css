@@ -114,7 +114,8 @@ p {
     padding: 15px 20px;
     border-left: 5px solid green;
     box-shadow: var(--shadow-black);
-    transition: all .5s ease-in-out;;
+    transition: all .5s ease-in-out;
+    background-color: var(--bg-dark);
 }
 
 
