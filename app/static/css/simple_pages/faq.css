@@ -9,8 +9,12 @@ h1, h2 {
     font-weight: 500;
 }
 
+h1 {
+    margin-bottom: 1em;
+}
+
 section {
-    margin-bottom: 3em;
+    margin-bottom: 3rem;
 }
 
 details.q_a {
@@ -72,5 +76,25 @@ p.ans {
   
     details.q_a {
         border: 1px solid var(--clr-yellow);
+    }
+}
+
+@media (max-width:750px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media (max-width:515px) {
+    main {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width:450px) {
+    #link {
+        position: relative;
+        width: 100%;
+        margin-top: 0.7rem;
     }
 }
