@@ -1,24 +1,25 @@
 /* Main and everything inside: */
 
-main {
+#mainContent {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
 }
 
-main > .flex_item {
+.main_flex_item {
     flex-basis: calc(100% / 12 * 6);
 }
 
 /* Text */
 
-main > .left {
+.left {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
-h1 {
+#main_heading {
     margin-top: 0;
     margin-bottom: 30px;
 
@@ -29,7 +30,7 @@ h1 {
     width:70%;
 }
 
-.buttons {
+#startBtn {
     margin-top: 30px;
 }
 
@@ -37,16 +38,13 @@ h1 {
 
 /* Photo */
 
-.board_photo {
-    max-width: 100%;
+.right {
+    max-width: 50%;
 }
 
 /* Columns */
 
-main > .columns {
-    /* grid-area: columns; */
-   
-    margin: 0 auto;
+.columns {
     padding: 20px 0;
 
     display: flex;
@@ -65,34 +63,66 @@ h3 {
 }
 
 
-@media (max-width: 870px) {
 
-    html {
+/* Responsive  */
+
+@media (max-width:1250px) {
+
+    main {
         font-size: 0.8rem;
     }
 
-    main {
-        grid-template-areas: 
-            "textColumn textColumn"
-            "photoColumn photoColumn"
-            "columns columns";
-    }
-
-    .content {
-        margin: 10% 0;
-    }
-
-    h1 {
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-    
-    .buttons {
+    #startBtn {
         margin-top: 20px;
+    }
+}
+
+@media (max-width: 1030px) {
+
+    #main_heading {
+        margin-bottom: 20px; 
+    }
+
+    #main_text > * {
+        margin: 10px auto;
+    }
+
+}
+
+@media (max-width: 775px) {
+    
+    .main_flex_item {
+        flex-basis: 100%;
+    }
+
+    .left {
+        height: 340px;
+    }
+
+    .right {
+        max-width: 100%;
+        object-fit: cover;
+        aspect-ratio: 3 / 1;
     }
     
 }
 
-@media (max-width: 710px) {
+@media (max-width: 515px) {
+    
+    main {
+        font-size: 0.7rem;
+    }
+
+    .left {
+        height: 250px;
+    }
+    
+    .content {
+        width:90%;
+    }
+
+    .columns > section {
+        margin: 20px;
+    }
 
 }

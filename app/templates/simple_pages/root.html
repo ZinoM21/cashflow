@@ -9,60 +9,58 @@
 {% endblock %}
 
 {% block main %}
-
-<div class="flex_item left">
-    <div class="content">
-        <h1>
-            My Cashflow Pal
-        </h1>
-        <section class="main-text">
+<div id="mainContent">
+    <div class="main_flex_item left">
+        <div class="content">
+            <h1 id="main_heading">
+                Cashflow Companion
+            </h1>
+            <section id="main_text">
+                <p>
+                    Are you sick of recalculating your cashflow round by round?
+                </p>
+                <p>
+                    We got you!
+                </p>
+                <p>
+                    Cashflow Companion - the only applicatiobn you will ever need to escape the rat race!
+                </p>
+            </section> 
+            <a class="button" id="startBtn" href="{{ url_for('playing.get_play') }}">
+                    Start playing
+            </a>
+        </div>
+    </div>
+    
+    <img src="{{ url_for('static', filename='images/rootpic.png') }}" alt="Photo of CashFlow" class="main_flex_item right">
+    
+    <div class="columns">
+        <section class="column" id="column1">
+            <h3>OUT OF THE RAT RACE</h3>
             <p>
-                Are you sick of recalculating your cashflow round by round?
-            </p>
-            <p>
-                We got you!
-            </p>
-            <p>
-                My Cashflow Pal - the only applicatiobn you will ever need to escape the rat race!
+                Battle your way out of the Rat Race by acquiring property, stocks, businesses and precious metals. Build up an arsenal of assets that will propel you into the fast track where real wealth is built.
             </p>
         </section>
-        <section class="buttons">  
-            <a class="button" href="{{ url_for('playing.get_play') }}">
-                Start playing
-            </a>
+        <section class="column" id="column2">
+            <h3>LEARNING BY DOING</h3>
+            <p>
+                Learn investing and wealth building strategies in a fun and experiential way. Investing is a skill most can't learn from a book. The alternative of learning in the real world could prove costly. You need to first understand your own behavior...
+            </p>
+        </section>
+        <section class="column" id="column3">
+            <h3>TEST NEW STRATEGIES</h3>
+            <p>
+                CASHFLOW not only teaches you how to invest and acquire assets but most importantly how you behave within investing scenarios. You can test out strategies for building wealth you might never try in real life. If you're a saver, try aggressive investing. If you're a risk-taker, try slow growth. Win and learn!
+            </p>
+        </section>
+        <section class="column" id="column4">
+            <h3>FAIL YOUR WAY UP</h3>
+            <p>
+                Do you get reckless when you're winning or fall apart when you're losing? Wouldn't it be better to learn these lessons on the gameboard than in the real world, with real money - your money. 
+            </p>
         </section>
     </div>
 </div>
 
-<div class="flex_item right">
-    <img src="{{ url_for('static', filename='images/rootpic.png') }}" alt="Photo of CashFlow" class="board_photo">
-</div>
-
-<div class="columns">
-    <section class="column" id="column1">
-        <h3>Lorem ipsum</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-        </p>
-    </section>
-    <section class="column" id="column2">
-        <h3>Lorem ipsum</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-        </p>
-    </section>
-    <section class="column" id="column3">
-        <h3>Lorem ipsum</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-        </p>
-    </section>
-    <section class="column" id="column4">
-        <h3>Lorem ipsum</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-        </p>
-    </section>
-</div>
 
 {% endblock %}

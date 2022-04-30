@@ -1,5 +1,6 @@
 main {
     --clr-bg: rgb(180, 90, 160);
+    min-height: auto;
 }
 
 .container::before {
@@ -22,7 +23,6 @@ main {
 }
 
 .container {
-    height: calc(100vh - 140px - 1px - 1px - 80px - 20px - 20px);
     width: 100%;
     overflow: auto;
     position: relative;
@@ -31,6 +31,8 @@ main {
     align-items: center;
     justify-items: center;
     gap: 1rem;
+
+    box-sizing: border-box;
 }
 
 .container > * {
@@ -44,16 +46,16 @@ main {
 /* FOR SETUP DIV */
 
 #setup {
+    /* height: calc(100% - var(--header-height) - 1px - 1px - var(--footer-height) - 6rem); */
     gap: 3rem;
+    /* padding: 3rem; */
     grid:
-        ".      .      .       .       .       .       .       .        ."  3rem
-        ".      exit   .       heading heading heading .       startG   ."  max-content
-        ".      .      first   .       .       .       second  .        ."  2fr
-        ".      pickP  pickP   pickP   .       chooseD chooseD chooseD  ."  1fr
-        ".      prof   prof    prof    .       dream   dream   dream    ."  5fr
-        ".      .      .       error   error   error   .       .        ."  3rem
-        ".      .      .       .       .       .       .       .        ."  3rem
-        / 3rem  2fr    2fr     2fr     0.5fr   2fr     2fr     2fr      3rem;
+        "exit   .       heading heading heading .       startG"  max-content
+        ".      first   .       .       .       second  ."  2fr
+        "pickP  pickP   pickP   .       chooseD chooseD chooseD"  max-content
+        "prof   prof    prof    .       dream   dream   dream"  5fr
+        ".      .       error   error   error   .       ."  3rem
+        / 2fr    2fr     2fr     0.5fr   2fr     2fr     2fr;
 }
 
 #exit {
@@ -183,7 +185,7 @@ p {
     flex-wrap: wrap;
 }
 
-hr {
+hr.divider {
     align-self: flex-start;
 
     width: 100%;
@@ -207,19 +209,19 @@ hr {
 
 
 #game {
+    /* min-height: calc(100% - var(--header-height) - 1px - 1px - var(--footer-height)); */
+    /* padding: 1rem; */
     grid:
-        ".      .       .       .       .       .       .       .       ."  0.5fr
-        ".      exitGame    .   headingGame headingGame headingGame       .       newGame       ."  max-content
-        ".      .       .       .       .       .       .       .       ."  max-content
-        ".      cashflowTotal progressDiv progressDiv progressDiv progressDiv progressDiv expensesTop ."  1fr
-        ".      cashflowList assets assets     ledger liabilities liabilities   expensesList ."  6fr
-        ".      incomePlus    .       .       .       .       .          expensesList ."  0.25fr
-        ".      salary marketAction marketAction Pay   Downsized Doodad     expensesList ."  0.5fr
-        ".      salary        Buy   Sell      Collect   TakeOut   PayOff     expensesList ."  0.5fr
-        ".      incomeEqual   .       .        topArrow   .       .          expensesEqual ." max-content
-        ".      totalIncome leftArrow leftArrow payday rightArrow rightArrow expensesBottom ."  1fr
-        ".      .       .       .       .       .       .       .       ."  0.5fr
-        / 0.5fr 2fr     2fr     2fr     2fr     2fr     2fr     2fr     0.5fr;
+        "exitGame    .   headingGame headingGame headingGame       .       newGame"  max-content
+        ".       .       .       .       .       .       ."  max-content
+        "cashflowTotal progressDiv progressDiv progressDiv progressDiv progressDiv expensesTop"  1fr
+        "cashflowList assets assets     ledger liabilities liabilities   expensesList"  6fr
+        "incomePlus    .       .       .       .       .          expensesList"  max-content
+        "salary marketAction marketAction Pay   Downsized Doodad     expensesList"  0.5fr
+        "salary        Buy   Sell      Collect   TakeOut   PayOff     expensesList"  0.5fr
+        "incomeEqual   .       .        topArrow   .       .          expensesEqual" max-content
+        "totalIncome leftArrow leftArrow payday rightArrow rightArrow expensesBottom"  1fr
+        / 2fr     2fr     2fr     2fr     2fr     2fr     2fr;
 }   
 
 #exitGame {
@@ -342,4 +344,11 @@ hr {
 
 #payday {
     grid-area: payday;
+}
+
+
+@media (max-height: 1000px) {
+    .sign {
+        font-size: 1.2rem;
+    }
 }

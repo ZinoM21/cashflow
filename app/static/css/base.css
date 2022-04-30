@@ -15,6 +15,12 @@
 
     --shadow-black: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
 
+    --header-height: 140px;
+    --footer-height: 80px;
+    --outer-distance: 20px;
+    
+
+
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -33,8 +39,8 @@ body > *:not(hr) {
 }
 
 main {
-    padding: 20px;
-    min-height: calc(100% - 140px - 1px - 1px - 80px);
+    padding: var(--outer-distance);
+    min-height: calc(100% - var(--header-height) - 1px - 1px - var(--footer-height));
 }
 
 a {
@@ -79,7 +85,7 @@ hr {
     height: 1px;
     background-color: white;
     border: 0;
-    margin: 0 20px;
+    margin: 0 var(--outer-distance);
     padding: 0;
 }
 
@@ -115,10 +121,10 @@ p {
 /* Header and everything inside: */
 
 header {
-    height: 140px;
+    height: var(--header-height);
     width: 100%;
     box-sizing: border-box;
-    padding: 20px;
+    padding: var(--outer-distance);
 }
 
 nav {
@@ -129,6 +135,24 @@ nav {
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
+}
+
+#hamMenu {
+    display: none;
+    aspect-ratio: 562 / 562; 
+    height: 42px;
+    background-image: url("../images/hamMenu-dark.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 0;
+}
+
+#hamMenuContent {
+    min-width: fit-content;
+}
+
+#hamMenuContent > a{
+    min-width: 200px;
 }
 
 #logo {
@@ -202,10 +226,10 @@ nav {
 /* Footer and everything inside: */
 
 footer {
-    height: 80px;
+    height: var(--footer-height);
     width: 100%;
     box-sizing: border-box;
-    padding: 20px;
+    padding: var(--outer-distance);
 
     position: relative;
 }
@@ -225,12 +249,18 @@ footer {
 }
 
 
-/* Media Queries  */
+/* --------- Media Queries ----------  */
+
+/* Dark / Light mode */
 
 @media (prefers-color-scheme: light) {
 
     :root {
         background-color: white;
+    }
+
+    hr {
+        background-color: black;
     }
 
 }
@@ -277,36 +307,82 @@ footer {
     #profilePic {
         background-image: url("../images/user-white.png");
     }
-}
 
-
-
-
-
-@media (max-width:700px) {
-    img#logo {
-        max-height: 50px;
-    }
-
-    .button#faq {
-        display: none;
+    #hamMenu {
+        background-image: url("../images/hamMenu-light.png");
     }
 }
 
-@media (max-width:560px) {
-    .button#signup {
+
+
+/* Responsive  */
+
+@media (max-width:1250px) {
+
+    header {
+        font-size: 0.8rem;
+    }
+
+    #logo {
+        height: 60px;
+    }
+
+}
+
+@media (max-width: 1030px) {
+
+    .navbar {
+        justify-content: space-between;
+    }
+    
+    #hamMenu {
+        display: inline-block;
+    }
+
+    #hamMenuContent {
+        left: 0;
+    }
+
+    .navLinks, #placeholder {
         display: none;
+    }
+
+}
+
+@media (max-width: 580px) {
+    
+    :root {
+        --outer-distance: 15px;
+        --header-height: 120px;
+    }
+
+    #logo {
+        height: 50px;
     }
 }
 
-@media (max-width: 470px) {
-    .button#login {
-        display: none;
+@media (max-width: 515px) {
+    
+    :root {
+        --outer-distance: 10px;
+        --header-height: 100px;
     }
+
+    #logo {
+        height: 40px;
+    }
+
 }
 
-@media (max-width: 400px) {
-    .button#buygame {
-        display: none;
+
+@media (max-width: 420px) {
+    
+    :root {
+        --header-height: 70px;
+    }
+
+    #logo {
+        aspect-ratio: 1 / 1;
+        background-image: url("../images/cf-logo-small.png");
     }
 }

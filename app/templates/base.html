@@ -28,23 +28,43 @@
             <header>
                 <nav class="navbar">
 
+                    <div class="dropdown" id="hamMenu">
+                        <div class="dropdown-content" id="hamMenuContent">
+                            <a class="button navBtn" href="{{ url_for('playing.get_play') }}">
+                                START PLAYING
+                            </a>
+        
+                            <a href="https://www.amazon.de/-/en/CASHFLOW-Investing-Kiyosaki-Updated-Version/dp/B0141IEJLW" 
+                                class="button navBtn" 
+                                id="buygame">
+                                BUY THE GAME
+                            </a>
+        
+                            <a href="{{ url_for('simple_pages.get_faq') }}" 
+                                class="button navBtn" 
+                                id="faq">
+                                F.A.Q.
+                            </a>
+                        </div>
+                    </div>
+
                     <a href="{{ url_for('simple_pages.root') }}" id="logo">
                     </a>
 
                     <div id="placeholder"></div>
 
-                    <a class="button navBtn" href="{{ url_for('playing.get_play') }}">
+                    <a class="button navBtn navLinks" href="{{ url_for('playing.get_play') }}">
                         START PLAYING
                     </a>
 
                     <a href="https://www.amazon.de/-/en/CASHFLOW-Investing-Kiyosaki-Updated-Version/dp/B0141IEJLW" 
-                        class="button navBtn" 
+                        class="button navBtn navLinks" 
                         id="buygame">
                         BUY THE GAME
                     </a>
 
                     <a href="{{ url_for('simple_pages.get_faq') }}" 
-                        class="button navBtn" 
+                        class="button navBtn navLinks" 
                         id="faq">
                         F.A.Q.
                     </a>
