@@ -7,14 +7,16 @@ header {
 }
 
 main {
-    color: black;
+    --clr-bg: rgb(24, 24, 24);
+    --clr-invers-text: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 div.content{
-    border: 2px solid black;
+    border: 2px solid var(--clr-bg);
     flex-basis: 75rem;
 }
 
@@ -25,14 +27,14 @@ div.content{
 .content_head {
     height: 10rem;
     padding: 1.25rem;
-    background-color: rgb(24, 24, 24);
-    color: white;
+    background-color: var(--clr-bg);
+    color: var(--clr-invers-text);
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
 }
 
-h1 {
+#head_heading {
     margin: 0;
 }
 
@@ -77,8 +79,8 @@ h3 {
     margin: 1.25rem auto;
     border-radius: 50px;
     padding: 5px 20px;
-    background-color: rgb(24, 24, 24);
-    color: white;
+    background-color: var(--clr-bg);
+    color: var(--clr-invers-text);
     font-size: 1.3rem;
 }
 
@@ -90,7 +92,7 @@ h3 {
 .line {
     width: 100%;
     margin: 5px 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--clr-bg);
 }
 
 .numbers {
@@ -102,7 +104,7 @@ h3 {
 #calc {
     grid-area: calc;
     margin: 0;
-    border: 2px solid black;
+    border: 2px solid var(--clr-bg);
     padding: 30px 20px 30px 40px;
     text-align: center;
     display: flex;
@@ -113,17 +115,33 @@ h3 {
 
 .num_box {
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid var(--clr-bg);
     padding: 10px 15px ;
     width: 80px;
 }
 
 .thin {
-    border: 1px solid black;
+    border: 1px solid var(--clr-bg);
 }
 
-@media (max-width:3000px) {
-    html {
+
+/* --------- Media Queries ----------  */
+
+/* Dark / Light mode */
+
+@media (prefers-color-scheme: dark) {
+    main {
+        --clr-bg: white;
+        --clr-invers-text: black;
+    }
+}
+
+
+
+/* Responsive  */
+
+@media (max-width:4000px) {
+    main {
         font-size: 1.6rem;
     }
 
@@ -133,7 +151,7 @@ h3 {
 }
 
 @media (max-width:2500px) {
-    html {
+    main {
         font-size: 1.5rem;
     }
 
@@ -143,21 +161,37 @@ h3 {
 }
 
 @media (max-width:2000px) {
-    html {
+    main {
         font-size: 1.2rem;
     }
 }
 
-@media (max-width:1700px) {
-    html {
+
+@media (max-width:1030px) {
+    main {
         font-size: 1rem;
     }
-}
 
-@media (max-width:950px) {
-    html {
-        font-size: 0.8rem;
+    .content_head {
+        height: 8rem;
     }
+    
+    span#profession{
+        font-size: 1.8em;
+    }
+
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    #goal {
+        font-size: 0.9rem;
+    }    
 
     .content_body {
         grid-template-columns: 2fr 1fr;
@@ -167,17 +201,20 @@ h3 {
     }
 }
 
-@media (max-width: 700px) {
-    main {
-        height: calc(100vh - 80px);
-    }
-}
-
-@media (max-width:560px) {
+@media (max-width:580px) {
     main {
         height: auto;
         padding: 20px 10vw;
     }
+
+    #head_heading {
+        font-size: 1.2rem;
+    }
+
+    #goal {
+        font-size: 0.7rem;
+    }    
+
     .content_body {
         width: calc(100% - 2.5rem);
         grid-template-columns: 1fr;
@@ -193,12 +230,12 @@ h3 {
     }
 }
 
-@media (max-width:320px) {
-    html {
-        font-size: 0.7rem;
+@media (max-width:450px) {
+    main {
+        font-size: 0.8rem;
     }
 
     main {
-        padding: 0;
+        padding: var(--outer-distance) 0;
     }
 }
