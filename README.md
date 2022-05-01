@@ -2,6 +2,17 @@
 
 ---
 
+### Table of contents
+
+* [Description](#description)
+* [Features](#features)
+* [Challenges along the Way](#challenges-along-the-way)
+* [How to Install and  Run the application](#how-to-install-and-run-the-application)
+* [How to Use ](#how-to-use)
+* [Credits](#credits)
+
+---
+
 ## Description
 
 ### Problem
