@@ -30,7 +30,11 @@ def get_imprint():
     return render_template('simple_pages/imprint.html')
 
 
-### IMPRINT ###
+### PRIVACY ###
 @blueprint.get('/privacy')
 def get_privacy():
     return render_template('simple_pages/privacy.html')
+
+@blueprint.route('/start')
+def privacy_redirect():
+    return redirect(url_for('simple_pages.get_privacy'))
