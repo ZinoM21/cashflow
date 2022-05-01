@@ -5,6 +5,11 @@
 main {
     max-width: 900px;
     margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: column wrap;
 }
 
 h1 {
@@ -20,13 +25,12 @@ h2 {
 }
 
 h3 {
-    margin-bottom: 10px;
     font-weight: 400;
     font-size: 1.2rem;
 }
 
 p {
-    margin: 30px auto;
+    margin: 1.5rem 0;
     font-weight: 400;
     color: rgb(154, 154, 154);
 }
@@ -34,7 +38,9 @@ p {
 #accountForm {
     box-sizing: border-box;
     width: 100%;
-    border: 2px solid var(--c2);
+    padding: var(--outer-distance);
+
+    border: 2px solid white;
     border-radius: 10px;
     text-align: left;
 }
@@ -42,15 +48,16 @@ p {
 ul {
     padding: 0;
     list-style: none;
+
     display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
-    gap: 15px;
-    row-gap: 30px;
+    gap: 1rem;
+    row-gap: 1.8rem;
 }
 
 li {
-    flex: 1 1 300px;
+    flex: 1 1 18rem;
 }
 
 input {
@@ -58,7 +65,10 @@ input {
 }
 
 #buttons { 
-    align-self: center;
+    align-self: flex-end;
+    flex: 2 1 18rem;
+    min-width: fit-content;
+
     display: flex;
 }
 
@@ -82,4 +92,39 @@ input {
 
 #delInfo {
     margin: 0 auto;
+    margin-top: var(--outer-distance);
+
+    display: block;
+    text-align: center;
 }
+
+/* --------- Media Queries ----------  */
+
+/* Dark / Light mode */
+
+@media (prefers-color-scheme: light) {
+   
+    #accountForm {
+        border-color: var(--bg-dark);
+    }
+
+
+}
+
+
+/* Responsive  */
+
+@media (max-width: 455px) {
+
+    #buttons {
+        flex-flow: row wrap;
+    }
+
+    #deleteBtn {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+}
+
