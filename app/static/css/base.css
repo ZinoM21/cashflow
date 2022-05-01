@@ -118,6 +118,18 @@ p {
     background-color: var(--bg-dark);
 }
 
+.remove_flashed {
+    height: 2em;
+    margin-left: 0.5em;
+    border-radius: 0;
+}
+
+.remove_flashed:hover {
+    transform: scale(0.8);
+    box-shadow: inset var(--shadow-black);
+    cursor: pointer;
+}
+
 
 /* Header and everything inside: */
 

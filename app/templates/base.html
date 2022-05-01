@@ -20,6 +20,7 @@
             <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='/images/favicon-cf.ico') }}">
             <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
             {% block csslink %}{% endblock %}
+            <script defer src="{{ url_for('static', filename='js/base.js') }}"></script>
             {% block jslink %}{% endblock %}
         {% endblock %}
     </head>
@@ -127,6 +128,7 @@
                     {% for message in messages %}
                         <span class="flashed">
                             {{ message }}
+                            <span class="remove_flashed">❌</span>
                         </span>
                     {% endfor %}
                 {% endif %}
