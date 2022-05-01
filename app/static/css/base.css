@@ -125,7 +125,6 @@ p {
 }
 
 .remove_flashed:hover {
-    transform: scale(0.8);
     box-shadow: inset var(--shadow-black);
     cursor: pointer;
 }
