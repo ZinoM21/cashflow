@@ -1,6 +1,8 @@
 main {
     --clr-bg: rgb(180, 90, 160);
-    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container::before {
@@ -9,11 +11,8 @@ main {
     inset: 0;
     z-index: -1;
 
-    display: block;
-    background-image: url("../../images/setup-bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;    
+    display: block; 
+  
 
     -webkit-filter: blur(15px);
     -moz-filter: blur(15px);
@@ -24,6 +23,8 @@ main {
 
 .container {
     width: 100%;
+    height: 70vh;
+    padding: 1rem;
     overflow: auto;
     position: relative;
 
@@ -60,10 +61,16 @@ main {
 
 #exit {
     grid-area: exit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #start {
     grid-area: startG;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #first {
@@ -126,6 +133,12 @@ main {
 
 #error {
     grid-area: error;
+    background-color: white;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -136,6 +149,26 @@ h1 {
 
 
 /* FOR GAME DIV */
+
+#progressBarOuter {
+    width: 100%;
+    height: 30%;
+    padding: 0 1px;
+    background-color: white;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#progressBarInner {
+    width: 1%;
+    height: 90%;
+    background-color: var(--clr-yellow);
+    border-radius: 20px;
+}
+
 
 .box {
     background-color: var(--clr-bg);
@@ -226,10 +259,16 @@ hr.divider {
 
 #exitGame {
     grid-area: exitGame;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #newGame {
     grid-area: newGame;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #headingGame {

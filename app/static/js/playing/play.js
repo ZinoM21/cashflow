@@ -97,12 +97,8 @@ const startButton = document.getElementById('start');
 
 startButton.addEventListener('click', (e) => {
     
-    e.preventDefault()
-
     var chosenProfessionID = document.getElementById("hiddenID").innerText;
     var chosenDream = writtenDream.innerText;
-
-    
 
     if (chosenProfessionID && chosenDream) {
         
@@ -111,18 +107,6 @@ startButton.addEventListener('click', (e) => {
 
         initialize_stats(chosenProfessionID, chosenDream);
         
-        // var xhr = new XMLHttpRequest();
-        // xhr.open("POST", post_url, true);
-        // xhr.setRequestHeader('Content-Type', 'application/json');
-        // xhr.send(JSON.stringify({
-        //     id: chosenProfessionID,
-        //     dream: chosenDream
-        //     }));
-        // xhr.onload = function() {
-        //     var new_url = this.responseURL;
-        //     console.log(this.response);
-        //     window.location.href=new_url + "/" + chosenProfessionID + "/" + chosenDream;
-        // };
     } else {
         let messages = []
         messages.push('Please pick a profession & write down your dream.');
@@ -139,8 +123,7 @@ startButton.addEventListener('click', (e) => {
 
 // ------------- THE GAME -----------------
 
-
-// --- Initialize stats ---
+// ------ Functions -------
 async function initialize_stats(id, dream) {
 
     // Get data with route to API
@@ -174,10 +157,14 @@ async function initialize_stats(id, dream) {
 
     var payday = totalIncome - expenses;
 
+    var cash = payday;
+
     var homeLoan = parseInt(chosenProfession["Home Mortgage"]);
     var schoolLoan = parseInt(chosenProfession["School Loans"]);
     var carLoan = parseInt(chosenProfession["Car Loans"]);
     var creditDebt = parseInt(chosenProfession["Credit Card Debt"]);
+
+    var progressPercentage = Math.round((cashflow / expenses) * 100)
 
 
     // Add initial stats to view
@@ -224,10 +211,14 @@ async function initialize_stats(id, dream) {
     var liabilitiesListElementCredit = createListElement("Credit Card Debt", creditDebt);
     document.getElementById('liabilitiesContainer').appendChild(liabilitiesListElementCredit);
 
+    var cashElement = createListElement("Cash", cash);
+    cashElement.setAttribute('id', 'cashElement');
+    document.getElementById('ledgerContainer').appendChild(cashElement);
 
     document.getElementById('paydayNUM').innerText = payday;
-}
 
+    setProgress(progressPercentage);
+}
 
 function createListElement (name, number) {
     const element = document.createElement("div");
@@ -245,3 +236,23 @@ function createListElement (name, number) {
 
     return element
 }
+
+function setProgress (percent) {
+    const percentage = document.getElementById('percentage');
+    percentage.innerText = percent;
+
+    const bar = document.getElementById('progressBarInner');
+    bar.style.width = String(percent) + "%";
+}
+
+
+// ----- Event Listeners for all buttons -----
+
+const buy = document.getElementById('Buy')
+const sell = document.getElementById('Sell')
+const pay = document.getElementById('Pay')
+const collect = document.getElementById('Collect')
+const downsized = document.getElementById('Sell')
+const doodad = document.getElementById('Doodad')
+const takeout = document.getElementById('TakeOut')
+const payoff = document.getElementById('PayOff')

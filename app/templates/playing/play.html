@@ -66,14 +66,18 @@
 
     <a href="{{ url_for('simple_pages.root') }}" class="button gameBtn" id="exitGame">EXIT</a>
 
-    <button class="button gameBtn" id="newGame">NEW</button>
+    <a href="{{ url_for('playing.get_play') }}" class="button gameBtn" id="newGame">NEW</a>
 
     <h1 id="headingGame"></h1>
 
     <div id="progress" class="box">
         <h3>
-            ESCAPTING THE RAT RACE ... (<span id="percantage">0</span>%)
+            ESCAPTING THE RAT RACE ... (<span id="percentage">0</span>%)
         </h3>
+        <div id="progressBarOuter">
+            <div id="progressBarInner">
+            </div>
+        </div>
     </div>
 
 
@@ -171,7 +175,7 @@
     </section>
 
     <section id="ledger" class="box">
-        <div class="headWithHR">
+        <div class="headWithHR" id="ledgerContainer">
             <h3>
                 Ledger
             </h3>
