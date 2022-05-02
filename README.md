@@ -7,6 +7,8 @@
 * [Description](#description)
 * [Features](#features)
 * [Challenges along the Way](#challenges-along-the-way)
+* [Future Features](#future-features)
+* [Tech Stack](#technology-stack)
 * [How to Install and  Run the application](#how-to-install-and-run-the-application)
 * [How to Use ](#how-to-use)
 * [Credits](#credits)
@@ -62,7 +64,41 @@ The app should do that while also being very intuitively designed so that every 
 ---
 
 ## Challenges along the Way
-more to come here
+
+### Achievements & Successes
+
+The website has many working routes, is responsive for almost every screen size on almost every page and is connected to a database.
+
+Users are able to create an account, log in and change their data.
+
+They can also setup a game with a specific profession that takes data from and API and a database.
+
+### Failures
+
+Reviewing my MVP expectaions at the end of the project phase, I clearly underestimated the time it takes to write good JavaScript code. I did not think that the backend and deployment would take so much work, nor have I thought about the time required to design good-looking layouts. My final project does not match my MVP.
+
+I recognized that a setup should be included in the MVP so I started working on that function first, completely forgetting about the main function of the app: doing the actual calulations. 
+
+I ended up with a good looking and clean coded application which does not serves any purpose at the end.
+
+---
+
+## Future Features
+
+As you can read in failures, the primary feature of the application does not work. This would be my starting point for future development. 
+
+Using another module at my university to recode the whole project in another language like Node or Express could be another idea for the future too because I would really love to get deeper into the frontend an JavaScript topics.
+
+---
+
+## Technology stack
+
+* Application Code: Flask
+* Model: SQLAlchemy & Migrate
+* View: Jinja2
+* Language Interpreter / Engine: Python3
+* Database: SQLite3
+* Web Server: Flask
 
 ---
 
@@ -134,6 +170,8 @@ It is pretty easy.
 
 If you want to start a game, press start playing on the landing page or in the navigation bar.
 
+> Note: I did not achieve to program the main function of the app. You are only able to setup the game. [More on that](#failures).
+
 If you want to log in to save your games, click the account button at the top right.
 
 If you want to go to the landing page, just click on the "Cashflow Companion" logo at the top left. 
@@ -143,4 +181,4 @@ If you want to go to the landing page, just click on the "Cashflow Companion" lo
 ---
 
 ## Credits
-more to come here
+
