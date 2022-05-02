@@ -182,3 +182,4 @@ If you want to go to the landing page, just click on the "Cashflow Companion" lo
 
 ## Credits
 
+Thanks a lot to [CODE University](https://code.berlin) & our lecturer Sam!
