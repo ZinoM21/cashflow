@@ -150,10 +150,8 @@ You will need to run four commands in your terminal to set up the database and f
 
 > Be sure that your virtual environment is activated and you did step 4!
 
-1. `flask db init`
-2. `flask db migrate -m 'first migration'`
-3. `flask db upgrade`
-4. `python -m app.scripts.seed`
+1. `flask db upgrade`
+2. `python -m app.scripts.seed`
 
 ### 6. Run the server
 
