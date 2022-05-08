@@ -144,6 +144,8 @@ Then run `python -m pip install -r requirements.txt`
 
 This will install all packages that are used in this project automatically. No need to install extra packages.
 
+> Important: I found out that you probably need to restart either your IDE or your terminal, dependent on wherre you wrote the prevoius commands.
+
 ### 5. Database Setup
 
 You will need to run four commands in your terminal to set up the database and fill it with some initial data for the game:
