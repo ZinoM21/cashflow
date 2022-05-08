@@ -169,7 +169,7 @@ nav {
 
 #logo {
     aspect-ratio: 4096 / 594; 
-    height: 5rem;
+    height: 5em;
     background-image: url("../images/cf-logo-black.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -349,13 +349,9 @@ footer {
         font-size: 0.8rem;
     }
 
-    #logo {
-        height: 60px;
-    }
-
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 1055px) {
 
     .navbar {
         justify-content: space-between;
@@ -375,7 +371,7 @@ footer {
 
 }
 
-@media (max-width: 580px) {
+@media (max-width: 605px) {
     
     :root {
         --outer-distance: 15px;
@@ -383,7 +379,7 @@ footer {
     }
 
     #logo {
-        height: 50px;
+        height: 4em;
     }
 }
 
@@ -395,7 +391,7 @@ footer {
     }
 
     #logo {
-        height: 40px;
+        height: 3em;
     }
 
 }
