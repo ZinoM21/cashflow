@@ -9,11 +9,13 @@
 {% endblock %}
 
 {% block main %}
-<div id="mainContent">
+<div class="main_section section_1">
     <div class="main_flex_item left">
         <div class="content">
             <h1 id="main_heading">
-                Cashflow Companion
+                No more math.
+                <br>
+                Just Enjoy.
             </h1>
             <section id="main_text">
                 <p>
@@ -26,15 +28,17 @@
                     Cashflow Companion - the only application you will ever need to escape the rat race!
                 </p>
             </section> 
-            <a class="button" id="startBtn" href="{{ url_for('playing.get_play') }}">
+            <a class="button primary_btn" id="startBtn" href="{{ url_for('playing.get_play') }}">
                     Start playing
             </a>
         </div>
     </div>
     
-    <img src="{{ url_for('static', filename='images/rootpic.png') }}" alt="Photo of CashFlow" class="main_flex_item right">
+    <img src="{{ url_for('static', filename='images/rootgraphic.png') }}" alt="Photo of CashFlow" class="main_flex_item right">
     
-    <div class="columns">
+</div>
+
+    <div class="main_section section_2">
         <section class="column" id="column1">
             <h3>OUT OF THE RAT RACE</h3>
             <p>
@@ -60,7 +64,6 @@
             </p>
         </section>
     </div>
-</div>
 
 
 {% endblock %}

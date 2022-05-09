@@ -1,13 +1,16 @@
 /* Main and everything inside: */
 
-#mainContent {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
+.main_section {
+    margin: 0 4rem;
 }
 
-.main_flex_item {
-    flex-basis: calc(100% / 12 * 6);
+.section_1 {
+    margin: 1rem 4rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
 }
 
 /* Text */
@@ -17,17 +20,25 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
+    flex-basis: 50%;
+    margin: 3rem 0;
 }
 
 #main_heading {
     margin-top: 0;
     margin-bottom: 30px;
 
-    font-weight: 500;
+    font-size: 5em;
+    font-weight: 600;
 }
 
-.content {
-    width:70%;
+#main_text {
+    font-size: 1.3em;
+}
+
+p {
+    margin: 10px auto;
 }
 
 #startBtn {
@@ -39,20 +50,24 @@
 /* Photo */
 
 .right {
-    max-width: 50%;
+    max-width: 40%;
+    max-height: 650px;
+    flex-basis: 50%;
+    margin: 0 auto;
 }
 
 /* Columns */
 
-.columns {
+.section_2 {
     padding: 20px 0;
+    margin: 0;
 
     display: flex;
     flex-flow: row wrap;
 }
 
-.columns > section {
-    flex: 1 1 140px;
+.section_2 > section {
+    flex: 1 1 200px;
     margin: 40px;
     text-align: center;
 }
@@ -66,10 +81,10 @@ h3 {
 
 /* Responsive  */
 
-@media (max-width:1250px) {
+@media (max-width:1290px) {
 
-    main {
-        font-size: 0.8rem;
+    #main_heading {
+        font-size: 4em;
     }
 
     #startBtn {
@@ -77,7 +92,11 @@ h3 {
     }
 }
 
-@media (max-width: 1055px) {
+@media (max-width: 1065px) {
+
+    .section_1 {
+        flex-flow: column-reverse nowrap;
+    }
 
     #main_heading {
         margin-bottom: 20px; 
@@ -87,13 +106,20 @@ h3 {
         margin: 10px auto;
     }
 
+    .left {
+        flex-basis: 100%;
+    }
+
+    .right {
+        max-height: 300px;
+        aspect-ratio: 1108 / 1468;
+        object-fit: cover;
+    }
 }
 
 @media (max-width: 775px) {
     
-    .main_flex_item {
-        flex-basis: 100%;
-    }
+    
 
     .left {
         height: 340px;
@@ -101,16 +127,18 @@ h3 {
 
     .right {
         max-width: 100%;
-        object-fit: cover;
-        aspect-ratio: 3 / 1;
     }
     
 }
 
-@media (max-width: 515px) {
+@media (max-width: 625px) {
     
     main {
-        font-size: 0.7rem;
+        font-size: 1rem;
+    }
+
+    .section_1 {
+        margin: 0;
     }
 
     .left {
@@ -118,10 +146,14 @@ h3 {
     }
     
     .content {
-        width:90%;
+        width:100%;
     }
 
-    .columns > section {
+    .right {
+        max-height: 200px;
+    }
+
+    .section_2 > section {
         margin: 20px;
     }
 
