@@ -59,8 +59,8 @@ p {
 /* Columns */
 
 .section_2 {
-    padding: 20px 0;
-    margin: 0;
+    margin: 20px 0;
+    padding: 0;
 
     display: flex;
     flex-flow: row wrap;
@@ -157,4 +157,23 @@ h3 {
         margin: 20px;
     }
 
+}
+
+@media (max-width: 430px) {
+    
+    .right {
+        margin: 2em 0;
+    }
+
+    .left {
+        margin: 0;
+    }
+    
+    .content {
+        text-align: center;
+    }
+
+    .section_2 {
+        margin: 2em 0;
+    }
 }
