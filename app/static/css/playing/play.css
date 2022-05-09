@@ -1,5 +1,6 @@
 main {
-    --clr-bg: rgb(180, 90, 160);
+    /* --clr-bg: rgb(180, 90, 160); */
+    --clr-bg: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,6 +191,10 @@ h3 {
     font-size: 1.1rem;
 }
 
+span {
+    font-size: 1.1rem;
+}
+
 p {
     margin: 0;
 }
@@ -200,7 +205,7 @@ p {
 }
 
 .sign {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -289,6 +294,7 @@ hr.divider {
 
 #incomePlus {
     grid-area: incomePlus;
+    font-size: 1.5rem;
 }
 
 #salary {
@@ -297,6 +303,7 @@ hr.divider {
 
 #incomeEqual {
     grid-area: incomeEqual;
+    font-size: 1.5rem;
 }
 
 #totalIncome {
@@ -313,6 +320,7 @@ hr.divider {
 }
 #expensesEqual {
     grid-area: expensesEqual;
+    font-size: 1.5rem;
 
 }
 #expensesBottom {
@@ -384,6 +392,13 @@ hr.divider {
 #payday {
     grid-area: payday;
 }
+
+@media (prefers-color-scheme: dark) {
+    main {
+        --clr-bg: rgba(255, 255, 255, 0.08);
+    }
+}
+
 
 
 @media (max-height: 1000px) {
