@@ -8,8 +8,8 @@
     <script>
         const api_url = "{{ url_for('api.professions') }}";
     </script>
-    <script defer src="{{ url_for('static', filename='js/playing/setup.js') }}"></script>
-    <script defer src="{{ url_for('static', filename='js/playing/play.js') }}"></script>
+    <script defer type="module" src="{{ url_for('static', filename='js/playing/setup.js') }}"></script>
+    <script defer type="module" src="{{ url_for('static', filename='js/playing/play.js') }}"></script>
 {% endblock %}
 
 {% block title %}

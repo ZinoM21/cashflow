@@ -1,5 +1,4 @@
 
-
 // -------------------- SETUP --------------------
 
 // --- OBJECTS FOR BELOW ---
@@ -53,8 +52,6 @@ function show(id, data) {
         }
     });
 }
-
-
 
 
 // -------- SET DREAM --------
@@ -132,7 +129,7 @@ class Player {
         return this.expenses() / this.cashflow();
     };
 };
-
+const player = new Player();
 
 // ---- START BUTTON ----
 
@@ -147,7 +144,9 @@ startButton.addEventListener('click', (e) => {
         
         changeToGameView();
 
-        const player = new Player(inputID, inputDream);
+        player.professionID = inputID;
+
+        player.dream = inputDream;
 
         initialize_stats(player, allProfessionsData.json_data);
 
@@ -295,3 +294,5 @@ function setProgress (percent) {
     const bar = document.getElementById('progressBarInner');
     bar.style.width = String(percent) + "%";
 };
+
+export {player, render_stats};
