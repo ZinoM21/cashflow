@@ -245,6 +245,19 @@ hr.divider {
     text-align: left;
 }
 
+.flexListBox {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.flexList {
+    width: 100%;
+    flex: 1 1 0px;
+    overflow: auto;
+}
+
 
 #game {
     /* min-height: calc(100% - var(--header-height) - 1px - 1px - var(--footer-height)); */
@@ -253,10 +266,10 @@ hr.divider {
         "exitGame    .   headingGame headingGame headingGame       .       newGame"  max-content
         ".       .       .       .       .       .       ."  max-content
         "cashflowTotal progressDiv progressDiv progressDiv progressDiv progressDiv expensesTop"  1fr
-        "cashflowList assets assets     ledger liabilities liabilities   expensesList"  6fr
-        "incomePlus    .       .       .       .       .          expensesList"  max-content
-        "salary marketAction marketAction Pay   Downsized Doodad     expensesList"  0.5fr
-        "salary        Buy   Sell      Collect   TakeOut   PayOff     expensesList"  0.5fr
+        "cashflow assets assets     ledger liabilities liabilities   expenses"  6fr
+        "incomePlus    .       .       .       .       .          expenses"  max-content
+        "salary marketAction marketAction Pay   Downsized Doodad     expenses"  0.5fr
+        "salary        Buy   Sell      Collect   TakeOut   PayOff     expenses"  0.5fr
         "incomeEqual   .       .        topArrow   .       .          expensesEqual" max-content
         "totalIncome leftArrow leftArrow payday rightArrow rightArrow expensesBottom"  1fr
         / 2fr     2fr     2fr     2fr     2fr     2fr     2fr;
@@ -289,8 +302,8 @@ hr.divider {
     grid-area: cashflowTotal;
 }
 
-#cashflowList {
-    grid-area: cashflowList;
+#cashflow {
+    grid-area: cashflow;
 }
 
 #incomePlus {
@@ -315,8 +328,8 @@ hr.divider {
     grid-area: expensesTop;
 
 }
-#expensesList {
-    grid-area: expensesList;
+#expenses {
+    grid-area: expenses;
 
 }
 #expensesEqual {
@@ -335,6 +348,10 @@ hr.divider {
 
 #ledger {
     grid-area: ledger;
+}
+
+#cash {
+    font-weight: bold;
 }
 
 #liabilities {

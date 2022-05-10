@@ -93,10 +93,13 @@
         </p>
     </div>
 
-    <section id="cashflowList" class="box">
+    <section id="cashflow" class="box flexListBox">
         <div class="headWithHR sign">
             <span>^</span><span>^</span>
             <hr class="divider">
+        </div>
+        <div class="flexList" id="cashflowContainer">
+
         </div>
         
 
@@ -140,13 +143,14 @@
         </p>
     </div>
 
-    <section id="expensesList" class="box">
-        <div class="headWithHR sign" id="expensesListContainer">
+    <section id="expenses" class="box flexListBox">
+        <div class="headWithHR sign">
             <span>^</span><span>^</span>
             <hr class="divider">
         </div>
-        
+        <div class="flexList" id="expensesContainer">
 
+        </div>
     </section>
 
     <div id="expensesEqual" class="sign">
@@ -166,30 +170,46 @@
 
     <!-- CENTER ELEMEMTS -->
 
-    <section id="assets" class="box">
+    <section id="assets" class="box flexListBox">
         <div class="headWithHR">
             <h3>
                 Assets
             </h3>
             <hr class="divider">
         </div>
+        <div class="flexList" id="assetsContainer">
+
+        </div>
     </section>
 
-    <section id="ledger" class="box">
-        <div class="headWithHR" id="ledgerContainer">
+    <section id="ledger" class="box flexListBox">
+        <div class="headWithHR">
             <h3>
                 Ledger
             </h3>
             <hr class="divider">
         </div>
+        <div class="flexList" id="ledgerContainer">
+
+        </div>
+        <div class="headWithHR">
+            <hr class="divider">
+            <div class="ListElement" id="cash">
+                <span class="ListElementName">Cash</span>
+                <span class="ListElementNumber" id="cashNUM"></span>
+            </div>
+        </div>
     </section>
 
-    <section id="liabilities" class="box">
-        <div class="headWithHR" id="liabilitiesContainer">
+    <section id="liabilities" class="box flexListBox">
+        <div class="headWithHR">
             <h3>
                 Liabilities
             </h3>
             <hr class="divider">
+        </div>
+        <div class="flexList" id="liabilitiesContainer">
+
         </div>
     </section>
 

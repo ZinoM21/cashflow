@@ -19,8 +19,6 @@ const pickProfession = document.getElementById('pickProfession');
 
 pickProfession.addEventListener('click', (e) => {
     
-    console.log(allProfessionsData.json_data);
-    
     var ids_list = [];
     for (let profession of allProfessionsData.json_data) {
         ids_list.push(profession["id"]);
@@ -98,6 +96,41 @@ class Player {
         this.professionID = id;
         this.dream = dream;
     };
+
+    cashflow() {
+        if (this.cashflow_dict) {
+            return Object.values(this.cashflow_dict).reduce((a, b) => a + b);
+        }
+        else {
+            return 0;
+        }
+    };
+
+    assets() {
+        if (this.assets_dict) {
+            return Object.values(this.assets_dict).reduce((a, b) => a + b);
+        }
+    };
+
+    expenses() {
+        return Object.values(this.expenses_dict).reduce((a, b) => a + b);
+    };
+
+    liabilities() {
+        return Object.values(this.liabilities_dict).reduce((a, b) => a + b);
+    }
+
+    totalIncome() {
+        return this.salary + this.cashflow();
+    };
+
+    payday() {
+        return this.totalIncome() - this.expenses();
+    };
+
+    progress() {
+        return this.expenses() / this.cashflow();
+    };
 };
 
 
@@ -114,17 +147,11 @@ startButton.addEventListener('click', (e) => {
         
         changeToGameView();
 
-        // for (let profession of allProfessionsData.json_data) {
-        //     ids_list.push(profession["id"]);
-        // };
-        
         const player = new Player(inputID, inputDream);
 
         initialize_stats(player, allProfessionsData.json_data);
 
-        console.log(player.professionID)
-
-        //render_stats();
+        render_stats(player);
     
     } else {
         let messages = []
@@ -163,89 +190,73 @@ function initialize_stats(player, data) {
     // --- Set variables ---
     for (let profession of data) {
         if (player.professionID == profession["id"]) {
+
             player.professionName = profession["Name"]
 
-            player.cashflow = parseInt(profession["Cashflow"]);
+            // player.cashflow = parseInt(profession["Cashflow"]);
             player.salary = parseInt(profession["Salary"]);
-            player.totalIncome = player.cashflow + player.salary;
+            // player.sumIncome();
+            // player.totalIncome = player.cashflow + player.salary;
+
+            player.expenses_dict = {
+                "Taxes": parseInt(profession["Taxes"]),
+                "Other Expenses": parseInt(profession["Other Expenses"]),
+                "Home Mortgage Payment": parseInt(profession["Home Mortgage Payment"]), 
+                "School Loan Payment": parseInt(profession["School Loan Payment"]),
+                "Car Loan Payment": parseInt(profession["Car Loan Payment"]),
+                "Credit Card Payment": parseInt(profession["Credit Card Payment"]),                
+                "Bank Loan Payment": parseInt(profession["Bank Loan Payment"]),
+            };
         
-            player.taxes = parseInt(profession["Taxes"]);
-            player.otherExp = parseInt(profession["Other Expenses"]);
-            player.homePayment = parseInt(profession["Home Mortgage Payment"]);
-            player.schoolPayment = parseInt(profession["School Loan Payment"]);
-            player.carPayment = parseInt(profession["Car Loan Payment"]);
-            player.creditPayment = parseInt(profession["Credit Card Payment"]);
-            player.bankPayment = parseInt(profession["Bank Loan Payment"]);
         
-            player.expenses = player.taxes + player.otherExp + player.homePayment + player.schoolPayment + player.carPayment + player.creditPayment + player.bankPayment;
+            player.cash = player.payday();
+
+            player.liabilities_dict = {
+                "Home Mortgage": parseInt(profession["Home Mortgage"]),
+                "School Loans": parseInt(profession["School Loans"]),
+                "Car Loans": parseInt(profession["Car Loans"]),
+                "Credit Card Debt": parseInt(profession["Credit Card Debt"]),
+            };
         
-            player.payday = player.totalIncome - player.expenses;
-        
-            player.cash = player.payday;
-        
-            player.homeLoan = parseInt(profession["Home Mortgage"]);
-            player.schoolLoan = parseInt(profession["School Loans"]);
-            player.carLoan = parseInt(profession["Car Loans"]);
-            player.creditDebt = parseInt(profession["Credit Card Debt"]);
-        
-            player.progressPercentage = Math.round((player.cashflow / player.expenses) * 100)
+            player.progressPercentage = Math.round((player.cashflow() / player.expenses()) * 100)
         };  
     };
-
-
-    // Add initial stats to view
-    document.getElementById('headingGame').innerText = player.professionName;
-
-    document.getElementById('cashflowTotalNUM').innerText = player.cashflow;
-    document.getElementById('salaryNUM').innerText = player.salary;
-    document.getElementById('totalIncomeNUM').innerText = player.totalIncome;
-                                        
-    document.getElementById('expensesTopNUM').innerText = player.expenses;
-    document.getElementById('expensesBottomNUM').innerText = player.expenses;
-   
-    var expensesListElementTaxes = createListElement("Taxes", player.taxes);
-    document.getElementById('expensesListContainer').appendChild(expensesListElementTaxes);
-
-    var expensesListElementOther = createListElement("Other Expenses", player.otherExp);
-    document.getElementById('expensesListContainer').appendChild(expensesListElementOther);
-
-    var expensesListElementHome = createListElement("Home Mortgage Payment", player.homePayment);
-    document.getElementById('expensesListContainer').appendChild(expensesListElementHome); 
-    
-    var expensesListElementSchool = createListElement("School Loan Payment", player.schoolPayment);
-    document.getElementById('expensesListContainer').appendChild(expensesListElementSchool);
-    
-    var expensesListElementCar = createListElement("Car Loan Payment", player.carPayment);
-    document.getElementById('expensesListContainer').appendChild(expensesListElementCar);
-
-    var expensesListElementCredit = createListElement("Credit Card Payment", player.creditPayment);
-    document.getElementById('expensesListContainer').appendChild(expensesListElementCredit);
-
-    var expensesListElementBank = createListElement("Bank Loan Payment", player.bankPayment);
-    document.getElementById('expensesListContainer').appendChild(expensesListElementBank);
-    
-
-    var liabilitiesListElementHome = createListElement("Home Mortgage", player.homeLoan);
-    document.getElementById('liabilitiesContainer').appendChild(liabilitiesListElementHome);
-
-    var liabilitiesListElementSchool = createListElement("School Loans", player.schoolLoan);
-    document.getElementById('liabilitiesContainer').appendChild(liabilitiesListElementSchool);
-
-    var liabilitiesListElementCar = createListElement("Car Loans", player.carLoan);
-    document.getElementById('liabilitiesContainer').appendChild(liabilitiesListElementCar);
-
-    var liabilitiesListElementCredit = createListElement("Credit Card Debt", player.creditDebt);
-    document.getElementById('liabilitiesContainer').appendChild(liabilitiesListElementCredit);
-
-    var cashElement = createListElement("Cash", player.cash);
-    cashElement.setAttribute('id', 'cashElement');
-    document.getElementById('ledgerContainer').appendChild(cashElement);
-
-    document.getElementById('paydayNUM').innerText = player.payday;
-
-    setProgress(player.progressPercentage);
 }
 
+function render_stats(player) {
+    // Add stats to view
+
+    // Income
+    document.getElementById('headingGame').innerText = player.professionName;
+    document.getElementById('cashflowTotalNUM').innerText = player.cashflow();
+    renderList(player.cashflow_dict, document.getElementById('cashflowContainer'));
+    
+    document.getElementById('salaryNUM').innerText = player.salary;
+    document.getElementById('totalIncomeNUM').innerText = player.totalIncome();
+
+    // Assets
+    renderList(player.assets_dict, document.getElementById('assetsContainer'));                       
+
+    // Expenses
+    document.getElementById('expensesTopNUM').innerText = player.expenses();
+    document.getElementById('expensesBottomNUM').innerText = player.expenses();
+   
+    renderList(player.expenses_dict, document.getElementById('expensesContainer'));
+
+    // Liabilities
+    renderList(player.liabilities_dict, document.getElementById('liabilitiesContainer'));
+
+    // Ledger / Cash
+    document.getElementById('cashNUM').innerText = player.cash + "€";
+
+    renderList(player.ledger_dict, document.getElementById('ledgerContainer'));
+
+    // Payday
+    document.getElementById('paydayNUM').innerText = player.payday();
+
+    // Progress bar
+    setProgress(player.progressPercentage);
+};
 
 function createListElement (name, number) {
     const element = document.createElement("div");
@@ -262,7 +273,20 @@ function createListElement (name, number) {
     element.appendChild(elementNumber);
 
     return element
-}
+};
+
+function renderList (dict, html_container) {
+    while (html_container.lastElementChild) {
+        html_container.removeChild(html_container.lastElementChild);
+    };
+    if (dict) {
+        for (const [key, value] of Object.entries(dict)) {
+            if (value > 0) {
+                html_container.appendChild(createListElement(key, value));
+            };
+        };
+    };
+};
 
 function setProgress (percent) {
     const percentage = document.getElementById('percentage');
@@ -270,4 +294,4 @@ function setProgress (percent) {
 
     const bar = document.getElementById('progressBarInner');
     bar.style.width = String(percent) + "%";
-}
+};
