@@ -42,6 +42,10 @@ It should calculate important measures of game progress (like assets, liabilitie
 
 The app should do that while also being very intuitively designed so that every user knows exactly what to do.
 
+### Current Status
+
+The project was started to learn web developement. The current status is that I handed in the project but without the actual game working. The goal for this phase is to make the game work with JS and making it responsive. Every other page is pretty much finished.
+
 ---
 
 ## Features
@@ -50,13 +54,16 @@ The app should do that while also being very intuitively designed so that every 
 
 >As a user, I want to see my (fictional) balance and be able to change it by getting income from payday and paying expenses.
 
->As a user, I want to see my collection of liabilities like mortgages and loans and be able to pay them off 
+>As a user, I want to see my collection of liabilities like mortgages and loans and be able to pay them off.
 
->As a user, I want to see my collection of assets like real estate, stocks, businesses and gold an be able to buy and sell these assets
+>As a user, I want to see my collection of assets like real estate, stocks, businesses and gold an be able to buy and sell these assets.
+
+>As a user, I want to be able to setup the game by picking a profession and with that also an income starting level.
+
+>As a user, I want to be able to ave my previous games in my account.
 
 ### Nice-to-have features
 
-* having a starting point where one could choose different professions and so also different income starting levels
 * switching from the inner ring of the board to the “fast track” (later in the game)
 * being able to use only one device for the whole game, so that only one user operates the app (game master function)
 * being able to connect different devices, so that everyone can see other players in his interface (multiplayer function)
@@ -170,11 +177,11 @@ It is pretty easy.
 
 If you want to start a game, press start playing on the landing page or in the navigation bar.
 
-> Note: I did not achieve to program the main function of the app. You are only able to setup the game. [More on that](#failures).
+> Note: I have not achieved to program the main function of the app, yet. You are only able to setup the game. [More on that](#failures).
 
-If you want to log in to save your games, click the account button at the top right.
-
-If you want to go to the landing page, just click on the "Cashflow Companion" logo at the top left. 
+If you want to log in to save your games, click the account button at the top right. (also not working yet)
+asf
+If you want to go to the landing page, just click on the "Cashflow Companion" logo at the top left or middle. 
 
 > If you have other questions, go to /faq while the server runs.
 
