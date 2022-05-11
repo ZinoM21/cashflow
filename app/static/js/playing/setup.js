@@ -92,6 +92,7 @@ class Player {
     constructor (id, dream) {
         this.professionID = id;
         this.dream = dream;
+        this.ledger_array = [];
     };
 
     cashflow() {
@@ -106,6 +107,9 @@ class Player {
     assets() {
         if (this.assets_dict) {
             return Object.values(this.assets_dict).reduce((a, b) => a + b);
+        }
+        else {
+            return 0;
         }
     };
 
@@ -127,6 +131,20 @@ class Player {
 
     progress() {
         return this.expenses() / this.cashflow();
+    };
+
+    addToLedger(reference, amount) {
+        this.ledger_array.push({"reference": reference, "amount": amount})
+    };
+
+    getCash() {
+        let sum = 0;
+        if (this.ledger_array) {
+            for (const ledger_entry of this.ledger_array) {
+                sum = sum + ledger_entry["amount"];
+            };
+        };
+        return sum
     };
 };
 const player = new Player();
@@ -192,10 +210,7 @@ function initialize_stats(player, data) {
 
             player.professionName = profession["Name"]
 
-            // player.cashflow = parseInt(profession["Cashflow"]);
             player.salary = parseInt(profession["Salary"]);
-            // player.sumIncome();
-            // player.totalIncome = player.cashflow + player.salary;
 
             player.expenses_dict = {
                 "Taxes": parseInt(profession["Taxes"]),
@@ -208,7 +223,7 @@ function initialize_stats(player, data) {
             };
         
         
-            player.cash = player.payday();
+            player.addToLedger("PayDay", player.payday());
 
             player.liabilities_dict = {
                 "Home Mortgage": parseInt(profession["Home Mortgage"]),
@@ -245,10 +260,11 @@ function render_stats(player) {
     // Liabilities
     renderList(player.liabilities_dict, document.getElementById('liabilitiesContainer'));
 
-    // Ledger / Cash
-    document.getElementById('cashNUM').innerText = player.cash + "€";
+    // Ledger
+    renderList(player.ledger_array, document.getElementById('ledgerContainer'));
 
-    renderList(player.ledger_dict, document.getElementById('ledgerContainer'));
+    // Cash
+    document.getElementById('cashNUM').innerText = player.getCash() + "€";
 
     // Payday
     document.getElementById('paydayNUM').innerText = player.payday();
@@ -257,6 +273,8 @@ function render_stats(player) {
     setProgress(player.progressPercentage);
 };
 
+
+// Creates and adds an entry for the list of cashflow, assets, ledger, liabilities and expenses to DOM 
 function createListElement (name, number) {
     const element = document.createElement("div");
     element.setAttribute("class", "ListElement");
@@ -274,19 +292,41 @@ function createListElement (name, number) {
     return element
 };
 
-function renderList (dict, html_container) {
+
+// Creates a list of entries for cashflow, assets, ledger, liabilities and expenses
+function renderList (dict_or_array, html_container) {
+
+    // remove all previous entries from DOM 
     while (html_container.lastElementChild) {
         html_container.removeChild(html_container.lastElementChild);
     };
-    if (dict) {
-        for (const [key, value] of Object.entries(dict)) {
-            if (value > 0) {
-                html_container.appendChild(createListElement(key, value));
+
+    // adds everything inside the dict_or_array to DOM
+    if (dict_or_array) {
+        // For the ledger, because it is an array of dicts
+        if (typeof dict_or_array === "object" && Array.isArray(dict_or_array)) {
+            for (const dict of dict_or_array) {
+                if (parseInt(dict["amount"]) >= 0) {
+                    html_container.appendChild(createListElement(dict["reference"], "+" + parseInt(dict["amount"])));
+                }
+                else {
+                    html_container.appendChild(createListElement(dict["reference"], "-" + parseInt(dict["amount"])));
+                };
+            };
+        }
+        // For everything else that needs a list, because they are all only dicts
+        else {
+            for (const [key, value] of Object.entries(dict_or_array)) {
+                if (value > 0) {
+                    html_container.appendChild(createListElement(key, value));
+                };
             };
         };
     };
 };
 
+
+// sets progress bar to correct position based on cashflow and expenses
 function setProgress (percent) {
     const percentage = document.getElementById('percentage');
     percentage.innerText = percent;
