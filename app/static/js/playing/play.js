@@ -18,7 +18,7 @@ const buy = document.getElementById('Buy')
 const sell = document.getElementById('Sell')
 const pay = document.getElementById('Pay')
 const collect = document.getElementById('Collect')
-const downsized = document.getElementById('Sell')
+const downsized = document.getElementById('Downsized')
 const doodad = document.getElementById('Doodad')
 const takeout = document.getElementById('TakeOut')
 const payoff = document.getElementById('PayOff')
@@ -26,5 +26,10 @@ const payoff = document.getElementById('PayOff')
 
 collect.addEventListener ("click", (e) => {
     player.addToLedger("PayDay", player.payday());
+    render_stats(player);
+});
+
+downsized.addEventListener ("click", (e) => {
+    player.addToLedger("Downsized!", player.getDownsized());
     render_stats(player);
 });

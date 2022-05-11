@@ -146,6 +146,10 @@ class Player {
         };
         return sum
     };
+
+    getDownsized() {
+        return this.expenses() * (-1);
+    };
 };
 const player = new Player();
 
@@ -310,7 +314,7 @@ function renderList (dict_or_array, html_container) {
                     html_container.appendChild(createListElement(dict["reference"], "+" + parseInt(dict["amount"])));
                 }
                 else {
-                    html_container.appendChild(createListElement(dict["reference"], "-" + parseInt(dict["amount"])));
+                    html_container.appendChild(createListElement(dict["reference"], parseInt(dict["amount"])));
                 };
             };
         }
