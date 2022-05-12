@@ -95,46 +95,35 @@ class Player {
         this.ledger_array = [];
     };
 
-    cashflow() {
+    // Getter
+    getCashflow() {
         if (this.cashflow_dict) {
             return Object.values(this.cashflow_dict).reduce((a, b) => a + b);
         }
         else {
             return 0;
-        }
+        };
     };
 
-    assets() {
-        if (this.assets_dict) {
-            return Object.values(this.assets_dict).reduce((a, b) => a + b);
+    getExpenses() {
+        if (this.expenses_dict) {
+            return Object.values(this.expenses_dict).reduce((a, b) => a + b);
         }
         else {
             return 0;
-        }
+        };
     };
 
-    expenses() {
-        return Object.values(this.expenses_dict).reduce((a, b) => a + b);
+    getTotalIncome() {
+        return this.salary + this.getCashflow();
     };
 
-    liabilities() {
-        return Object.values(this.liabilities_dict).reduce((a, b) => a + b);
-    }
-
-    totalIncome() {
-        return this.salary + this.cashflow();
+    getPayday() {
+        return this.getTotalIncome() - this.getExpenses();
     };
 
-    payday() {
-        return this.totalIncome() - this.expenses();
-    };
-
-    progress() {
-        return this.expenses() / this.cashflow();
-    };
-
-    addToLedger(reference, amount) {
-        this.ledger_array.push({"reference": reference, "amount": amount})
+    getProgress() {
+        return this.getExpenses() / this.getCashflow();
     };
 
     getCash() {
@@ -148,8 +137,14 @@ class Player {
     };
 
     getDownsized() {
-        return this.expenses() * (-1);
+        return this.getExpenses() * (-1);
     };
+
+
+    addToLedger(reference, amount) {
+        this.ledger_array.push({"reference": reference, "amount": amount})
+    };
+
 };
 const player = new Player();
 
@@ -227,7 +222,7 @@ function initialize_stats(player, data) {
             };
         
         
-            player.addToLedger("PayDay", player.payday());
+            player.addToLedger("PayDay", player.getPayday());
 
             player.liabilities_dict = {
                 "Home Mortgage": parseInt(profession["Home Mortgage"]),
@@ -236,7 +231,7 @@ function initialize_stats(player, data) {
                 "Credit Card Debt": parseInt(profession["Credit Card Debt"]),
             };
         
-            player.progressPercentage = Math.round((player.cashflow() / player.expenses()) * 100)
+            player.progressPercentage = Math.round((player.getCashflow() / player.getExpenses()) * 100)
         };  
     };
 }
@@ -246,18 +241,18 @@ function render_stats(player) {
 
     // Income
     document.getElementById('headingGame').innerText = player.professionName;
-    document.getElementById('cashflowTotalNUM').innerText = player.cashflow();
+    document.getElementById('cashflowTotalNUM').innerText = player.getCashflow();
     renderList(player.cashflow_dict, document.getElementById('cashflowContainer'));
     
     document.getElementById('salaryNUM').innerText = player.salary;
-    document.getElementById('totalIncomeNUM').innerText = player.totalIncome();
+    document.getElementById('totalIncomeNUM').innerText = player.getTotalIncome();
 
     // Assets
     renderList(player.assets_dict, document.getElementById('assetsContainer'));                       
 
     // Expenses
-    document.getElementById('expensesTopNUM').innerText = player.expenses();
-    document.getElementById('expensesBottomNUM').innerText = player.expenses();
+    document.getElementById('expensesTopNUM').innerText = player.getExpenses();
+    document.getElementById('expensesBottomNUM').innerText = player.getExpenses();
    
     renderList(player.expenses_dict, document.getElementById('expensesContainer'));
 
@@ -271,7 +266,7 @@ function render_stats(player) {
     document.getElementById('cashNUM').innerText = player.getCash() + "€";
 
     // Payday
-    document.getElementById('paydayNUM').innerText = player.payday();
+    document.getElementById('paydayNUM').innerText = player.getPayday();
 
     // Progress bar
     setProgress(player.progressPercentage);

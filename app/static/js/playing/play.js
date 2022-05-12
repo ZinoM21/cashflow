@@ -25,7 +25,7 @@ const payoff = document.getElementById('PayOff')
 
 
 collect.addEventListener ("click", (e) => {
-    player.addToLedger("PayDay", player.payday());
+    player.addToLedger("PayDay", player.getPayday());
     render_stats(player);
 });
 
