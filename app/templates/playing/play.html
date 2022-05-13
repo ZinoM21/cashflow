@@ -304,4 +304,51 @@
 
 </div>
 
+<div id="loanContainerBG" style="display: none;">
+    <div id="loanContainer" class="box">
+        <h1>
+            Take out loan
+        </h1>
+        <div id="loanDescription">
+            <p class="loan-p">
+                Bank loans have 10% interest.
+            </p>
+            <p class="loan-p">
+                This interest reduces your Payday.
+            </p>
+        </div>
+        <input type="number" name="loan_amount" id="loan_amount" placeholder="e.g. 10.000" required>
+        <div id="loanEffects" class="flexList">
+            <h2>
+                Effects of taking loan:
+            </h2>
+            <div class="ListElement">
+                <span>Current PayDay:</span>
+                <span id="loan-current_payday"></span>
+            </div>
+            <div class="ListElement">
+                <span>New PayDay:</span>
+                <span id="loan-new_payday"></span>
+            </div>
+            <div class="ListElement">
+                <span>Current Cash on Hand:</span>
+                <span id="loan-current_cash"></span>
+            </div>
+            <div class="ListElement">
+                <span>New Cash on Hand:</span>
+                <span id="loan-new_cash"></span>
+            </div>
+            <div class="ListElement">
+                <span>Loan Amount:</span>
+                <span id="loan-loan_amount"></span>
+            </div>
+            <div class="ListElement">
+                <span>Loan Interest Payment:</span>
+                <span id="loan-interest_payment"></span>
+            </div>
+        </div>
+        <button id="takeOutLoan" class="button">Take Out Loan</button>
+    </div>
+</div>
+
 {% endblock %}

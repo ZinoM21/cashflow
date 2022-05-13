@@ -411,6 +411,60 @@ hr.divider {
     grid-area: payday;
 }
 
+/* ------- LOAN DIV ---------- */
+
+#loanContainerBG {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#loanContainer {
+    max-width: 500px;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3rem;
+    border: 2px solid white;
+    background-color: rgb(39, 39, 39);
+}
+
+#loanDescription {
+    text-align: center;
+}
+
+.loan-p {
+    width: 100%;
+    margin-top: 1em;
+}
+
+#loan_amount {
+    margin: 1em 0;
+}
+
+#loanEffects {
+    flex: none;
+    overflow: unset;
+}
+
+#takeOutLoan {
+    width: 100%;
+    margin-top: 1em;
+}
+
+
 @media (prefers-color-scheme: dark) {
     main {
         --clr-bg: rgba(255, 255, 255, 0.08);

@@ -14,6 +14,7 @@ const game = new Game();
 
 // ----- Event Listeners for all buttons -----
 
+const market_action = document.getElementById('marketAction')
 const buy = document.getElementById('Buy')
 const sell = document.getElementById('Sell')
 const pay = document.getElementById('Pay')
@@ -33,3 +34,5 @@ downsized.addEventListener ("click", (e) => {
     player.addToLedger("Downsized!", player.getDownsized());
     render_stats(player);
 });
+
+export {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff}

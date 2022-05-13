@@ -1,3 +1,4 @@
+import {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff} from "./play.js"
 
 // -------------------- SETUP --------------------
 
@@ -140,9 +141,136 @@ class Player {
         return this.getExpenses() * (-1);
     };
 
-
+    // Setter
     addToLedger(reference, amount) {
-        this.ledger_array.push({"reference": reference, "amount": amount})
+        // If amount is positive, add to ledger
+        if (amount >= 0) {
+            this.ledger_array.push({"reference": reference, "amount": amount});
+        }
+        // If amount is negativ, check for cash:
+        else if (amount < 0) {
+            // If enough cash on hand, add to ledger
+            if (this.getCash() + amount >= 0) {
+                this.ledger_array.push({"reference": reference, "amount": amount});
+            }
+            // If not enough cash, check for payday:
+            else if (this.getCash() + amount < 0) {
+                // If payday is positive, take out bank loan
+                if (this.getPayday() > 0) {
+                    console.log("Not enough cash!!! Take out a loan!");
+                    this.takeOutLoan(reference, amount);
+                }
+                // If payday is negativ, go for bankruptcy
+                else if (this.getPayday() <= 0) {
+                    console.log("Banktruptcy!! You do not have enough cash nor a positiv cashflow! Sell assets!!!")
+                    this.bankruptcy()
+                };
+            };
+        };
+    };
+
+    addToLiabilities(reference, amount) {
+        if (this.liabilities_dict[reference]) {
+            this.liabilities_dict[reference] = this.liabilities_dict[reference] + amount;
+        }
+        else {
+            this.liabilities_dict[reference] = amount;
+        };
+    };
+
+    addToExpenses(reference, amount) {
+        if (this.expenses_dict[reference]) {
+            this.expenses_dict[reference] = this.expenses_dict[reference] + amount;
+        }
+        else {
+            this.expenses_dict[reference] = amount;
+        };
+    };
+
+
+    // Methods
+
+    takeOutLoan(previousTaskReference, previousTaskAmount) {
+        let container = document.getElementById("loanContainerBG");
+        container.style.display = "flex";
+
+        let input = document.getElementById("loan_amount");
+        let payday = this.getPayday();
+        let cash = this.getCash();
+        let takeOutButton = document.getElementById("takeOutLoan");
+
+        var loanAmount;
+        var loanInterestPayment
+
+        // add "EXTRA CASH NEEDED" paragraph if loan is taken out because of other payment due
+        if (previousTaskReference && previousTaskAmount) {
+            let description = document.getElementById("loanDescription");
+            let cashNeeded = document.createElement("p")
+            cashNeeded.setAttribute("class", "loan-p");
+            cashNeeded.innerText = "You need another " + (previousTaskAmount * (-1) - this.getCash()) + "€ to pay " + previousTaskReference + "!";
+            description.appendChild(cashNeeded);
+
+        };
+
+        // Display effect of loan during input
+        input.oninput = function() {
+            loanAmount = parseInt(input.value);
+            if (loanAmount) {
+                loanInterestPayment = parseInt(loanAmount) / 10;
+
+                document.getElementById("loan-current_payday").innerText = payday;
+                document.getElementById("loan-new_payday").innerText = payday - loanInterestPayment;
+
+                document.getElementById("loan-current_cash").innerText = cash;
+                document.getElementById("loan-new_cash").innerText = cash + loanAmount;
+
+                document.getElementById("loan-loan_amount").innerText = loanAmount;
+                document.getElementById("loan-interest_payment").innerText = loanInterestPayment;
+            }
+            else {
+                document.getElementById("loan-new_payday").innerText = payday;
+                document.getElementById("loan-new_cash").innerText = cash;
+                document.getElementById("loan-loan_amount").innerText = 0;
+                document.getElementById("loan-interest_payment").innerText = 0;
+            };
+        };
+
+
+        takeOutButton.addEventListener("click", (e) => {
+            if (loanAmount && loanInterestPayment) {
+
+                // add bank loan to ledger, liabilities and expenses
+                this.addToLedger("New Bank Loan", loanAmount);
+                this.addToLiabilities("Bank Loans", loanAmount);
+                this.addToExpenses("Bank Loan Payment", loanInterestPayment);
+
+                // add previous task to ledger, if the function was called out of another task
+                if (previousTaskReference && previousTaskAmount) {
+                    this.addToLedger(previousTaskReference, previousTaskAmount);
+                };
+
+                // View and reset of input
+                render_stats(player);
+                container.style.display = "none";
+                input.value = '';
+            };
+        });
+       
+
+    };
+
+    bankruptcy() {
+        //disable all buttons except sell
+        market_action.disabled = true;
+        buy.disabled = true;
+        sell.style.border = "2px solid red";
+        pay.disabled = true;
+        collect.disabled = true;
+        downsized.disabled = true;
+        doodad.disabled = true;
+        takeout.disabled = true;
+        payoff.disabled = true;
+
     };
 
 };
