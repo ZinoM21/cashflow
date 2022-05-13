@@ -76,9 +76,22 @@ a {
     text-decoration: none;
 }
 
+.button:active {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+    border-color: rgba(0, 0, 0, 0);
+}
+
 .primary_btn {
     background-color: var(--clr-yellow);
     border: 2px solid var(--clr-yellow);
+}
+
+.primary_btn:disabled, .secondary_btn:disabled {
+    color: rgb(130, 129, 129);
+}
+
+.primary_btn:active {
+    border-color: rgba(250, 190, 30, 0.4);
 }
 
 .secondary_btn {
