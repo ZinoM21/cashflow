@@ -191,9 +191,12 @@ class Player {
     // Methods
 
     takeOutLoan(previousTaskReference, previousTaskAmount) {
+
+        // Display container
         let container = document.getElementById("loanContainerBG");
         container.style.display = "flex";
 
+        // Set variables
         let input = document.getElementById("loan_amount");
         let payday = this.getPayday();
         let cash = this.getCash();
