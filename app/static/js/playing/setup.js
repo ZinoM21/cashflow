@@ -202,14 +202,17 @@ class Player {
         let cash = this.getCash();
         let takeOutButton = document.getElementById("takeOutLoan");
 
-        var loanAmount;
-        var loanInterestPayment
+        var loanAmount = 0;
+        var loanInterestPayment = 0;
 
         // add "EXTRA CASH NEEDED" paragraph if loan is taken out because of other payment due
         if (previousTaskReference && previousTaskAmount) {
+            document.querySelectorAll('.extra-cash-message').forEach( (e) => e.remove());
+
             let description = document.getElementById("loanDescription");
             let cashNeeded = document.createElement("p")
             cashNeeded.setAttribute("class", "loan-p");
+            cashNeeded.setAttribute("class", "extra-cash-message")
             cashNeeded.innerText = "You need another " + (previousTaskAmount * (-1) - this.getCash()) + "€ to pay " + previousTaskReference + "!";
             description.appendChild(cashNeeded);
 
@@ -246,14 +249,17 @@ class Player {
                 this.addToLedger("New Bank Loan", loanAmount);
                 this.addToLiabilities("Bank Loans", loanAmount);
                 this.addToExpenses("Bank Loan Payment", loanInterestPayment);
+                console.log("New loan detected.")
 
                 // add previous task to ledger, if the function was called out of another task
                 if (previousTaskReference && previousTaskAmount) {
                     this.addToLedger(previousTaskReference, previousTaskAmount);
+                    console.log("New downsized detected")
                 };
 
                 // View and reset of input
                 render_stats(player);
+                console.log(this.ledger_array)
                 container.style.display = "none";
                 input.value = '';
             };

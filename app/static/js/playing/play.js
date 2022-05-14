@@ -35,4 +35,8 @@ downsized.addEventListener ("click", (e) => {
     render_stats(player);
 });
 
+takeout.addEventListener("click", (e) => {
+    player.takeOutLoan();
+});
+
 export {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff}
