@@ -413,7 +413,7 @@ hr.divider {
 
 /* ------- LOAN DIV ---------- */
 
-#loanContainerBG {
+.popupContainerBG {
     position: absolute;
     inset: 0;
     z-index: 1;
@@ -426,9 +426,9 @@ hr.divider {
     justify-content: center;
 }
 
+.popupContainer {
+    position: relative;
 
-
-#loanContainer {
     max-width: 500px;
 
     display: flex;
@@ -439,6 +439,24 @@ hr.divider {
     padding: 3rem;
     border: 2px solid white;
     background-color: rgb(39, 39, 39);
+}
+
+#cancelButton {
+    position: absolute;
+    z-index: 2;
+    right: 1rem;
+    top: 1rem;
+    height: 2rem;
+    aspect-ratio: 1 / 1;
+    background-image: url("../../images/cancel-dark.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 0;
+}
+
+#cancelButton:hover {
+    cursor: pointer;
+    box-shadow: inset var(--shadow-black);
 }
 
 #loanDescription {
@@ -459,7 +477,7 @@ hr.divider {
     overflow: unset;
 }
 
-#takeOutLoan {
+.popupButton {
     width: 100%;
     margin-top: 1em;
 }
@@ -468,6 +486,10 @@ hr.divider {
 @media (prefers-color-scheme: dark) {
     main {
         --clr-bg: rgba(255, 255, 255, 0.08);
+    }
+
+    #cancelButton {
+        background-image: url("../../images/cancel-light.png");
     }
 }
 
