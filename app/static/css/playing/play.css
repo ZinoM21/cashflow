@@ -255,7 +255,8 @@ hr.divider {
 .flexList {
     width: 100%;
     flex: 1 1 0px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
