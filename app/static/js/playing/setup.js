@@ -1,4 +1,4 @@
-import {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff} from "./play.js"
+import {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff, popupLoan, createPopUpContainer} from "./play.js"
 
 // -------------------- SETUP --------------------
 
@@ -158,6 +158,7 @@ class Player {
                 // If payday is positive, take out bank loan
                 if (this.getPayday() > 0) {
                     console.log("Not enough cash!!! Take out a loan!");
+                    popupLoan(createPopUpContainer());
                     this.takeOutLoan(reference, amount);
                 }
                 // If payday is negativ, go for bankruptcy
@@ -193,8 +194,7 @@ class Player {
     takeOutLoan(previousTaskReference, previousTaskAmount) {
 
         // Display container
-        let container = document.getElementById("loanContainerBG");
-        container.style.display = "flex";
+        let container = document.getElementById("popupContainerBG");
 
         // Set variables
         let input = document.getElementById("loan_amount");
@@ -207,6 +207,7 @@ class Player {
 
         // add "EXTRA CASH NEEDED" paragraph if loan is taken out because of other payment due
         if (previousTaskReference && previousTaskAmount) {
+            document.getElementById("cancelButton").remove()
             document.querySelectorAll('.extra-cash-message').forEach( (e) => e.remove());
 
             let description = document.getElementById("loanDescription");
@@ -224,10 +225,8 @@ class Player {
             if (loanAmount) {
                 loanInterestPayment = parseInt(loanAmount) / 10;
 
-                document.getElementById("loan-current_payday").innerText = payday;
                 document.getElementById("loan-new_payday").innerText = payday - loanInterestPayment;
 
-                document.getElementById("loan-current_cash").innerText = cash;
                 document.getElementById("loan-new_cash").innerText = cash + loanAmount;
 
                 document.getElementById("loan-loan_amount").innerText = loanAmount;
@@ -241,7 +240,7 @@ class Player {
             };
         };
 
-
+        // Finalize loan & add it to player class & render everything
         takeOutButton.addEventListener("click", (e) => {
             if (loanAmount && loanInterestPayment) {
 
@@ -257,13 +256,18 @@ class Player {
                     console.log("New downsized detected")
                 };
 
-                // View and reset of input
+                // View
                 render_stats(player);
-                console.log(this.ledger_array)
-                container.style.display = "none";
-                input.value = '';
+                container.remove();
             };
         });
+
+        // If the cancel button is present, add an event listener
+        if (document.getElementById("cancelButton")) {
+            document.getElementById("cancelButton").addEventListener("click", (e) => {
+                container.remove();
+            });
+        };
        
 
     };
@@ -471,4 +475,4 @@ function setProgress (percent) {
     bar.style.width = String(percent) + "%";
 };
 
-export {player, render_stats};
+export {player, render_stats, createListElement};

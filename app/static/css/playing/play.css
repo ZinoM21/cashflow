@@ -414,7 +414,7 @@ hr.divider {
 
 /* ------- LOAN DIV ---------- */
 
-.popupContainerBG {
+#popupContainerBG {
     position: absolute;
     inset: 0;
     z-index: 1;
