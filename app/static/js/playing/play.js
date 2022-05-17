@@ -59,7 +59,7 @@ pay.addEventListener("click", (e) => {
     };
 
     charityButton.onclick = () => {
-        player.addToLedger("Charity Donation", player.getTotalIncome() * 0.1 * (-1));
+        player.charity();
         popupContainerBG.remove()
         render_stats(player);
     };

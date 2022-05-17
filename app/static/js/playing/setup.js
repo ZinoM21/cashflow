@@ -141,6 +141,10 @@ class Player {
         return this.getExpenses() * (-1);
     };
 
+    getCharityAmount() {
+        return player.getTotalIncome() * 0.1 * (-1)
+    }
+
     // Setter
     addToLedger(reference, amount) {
         // If amount is positive, add to ledger
@@ -284,6 +288,10 @@ class Player {
         takeout.disabled = true;
         payoff.disabled = true;
 
+    };
+
+    charity() {
+        this.addToLedger("Charity Donation", this.getCharityAmount());
     };
 
 };
