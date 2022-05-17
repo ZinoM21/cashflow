@@ -57,6 +57,11 @@ pay.addEventListener("click", (e) => {
     };
 });
 
+
+
+
+// Functions
+
 let createPopUpContainer = () => {
     let popupContainerBG = document.createElement("div");
     popupContainerBG.setAttribute("class", "popupContainerBG");
@@ -97,10 +102,6 @@ let popupPay = (popupContainer) => {
     paymoneyButton.classList.add("popupButton");
     paymoneyButton.innerText = "Pay Money";
     popupContainer.appendChild(paymoneyButton);
-};
-
-let removeAllWithClass = (className) => {
-    document.querySelectorAll(className).forEach(e => e.remove())
 };
 
 
