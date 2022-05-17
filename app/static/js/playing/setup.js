@@ -101,6 +101,7 @@ class Player {
         this.professionID = id;
         this.dream = dream;
         this.ledger_array = [];
+        this.assets_dict = {};
     };
 
     // Getter
@@ -197,6 +198,12 @@ class Player {
         else {
             this.expenses_dict[reference] = amount;
         };
+    };
+
+    addStockToAssets(type, shares, price) {
+        this.assets_dict["Stock / Mutual"] = {};
+        this.assets_dict["Stock / Mutual"][type] = {"shares": shares, "price_each": price};
+        console.log(this.assets_dict)
     };
 
 
@@ -404,7 +411,37 @@ function render_stats(player) {
     document.getElementById('totalIncomeNUM').innerText = player.getTotalIncome();
 
     // Assets
-    renderList(player.assets_dict, document.getElementById('assetsContainer'));                       
+    // Stocks
+    while (document.getElementById('assetsContainer').lastElementChild) {
+        document.getElementById('assetsContainer').removeChild(document.getElementById('assetsContainer').lastElementChild);
+    };
+    if (player.assets_dict["Stock / Mutual"]) {
+        for (const [type, dict] of Object.entries(player.assets_dict["Stock / Mutual"])) {
+            const element = document.createElement("div");
+            element.setAttribute("class", "ListElement");
+
+            const elementName = document.createElement("span");
+            elementName.setAttribute("class", "ListElementName");
+            elementName.innerText = type;
+            element.appendChild(elementName);
+
+            const elementNumber = document.createElement("span");
+            elementNumber.setAttribute("class", "ListElementNumber");
+            elementNumber.innerText = dict["shares"] + " Shares";
+            element.appendChild(elementNumber);
+
+            document.getElementById('assetsContainer').appendChild(element);
+        };
+    };
+
+    // Real Estate
+    if (player.assets_dict["Real Estate"]) {
+        // tbc
+    };
+    // Business
+    if (player.assets_dict["Business"]) {
+        // tbc
+    };
 
     // Expenses
     document.getElementById('expensesTopNUM').innerText = player.getExpenses();

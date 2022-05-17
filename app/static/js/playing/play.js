@@ -119,10 +119,13 @@ buy.addEventListener("click", (e) => {
 
         next_button.onclick = () => {
             if (input_shares_value && input_shares_value) {
+                let selected = document.forms['stockForm'].stockSelector.value;
+                
+                player.addStockToAssets(selected ,input_shares_value, input_price_value);
+                player.addToLedger("Buy Stock " + selected, Math.round(input_shares_value * input_price_value * (-1)));
+
                 popupStockContainerBG.remove()
                 render_stats(player);
-
-                // CONTINUE HERE WITH A NEW METHOD OF PLAYER FOR LOGGING ASSETS
             };
         };
 
@@ -304,14 +307,19 @@ let popupStock = (popupContainer) => {
     heading.innerText = "Stock / Mutual";
     popupContainer.appendChild(heading)
 
+    let form = document.createElement("form");
+    form.setAttribute("id", "stockForm")
+    popupContainer.appendChild(form);
+
     let selector = document.createElement("select");
     selector.setAttribute("name", "stockSelector");
     selector.setAttribute("id", "stockSelector");
-    popupContainer.appendChild(selector);
+    form.appendChild(selector);
 
     for (let option_dict of apiData.opportunities) {
         if (option_dict["category"] == "Stock / Mutual") {
             let option = document.createElement("option");
+            option.setAttribute("value", option_dict["type"])
             option.innerText = option_dict["type"];
             selector.appendChild(option);
         };
