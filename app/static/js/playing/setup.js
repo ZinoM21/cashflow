@@ -124,7 +124,7 @@ class Player {
     };
 
     getProgress() {
-        return this.getExpenses() / this.getCashflow();
+        return Math.round(this.getExpenses() / this.getCashflow());
     };
 
     getCash() {
@@ -142,7 +142,7 @@ class Player {
     };
 
     getCharityAmount() {
-        return player.getTotalIncome() * 0.1 * (-1)
+        return Math.round(player.getTotalIncome() * 0.1 * (-1));
     }
 
     // Setter
@@ -227,7 +227,7 @@ class Player {
         input.oninput = function() {
             loanAmount = parseInt(input.value);
             if (loanAmount) {
-                loanInterestPayment = parseInt(loanAmount) / 10;
+                loanInterestPayment = Math.round(parseInt(loanAmount) / 10);
 
                 document.getElementById("loan-new_payday").innerText = payday - loanInterestPayment;
 
