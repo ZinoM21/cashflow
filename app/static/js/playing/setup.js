@@ -1,4 +1,4 @@
-import {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff, popupLoan, createPopUpContainer} from "./play.js"
+import {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff, popupLoan, createPopUpContainer, game} from "./play.js"
 
 // -------------------- SETUP --------------------
 
@@ -227,7 +227,7 @@ class Player {
         input.oninput = function() {
             loanAmount = parseInt(input.value);
             if (loanAmount) {
-                loanInterestPayment = Math.round(parseInt(loanAmount) / 10);
+                loanInterestPayment = Math.round(parseInt(loanAmount) * (game.getBankLoanInterest() / 100));
 
                 document.getElementById("loan-new_payday").innerText = payday - loanInterestPayment;
 

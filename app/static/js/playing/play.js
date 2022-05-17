@@ -191,4 +191,4 @@ let popupLoan = (popupContainer) => {
 };
 
 
-export {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff, popupLoan, createPopUpContainer}
+export {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payoff, popupLoan, createPopUpContainer, game}
