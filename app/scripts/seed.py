@@ -1,9 +1,13 @@
 from app.app import create_app
 from app.professions.models import Profession
+from app.opportunities.models import Opportunity
 from app.extensions.database import db
 
 app = create_app()
 app.app_context().push()
+
+
+# Professions
 
 all_professions_dict = {
     "mechanic": {
@@ -224,3 +228,62 @@ for slug, profession in all_professions_dict.items():
     db.session.add(new_profession)
 
 db.session.commit()
+
+
+
+# Assets
+
+all_opportunities_list = {
+        "Stock / Mutual": [
+            "GRO4US",
+            "MYT4U",
+            "OK4U",
+            "ON2U"],
+        "Real Estate": [
+            "Condo 2Br/1Ba", 
+            "House 2Br/1Ba", 
+            "House 3Br/2Ba", 
+            "Duplex", 
+            "4-plex", 
+            "8-plex", 
+            "Apartment Home"
+            ],
+        "Business": [
+            "Auto Dealer",
+            "Auto Wash",
+            "Car Wash",
+            "Doctor Office",
+            "Laundromat",
+            "Pinball Machines",
+            "Pizza Chain",
+            "Pizza Franchise",
+            "Sandwich Shop"
+        ]
+}
+
+for category, list in all_opportunities_list.items():
+    for type in list:
+        new_opportunity = Opportunity(
+            type = type,
+            category = category,
+        )
+        new_opportunity.save()
+    
+
+
+
+
+
+
+# other_buys = {
+#     "Gold": {
+#         "Coin Collector Liquidates": {
+#             "Coins": 5,
+#             "Price": 1000,
+#         },
+#         "Friend Needs Fast Cash": {
+#             "Coins": 10,
+#             "Price": 3000,
+#         }
+#     }
+# }
