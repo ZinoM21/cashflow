@@ -7,10 +7,11 @@ import {market_action, buy, sell, pay, collect, downsized, doodad, takeout, payo
 // Define object for storing API data in
 class APIData{
     constructor () {
-        this.json_data = null;
+        this.professions = null;
+        this.opportunities = null;
     };
 };
-const allProfessionsData = new APIData();
+const apiData = new APIData();
 
 
 // -------- PICK PROFESSION --------
@@ -20,7 +21,7 @@ const pickProfession = document.getElementById('pickProfession');
 pickProfession.addEventListener('click', (e) => {
     
     var ids_list = [];
-    for (let profession of allProfessionsData.json_data) {
+    for (let profession of apiData.professions) {
         ids_list.push(profession["id"]);
     };
 
@@ -28,21 +29,27 @@ pickProfession.addEventListener('click', (e) => {
     var random_profession_id = ids_list[Math.floor(Math.random() * ids_list.length)];
 
     // Display name of profession in HTML
-    show(random_profession_id, allProfessionsData.json_data);
+    show(random_profession_id, apiData.professions);
 });
 
 
 // --- Functions for above -----
 
 // Get data with route to API
-async function getData(url, data_object) {
+async function getData(url, instance, checker) {
     // Fetch and store response
     const response = await fetch(url);
     
     // Storing data in form of JSON
-    data_object.json_data = await response.json();
+    if (checker == "professions") {
+        instance.professions = await response.json();
+    }
+    if (checker == "opportunities") {
+        instance.opportunities = await response.json();
+    }
 }; 
-getData(api_url, allProfessionsData);
+getData(professions_api_url, apiData, "professions");
+getData(opportunities_api_url, apiData, "opportunities");
 
 // Display name of profession in HTML
 function show(id, data) {
@@ -314,7 +321,7 @@ startButton.addEventListener('click', (e) => {
 
         player.dream = inputDream;
 
-        initialize_stats(player, allProfessionsData.json_data);
+        initialize_stats(player, apiData.professions);
 
         render_stats(player);
     
@@ -483,4 +490,4 @@ function setProgress (percent) {
     bar.style.width = String(percent) + "%";
 };
 
-export {player, render_stats, createListElement};
+export {player, render_stats, createListElement, apiData};

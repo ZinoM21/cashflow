@@ -1,4 +1,4 @@
-import {player, render_stats, createListElement} from "./setup.js";
+import {player, render_stats, createListElement, apiData} from "./setup.js";
 
 
 
@@ -63,6 +63,81 @@ pay.addEventListener("click", (e) => {
         popupContainerBG.remove()
         render_stats(player);
     };
+});
+
+buy.addEventListener("click", (e) => {
+    popupBuy(createPopUpContainer());
+    let popupContainerBG = document.getElementById("popupContainerBG")
+    let cancelButton = document.getElementById("cancelButton");
+    let stockButton = document.getElementById("stockButton")
+    let realestateButton = document.getElementById("realestateButton")
+    let businessButton = document.getElementById("businessButton")
+
+    cancelButton.onclick = () => {
+        popupContainerBG.remove()
+        render_stats(player);
+    };
+
+    stockButton.onclick = () => {
+        popupContainerBG.remove()
+        popupStock(createPopUpContainer());
+        let popupStockContainerBG = document.getElementById("popupContainerBG");
+        let cancelButton = document.getElementById("cancelButton");
+        let input_price = document.getElementById("input_price");
+        let input_price_value = 0;
+        let input_shares = document.getElementById("input_shares");
+        let input_shares_value = 0;
+        let total_stock_price_number = document.getElementById("total_stock_price_number");
+        let next_button = document.getElementById("next_button")
+
+        input_price.oninput = () => {
+            input_price_value = parseInt(input_price.value)
+
+            if (input_shares_value && input_shares_value) {
+                total_stock_price_number.innerText = input_price_value * input_shares_value + "€";
+            }
+            else {
+                total_stock_price_number.innerText = "0€"
+            };
+        };
+
+        input_shares.oninput = () => {
+            input_shares_value = parseInt(input_shares.value)
+
+            if (input_shares_value && input_shares_value) {
+                total_stock_price_number.innerText = input_price_value * input_shares_value + "€";
+            }
+            else {
+                total_stock_price_number.innerText = "0€"
+            };
+        };
+
+        cancelButton.onclick = () => {
+            popupStockContainerBG.remove()
+            render_stats(player);
+        };
+
+        next_button.onclick = () => {
+            if (input_shares_value && input_shares_value) {
+                popupStockContainerBG.remove()
+                render_stats(player);
+
+                // CONTINUE HERE WITH A NEW METHOD OF PLAYER FOR LOGGING ASSETS
+            };
+        };
+
+    };
+
+    realestateButton.onclick = () => {
+        popupContainerBG.remove()
+        popupRealestate(createPopUpContainer());
+    };
+
+    businessButton.onclick = () => {
+        popupContainerBG.remove()
+        popupBusiness(createPopUpContainer());
+    };
+
 });
 
 
@@ -188,6 +263,99 @@ let popupLoan = (popupContainer) => {
     button.classList.add("popupButton");
     button.innerText = "Take Out Loan";
     popupContainer.appendChild(button);
+};
+
+let popupBuy = (popupContainer) => {
+    let heading = document.createElement("h1");
+    heading.innerText = "Buy";
+    popupContainer.appendChild(heading);
+
+    popupContainer.appendChild(document.createElement("br"));
+
+    let heading2 = document.createElement("h2");
+    heading2.innerText = "Opportunity";
+    popupContainer.appendChild(heading2);
+
+    let stockButton = document.createElement("button");
+    stockButton.setAttribute("class", "button");
+    stockButton.classList.add("popupButton");
+    stockButton.setAttribute("id", "stockButton");
+    stockButton.innerText = "Stock / Mutual";
+    popupContainer.appendChild(stockButton);
+
+    let realestateButton = document.createElement("button");
+    realestateButton.setAttribute("class", "button");
+    realestateButton.classList.add("popupButton");
+    realestateButton.setAttribute("id", "realestateButton");
+    realestateButton.innerText = "Real Estate";
+    popupContainer.appendChild(realestateButton);
+
+    let businessButton = document.createElement("button");
+    businessButton.setAttribute("class", "button");
+    businessButton.classList.add("popupButton");
+    businessButton.setAttribute("id", "businessButton");
+    businessButton.innerText = "Business";
+    popupContainer.appendChild(businessButton);
+
+};
+
+let popupStock = (popupContainer) => {
+    let heading = document.createElement("h1");
+    heading.innerText = "Stock / Mutual";
+    popupContainer.appendChild(heading)
+
+    let selector = document.createElement("select");
+    selector.setAttribute("name", "stockSelector");
+    selector.setAttribute("id", "stockSelector");
+    popupContainer.appendChild(selector);
+
+    for (let option_dict of apiData.opportunities) {
+        if (option_dict["category"] == "Stock / Mutual") {
+            let option = document.createElement("option");
+            option.innerText = option_dict["type"];
+            selector.appendChild(option);
+        };
+    };
+
+    let input_price = document.createElement("input");
+    input_price.setAttribute("id", "input_price");
+    input_price.setAttribute("type", "number");
+    input_price.setAttribute("name", "input_price");
+    input_price.setAttribute("placeholder", "Today's Price");
+    input_price.setAttribute("required", "");
+    popupContainer.appendChild(input_price);
+
+    let input_shares = document.createElement("input");
+    input_shares.setAttribute("id", "input_shares");
+    input_shares.setAttribute("type", "number");
+    input_shares.setAttribute("name", "input_shares");
+    input_shares.setAttribute("placeholder", "Number of Shares");
+    input_shares.setAttribute("required", "");
+    popupContainer.appendChild(input_shares);
+
+
+    let cash = createListElement("Cash on Hand:", player.getCash());
+    popupContainer.appendChild(cash);
+
+    let total_stock_price = createListElement("Total Price:", 0);
+    total_stock_price.lastElementChild.setAttribute("id", "total_stock_price_number");
+    popupContainer.appendChild(total_stock_price);
+
+    let next_button = document.createElement("button");
+    next_button.setAttribute("id", "next_button");
+    next_button.setAttribute("class", "button");
+    next_button.classList.add("popupButton");
+    next_button.innerText = "Next";
+    popupContainer.appendChild(next_button);
+
+};
+
+let popupRealestate = (popupContainer) => {
+
+};
+
+let popupBusiness = (popupContainer) => {
+
 };
 
 
